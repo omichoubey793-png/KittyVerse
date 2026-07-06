@@ -1,6 +1,6 @@
 🐾 KittyVerse
 
-> "Because Every Paw Deserves a Forever Home." 🐾
+> "Where Every Paw Finds a Home " 🐾
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D%2018.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -120,16 +120,16 @@ Prerequisites
 
 Frontend (Vercel)
 The project includes a root-level [vercel.json](file:///D:/nw/KittyVerseAI/KittyVerseAI/vercel.json) rewrite file. You can deploy it by simply linking your GitHub repository to Vercel:
-1. Choose **Import Project** on Vercel.
+1. Choose Import Project on Vercel.
 2. Select the repository root.
 3. Vercel will automatically read the root-level routing and serve the `frontend/` directory.
 
 Backend (Render)
 1. Select New Web Service on Render and connect your repository.
 2. Configure settings:
-   - Root Directory**: `backend`
-   - Build Command**: `npm install`
-   - Start Command**: `npm start`
+   - Root Directory: `backend`
+   - Build Command: `npm install`
+   - Start Command: `npm start`
 3. Add the environment variables (`MONGO_URI`, `JWT_SECRET`, `GEMINI_API_KEY`, etc.) in the Environment tab.
 
 ---
@@ -140,4 +140,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-🐾 Developed with care for the feline community.
+🐾"Because Every Paw Deserves a Forever Home."
