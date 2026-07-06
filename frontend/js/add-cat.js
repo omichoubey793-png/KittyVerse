@@ -133,14 +133,24 @@ document.addEventListener("DOMContentLoaded", () => {
                         window.location.href = "shelter.html";
                     }, 2000);
                 } else {
-                    const data = await response.json();
-                    alert(`Failed to save rescue: ${data.message || "Unknown error"}`);
+                    let errorMessage = "Unknown error";
+                    try {
+                        const data = await response.json();
+                        errorMessage = data.message || errorMessage;
+                    } catch (jsonErr) {
+                        try {
+                            errorMessage = await response.text();
+                        } catch (textErr) {
+                            errorMessage = response.statusText;
+                        }
+                    }
+                    alert(`Failed to save rescue: ${errorMessage}`);
                     submitBtn.innerHTML = originalHTML;
                     submitBtn.disabled = false;
                 }
             } catch (error) {
                 console.error("Form submit error:", error);
-                alert("Network error: Could not connect to database.");
+                alert(`Network error: ${error.message || "Could not connect to server."}`);
                 submitBtn.innerHTML = originalHTML;
                 submitBtn.disabled = false;
             }
