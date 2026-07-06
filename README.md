@@ -1,6 +1,6 @@
 # 🐾 KittyVerse
 
-> **"Because Every Paw Deserves a Forever Home."** 🐾💜
+> **"Because Every Paw Deserves a Forever Home."** 🐾
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D%2018.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -12,14 +12,14 @@ KittyVerse is a modern, production-ready cat shelter and adoption platform. It c
 
 ---
 
-## 🌟 Core Features
+## Core Features
 
-- **🐾 Intake & Shelter Management**: Log rescues, customize details, assign caretakers, track breeds, ages, and genders, and manage housing units.
-- **💉 Vaccination & Medical Records**: Real-time immunization logs, scheduled boosters, clinic visits, and auto-generated PDFs.
-- **🏠 Adoption Pipeline**: Dynamic review flow for adoption applications (Pending, Approved, Rejected) with animal-matching criteria.
-- **🧠 Fanny AI Health Assistant**: Integrated Google Gemini AI chatbot providing recommendations, diet plans, and recovery diagnostics.
-- **📊 Interactive Analytics Bento**: Dynamic dashboards calculating donation rates, wellness index metrics, and shelter growth trends.
-- **🔒 Secure Authentication**: JSON Web Token (JWT) secured sessions with role-based access control (Admin vs. Staff vs. Guest).
+- ** Intake & Shelter Management**: Log rescues, customize details, assign caretakers, track breeds, ages, and genders, and manage housing units.
+- ** Vaccination & Medical Records**: Real-time immunization logs, scheduled boosters, clinic visits, and auto-generated PDFs.
+- ** Adoption Pipeline**: Dynamic review flow for adoption applications (Pending, Approved, Rejected) with animal-matching criteria.
+- ** Fanny AI Health Assistant**: Integrated Google Gemini AI chatbot providing recommendations, diet plans, and recovery diagnostics.
+- ** Interactive Analytics Bento**: Dynamic dashboards calculating donation rates, wellness index metrics, and shelter growth trends.
+- ** Secure Authentication**: JSON Web Token (JWT) secured sessions with role-based access control (Admin vs. Staff vs. Guest).
 
 ---
 
@@ -69,7 +69,7 @@ KittyVerse/
 
 ---
 
-## 🚀 Local Installation & Setup
+##  Local Installation & Setup
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) (v18.0.0 or higher)
@@ -134,7 +134,7 @@ The project includes a root-level [vercel.json](file:///D:/nw/KittyVerseAI/Kitty
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
