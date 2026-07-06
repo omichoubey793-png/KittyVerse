@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings | KittyVerse</title>
+    <script>
+        (function() {
+            document.documentElement.classList.remove('dark');
+        })();
+    </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .settings-card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .settings-card:hover {
+            border-color: #ff914d;
+            box-shadow: 0 12px 24px -4px rgba(155, 69, 0, 0.04), 0 4px 8px -2px rgba(155, 69, 0, 0.02);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e4e2e1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dcc1b4;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#ffb68e",
+                      "primary-fixed-dim": "#ffb68e",
+                      "surface-tint": "#9b4500",
+                      "on-tertiary-container": "#004853",
+                      "on-surface": "#2B2B2B",
+                      "on-primary-fixed-variant": "#763300",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#c8c6c6",
+                      "secondary": "#5f5e5e",
+                      "on-tertiary-fixed-variant": "#004e5a",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#fff1eb",
+                      "on-secondary-fixed-variant": "#474747",
+                      "primary-fixed": "#ffdbc9",
+                      "surface": "#fff8f6",
+                      "inverse-surface": "#392e29",
+                      "secondary-fixed": "#e4e2e1",
+                      "on-secondary-container": "#656464",
+                      "tertiary-fixed": "#a5eeff",
+                      "on-surface-variant": "#564339",
+                      "surface-container-high": "#f7e4dc",
+                      "primary": "#FF914D",
+                      "tertiary-fixed-dim": "#42d8f3",
+                      "tertiary-container": "#00bed9",
+                      "tertiary": "#006878",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed": "#331200",
+                      "surface-container": "#fdeae1",
+                      "secondary-container": "#e4e2e1",
+                      "surface-dim": "#e9d6ce",
+                      "background": "#FFF9F5",
+                      "outline": "#897267",
+                      "on-primary-container": "#FF914D",
+                      "on-background": "#2B2B2B",
+                      "surface-bright": "#fff8f6",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#001f25",
+                      "surface-container-highest": "#f2dfd6",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#f2dfd6",
+                      "inverse-on-surface": "#ffede5",
+                      "on-error": "#ffffff",
+                      "primary-container": "#FFF4EB",
+                      "outline-variant": "#dcc1b4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "lg": "24px",
+                      "xl": "40px",
+                      "max-width": "1440px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "2xl": "64px",
+                      "md": "16px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "48px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Be Vietnam Pro"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "display-lg": ["Be Vietnam Pro"],
+                      "headline-lg": ["Be Vietnam Pro"],
+                      "label-md": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "label-sm": ["Be Vietnam Pro"],
+                      "headline-lg-mobile": ["Be Vietnam Pro"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="js/config.js"></script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<aside></aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center h-16 px-lg">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-full max-w-sm">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-primary transition-all" placeholder="Search settings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button class="p-2 text-secondary hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-secondary hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<button class="p-2 text-secondary hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-md">
+<div class="text-right hidden sm:block">
+<p id="topNavUserName" class="font-label-md text-label-md font-bold text-on-surface">Alex Whiskers</p>
+<p id="topNavUserRole" class="text-[10px] text-secondary tracking-wider uppercase">Senior Admin</p>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-primary-container overflow-hidden">
+<img id="topNavUserAvatar" class="w-full h-full object-cover" data-alt="Professional studio portrait of a friendly animal shelter administrator in a warm, cream-colored studio. The lighting is soft and high-key, emphasizing a clean, professional appearance. The overall aesthetic is modern and approachable, using a palette of soft oranges and pristine whites to reflect the KittyVerse brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQFKYn5UH52r6thgw3M6nQu3i-aSZ2l0FGx9dP5Uia55MbsiMH2uhNEKBScdlgQIozn6XHvskf9duk0To1GMQrYzEbeytGvLVCYQsknYbLWJZcKUJoYvXq1vyesTX3epm6TfuqFNFKH4fL4j_a_gc7rIRtXGXn7XXOzKUXZxgd_dkbmZNW4nmlazO6ZtWkx1csZuY7eCUnqNKGHLZOrYmt_A25WQ_X-r0SewXraeBMzXKHutn1bmgSRd0qvEClUe5u-LYIrrGg72I"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-24 pb-xl px-xl min-h-screen">
+<div class="max-w-[1000px] mx-auto">
+<!-- Settings Header -->
+<div class="mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Settings</h2>
+<p class="font-body-md text-body-md text-secondary">Manage your shelter profile, preferences, and account security.</p>
+</div>
+<!-- Bento Grid Settings -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Profile Section (Large) -->
+<section id="profileSection" class="md:col-span-8 settings-card bg-surface-container-lowest border border-outline-variant rounded-[24px] p-lg">
+<div class="flex items-start justify-between mb-lg">
+<div class="flex items-center gap-lg">
+<div class="relative group">
+<div class="w-24 h-24 rounded-2xl overflow-hidden border-4 border-surface-container">
+<img id="avatarImage" class="w-full h-full object-cover" data-alt="A stylized, high-end profile picture of a cheerful veterinary professional with a gentle cat, set in a bright, modern clinic environment. The composition is clean and minimalist, utilizing the brand's warm orange and cream tones to create a sense of trust and warmth. Sunlight streams through large windows, creating a serene, professional atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy9dhP8rJ0BR8uJylSODeMALaxnkj3vGX0CpjMKwQN1iHgEKRYhy7RGBbcBGhrjk9Hh264NNZn4KUYkRIMT9PR1R_pGw_5rbyeHr6pe6pMpXciRKcCE8kv-BYQkIJ1ejYTi4SA5OuGgeN5j-sNx--dm8PrkEtOr-wqyANcLFcvkumbzbK99dvecIAu22FzT8gsXruGxpqolMa9vCuTnxvvZtsWzO3r85DESIKUf6zG8rfkC8_DIkSU4-AopPWCjHD8pTvV_GRpknI"/>
+</div>
+<button id="avatarEditBtn" class="absolute -bottom-2 -right-2 bg-primary text-on-primary p-2 rounded-xl shadow-lg hover:scale-110 transition-transform" onclick="document.getElementById('avatarFileInput').click()">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<input id="avatarFileInput" type="file" accept=".jpg,.jpeg,.png,.webp" class="hidden" onchange="uploadImage(this, 'avatar')"/>
+</div>
+<div>
+<h3 id="profileHeaderName" class="font-headline-md text-headline-md text-on-surface">Alex Whiskers</h3>
+<p id="profileHeaderEmail" class="text-secondary font-label-md">alex@kittyverse.com</p>
+<div class="mt-2 flex gap-2">
+<span class="px-3 py-1 bg-primary-container/10 text-primary rounded-full text-[12px] font-bold">Admin</span>
+<span class="px-3 py-1 bg-tertiary-container/10 text-tertiary rounded-full text-[12px] font-bold">Vetted Partner</span>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-md pt-md border-t border-outline-variant">
+<div class="grid grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Display Name</label>
+<input id="displayNameInput" class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 focus:border-primary focus:ring-0 transition-all" type="text" value=""/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Email Address</label>
+<input id="emailInput" class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 focus:border-primary focus:ring-0 transition-all" type="email" value=""/>
+</div>
+<div class="col-span-2 space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Timezone</label>
+<select id="timezoneSelect" class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 focus:border-primary transition-all">
+<option value="Pacific Time (PT)">Pacific Time (PT)</option>
+<option value="Eastern Time (ET)">Eastern Time (ET)</option>
+<option value="GMT+0">GMT+0</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- Language & Region (Small) -->
+<section id="languageSection" class="md:col-span-4 settings-card bg-surface-container-lowest border border-outline-variant rounded-[24px] p-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-sm mb-md text-primary">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+<h3 class="font-label-md text-label-md font-bold uppercase tracking-widest">Language</h3>
+</div>
+<p class="text-secondary font-body-md mb-lg">Select your preferred localization and currency.</p>
+</div>
+<div class="space-y-md">
+<div class="flex items-center justify-between p-sm hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="font-label-md text-on-surface">System Language</span>
+<select id="languageSelect" class="bg-transparent border-0 text-primary font-bold focus:ring-0 cursor-pointer p-0 text-right font-label-md">
+<option value="en-US">English (US)</option>
+<option value="es-ES" disabled>Spanish (Coming Soon)</option>
+<option value="fr-FR" disabled>French (Coming Soon)</option>
+</select>
+</div>
+<div class="flex items-center justify-between p-sm hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="font-label-md text-on-surface">Currency</span>
+<select id="currencySelect" class="bg-transparent border-0 text-primary font-bold focus:ring-0 cursor-pointer p-0 text-right font-label-md">
+<option value="USD">USD ($)</option>
+<option value="EUR">EUR (€)</option>
+<option value="GBP">GBP (£)</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Shelter Information (Full Width) -->
+<section id="shelterSection" class="md:col-span-12 settings-card bg-surface-container-lowest border border-outline-variant rounded-[24px] p-lg">
+<div class="flex items-center gap-sm mb-lg text-primary">
+<span class="material-symbols-outlined" data-icon="foundation">foundation</span>
+<h3 class="font-label-md text-label-md font-bold uppercase tracking-widest">Shelter Information</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+<div class="md:col-span-1">
+<div class="aspect-video rounded-2xl overflow-hidden border border-outline-variant relative group">
+<img id="coverImage" class="w-full h-full object-cover" data-alt="A clean, modern animal shelter lobby with minimalist white walls, light wood accents, and a large digital screen displaying KittyVerse analytics. The space is flooded with natural light, creating a calm and inviting atmosphere. A few cat-friendly architectural features are visible, blending seamlessly with the professional office design. The aesthetic is inspired by premium tech workspaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOuHsH6L1NspdqlD4fPVirXHJk_C5o2muYmmQxE2qGgQKYL2vL0wFidNeVZ27yQnSafo0rur6lawcmNwaoqKCPJq60k0wTbxfBFRRHmsSIMmeeJSmSjlZOi71zRbTujd8z5vI3dRBTb3aUitmp2kerlp73Wd24jJTFYj2BGLEitKP5Ma-p4s8MYIsK5fUcaN8aPRNBoAhgUpdDW1hvt0siaSQrfcPp9EeOmDwqGwUC9Md4p5cpbLZwOQi7JmOBX4BaYfs91XXz3gw"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<button id="coverEditBtn" class="bg-surface px-4 py-2 rounded-full font-label-md text-primary shadow-xl" onclick="document.getElementById('coverFileInput').click()">Change Cover</button>
+</div>
+<input id="coverFileInput" type="file" accept=".jpg,.jpeg,.png,.webp" class="hidden" onchange="uploadImage(this, 'cover')"/>
+</div>
+</div>
+<div class="md:col-span-2 grid grid-cols-2 gap-lg">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Shelter Name</label>
+<input id="shelterNameInput" class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 focus:border-primary transition-all" type="text" value=""/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Tax ID / 501(c)(3)</label>
+<input id="shelterTaxIdInput" class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 focus:border-primary transition-all" type="text" value=""/>
+</div>
+<div class="col-span-2 space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Public Address</label>
+<input id="shelterAddressInput" class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 focus:border-primary transition-all" type="text" value=""/>
+</div>
+</div>
+</div>
+</section>
+<!-- Notifications & Display (Split) -->
+<section id="notificationSection" class="md:col-span-6 settings-card bg-surface-container-lowest border border-outline-variant rounded-[24px] p-lg">
+<div class="flex items-center gap-sm mb-lg text-primary">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+<h3 class="font-label-md text-label-md font-bold uppercase tracking-widest">Notifications</h3>
+</div>
+<div class="space-y-md">
+<div class="flex items-center justify-between p-md border border-outline-variant rounded-xl">
+<div>
+<p class="font-label-md text-on-surface font-bold">Email Digest</p>
+<p class="text-[12px] text-secondary">Weekly summary of adoption metrics</p>
+</div>
+<button id="emailDigestToggle" class="w-12 h-6 rounded-full bg-primary relative transition-colors" onclick="toggleSwitch(this)">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full transition-all shadow-sm"></div>
+</button>
+</div>
+<div class="flex items-center justify-between p-md border border-outline-variant rounded-xl">
+<div>
+<p class="font-label-md text-on-surface font-bold">Urgent Medical Alerts</p>
+<p class="text-[12px] text-secondary">Push notifications for emergency cases</p>
+</div>
+<button id="urgentAlertsToggle" class="w-12 h-6 rounded-full bg-primary relative transition-colors" onclick="toggleSwitch(this)">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full transition-all shadow-sm"></div>
+</button>
+</div>
+</div>
+</section>
+<section id="displaySection" class="md:col-span-6 settings-card bg-surface-container-lowest border border-outline-variant rounded-[24px] p-lg flex flex-col">
+<div class="flex items-center gap-sm mb-lg text-primary">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+<h3 class="font-label-md text-label-md font-bold uppercase tracking-widest">Display</h3>
+</div>
+<div class="flex-1 space-y-md">
+<div class="p-md border border-outline-variant rounded-xl">
+<p class="font-label-md text-on-surface font-bold mb-md">Appearance</p>
+<div class="grid grid-cols-3 gap-md">
+<button id="themeLightBtn" class="flex flex-col items-center gap-2" onclick="setTheme('light')">
+<div class="w-full aspect-video bg-white border-2 border-primary rounded-lg"></div>
+<span class="text-[10px] font-bold text-primary">Light</span>
+</button>
+<button id="themeDarkBtn" class="flex flex-col items-center gap-2 opacity-30 cursor-not-allowed" disabled onclick="return false;">
+<div class="w-full aspect-video bg-inverse-surface border border-outline-variant rounded-lg"></div>
+<span class="text-[10px] font-bold text-secondary">Dark <span class="block text-[8px] font-normal text-amber-600 mt-1">Coming Soon</span></span>
+</button>
+<button id="themeAutoBtn" class="flex flex-col items-center gap-2 opacity-30 cursor-not-allowed" disabled onclick="return false;">
+<div class="w-full aspect-video bg-gradient-to-br from-white to-inverse-surface border border-outline-variant rounded-lg"></div>
+<span class="text-[10px] font-bold text-secondary">Auto <span class="block text-[8px] font-normal text-amber-600 mt-1">Coming Soon</span></span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Security & API Keys -->
+<section id="securitySection" class="md:col-span-12 settings-card bg-surface-container-lowest border border-outline-variant rounded-[24px] p-lg">
+<div class="flex items-center justify-between mb-lg">
+<div class="flex items-center gap-sm text-primary">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+<h3 class="font-label-md text-label-md font-bold uppercase tracking-widest">Security &amp; API Keys</h3>
+</div>
+<button class="font-label-md text-primary hover:underline">View Privacy Policy</button>
+</div>
+<div class="bg-surface p-md rounded-xl border border-outline-variant border-dashed">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="p-3 bg-tertiary-container/10 text-tertiary rounded-xl">
+<span class="material-symbols-outlined" data-icon="key">key</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface font-bold">Production API Key</p>
+<p id="apiKeyDisplay" class="font-mono text-xs text-secondary">kv_prod_••••••••••••••••7a3x</p>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="px-4 py-2 bg-surface-container-high rounded-xl font-label-md text-on-surface hover:bg-outline-variant transition-colors" onclick="regenerateApiKey()">Regenerate</button>
+<button class="px-4 py-2 border border-outline-variant rounded-xl font-label-md text-on-surface hover:bg-surface-container transition-colors" onclick="copyApiKey()">Copy</button>
+</div>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-outline-variant space-y-md">
+<p class="font-label-md text-on-surface font-bold">Change Password</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Current Password</label>
+<input id="currentPasswordInput" class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 focus:border-primary transition-all" type="password" placeholder="Enter current password"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">New Password</label>
+<input id="newPasswordInput" class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 focus:border-primary transition-all" type="password" placeholder="Enter new password"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Confirm Password</label>
+<input id="confirmPasswordInput" class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 focus:border-primary transition-all" type="password" placeholder="Confirm new password"/>
+</div>
+</div>
+</div>
+<div class="mt-lg flex items-center justify-between pt-lg border-t border-outline-variant">
+<div>
+<p class="font-label-md text-on-surface font-bold">Two-Factor Authentication</p>
+<p class="text-secondary text-sm">Add an extra layer of security to your rescue account.</p>
+</div>
+<button id="tfaButton" class="px-6 py-2 bg-primary text-on-primary rounded-xl font-label-md font-bold shadow-lg hover:shadow-xl hover:-translate-y-px transition-all" onclick="toggleTfa()">Enable 2FA</button>
+</div>
+</section>
+</div>
+<!-- Footer Actions -->
+<div class="mt-2xl flex items-center justify-end gap-md">
+<button id="discardBtn" class="px-8 py-3 text-secondary font-bold hover:text-on-surface transition-colors">Discard Changes</button>
+<button id="saveBtn" class="px-10 py-3 bg-primary text-on-primary rounded-xl font-headline-md text-label-md font-bold shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-95 transition-all">Save All Changes</button>
+</div>
+</div>
+</main>
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const token = localStorage.getItem("kittyverse_token");
+            if (!token) {
+                window.location.href = "login.html";
+                return;
+            }
+
+            const headers = {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            };
+
+            let originalData = {};
+
+            // DOM Elements
+            const displayNameInput = document.getElementById("displayNameInput");
+            const emailInput = document.getElementById("emailInput");
+            const timezoneSelect = document.getElementById("timezoneSelect");
+            const languageSelect = document.getElementById("languageSelect");
+            const currencySelect = document.getElementById("currencySelect");
+            const shelterNameInput = document.getElementById("shelterNameInput");
+            const shelterTaxIdInput = document.getElementById("shelterTaxIdInput");
+            const shelterAddressInput = document.getElementById("shelterAddressInput");
+            const emailDigestToggle = document.getElementById("emailDigestToggle");
+            const urgentAlertsToggle = document.getElementById("urgentAlertsToggle");
+            const apiKeyDisplay = document.getElementById("apiKeyDisplay");
+            const tfaButton = document.getElementById("tfaButton");
+            const currentPasswordInput = document.getElementById("currentPasswordInput");
+            const newPasswordInput = document.getElementById("newPasswordInput");
+            const saveBtn = document.getElementById("saveBtn");
+            const discardBtn = document.getElementById("discardBtn");
+            const settingsSearchInput = document.getElementById("settingsSearchInput");
+            const settingsCards = document.querySelectorAll(".settings-card");
+
+            // Profiles Header Elements
+            const profileHeaderName = document.getElementById("profileHeaderName");
+            const profileHeaderEmail = document.getElementById("profileHeaderEmail");
+            const topNavUserName = document.getElementById("topNavUserName");
+            const topNavUserRole = document.getElementById("topNavUserRole");
+
+            // Working Settings Search
+            if (settingsSearchInput) {
+                let highlightTimeout;
+                settingsSearchInput.addEventListener("input", (e) => {
+                    const query = e.target.value.toLowerCase().trim();
+                    if (query === "") return;
+
+                    const keywordMap = {
+                        "profile": "profileSection",
+                        "display": "displaySection",
+                        "notification": "notificationSection",
+                        "security": "securitySection",
+                        "shelter": "shelterSection",
+                        "language": "languageSection",
+                        "timezone": "profileSection",
+                        "currency": "languageSection"
+                    };
+
+                    const matchedId = keywordMap[query];
+                    if (matchedId) {
+                        const targetSection = document.getElementById(matchedId);
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ behavior: "smooth", block: "center" });
+                            
+                            document.querySelectorAll(".settings-card").forEach(c => {
+                                c.classList.remove("ring-4", "ring-primary", "scale-[1.01]");
+                            });
+                            
+                            targetSection.classList.add("ring-4", "ring-primary", "scale-[1.01]");
+                            clearTimeout(highlightTimeout);
+                            highlightTimeout = setTimeout(() => {
+                                targetSection.classList.remove("ring-4", "ring-primary", "scale-[1.01]");
+                            }, 1500);
+                        }
+                    }
+                });
+            }
+
+            // Loading state toggle
+            function setSavingState(saving) {
+                if (saveBtn) {
+                    saveBtn.disabled = saving;
+                    saveBtn.textContent = saving ? "Saving..." : "Save All Changes";
+                    if (saving) {
+                        saveBtn.classList.add("opacity-70", "cursor-not-allowed");
+                    } else {
+                        saveBtn.classList.remove("opacity-70", "cursor-not-allowed");
+                    }
+                }
+                if (discardBtn) {
+                    discardBtn.disabled = saving;
+                    if (saving) {
+                        discardBtn.classList.add("opacity-50", "cursor-not-allowed");
+                    } else {
+                        discardBtn.classList.remove("opacity-50", "cursor-not-allowed");
+                    }
+                }
+            }
+
+            // Fetch User Data
+            async function loadSettings() {
+                try {
+                    const res = await fetch(API_BASE_URL + "/api/auth/profile", { headers });
+                    if (!res.ok) throw new Error("Failed to load profile");
+                    const data = await res.json();
+                    
+                    originalData = data.user;
+                    populateFields(data.user);
+                } catch (error) {
+                    console.error("Load settings error:", error);
+                    showToast("Unable to load profile.", "error");
+                }
+            }
+
+            function populateFields(user) {
+                if (displayNameInput) displayNameInput.value = user.name || "";
+                if (emailInput) emailInput.value = user.email || "";
+                if (timezoneSelect) timezoneSelect.value = user.timezone || "Pacific Time (PT)";
+                if (languageSelect) languageSelect.value = user.language || "en-US";
+                if (currencySelect) currencySelect.value = user.currency || "USD";
+                if (shelterNameInput) shelterNameInput.value = user.shelterName || "";
+                if (shelterTaxIdInput) shelterTaxIdInput.value = user.shelterTaxId || "";
+                if (shelterAddressInput) shelterAddressInput.value = user.shelterAddress || "";
+
+                // Images
+                const avatarImg = document.getElementById("avatarImage");
+                const navAvatarImg = document.getElementById("topNavUserAvatar");
+                if (user.avatarUrl) {
+                    if (avatarImg) avatarImg.src = user.avatarUrl;
+                    if (navAvatarImg) navAvatarImg.src = user.avatarUrl;
+                }
+                const coverImg = document.getElementById("coverImage");
+                if (user.coverUrl && coverImg) {
+                    coverImg.src = user.coverUrl;
+                }
+
+                // Headers
+                if (profileHeaderName) profileHeaderName.textContent = user.name || "Alex Whiskers";
+                if (profileHeaderEmail) profileHeaderEmail.textContent = user.email || "alex@kittyverse.com";
+                if (topNavUserName) topNavUserName.textContent = user.name || "Alex Whiskers";
+                if (topNavUserRole) topNavUserRole.textContent = (user.role || "admin").toUpperCase();
+
+                // Notification toggles
+                setToggleState(emailDigestToggle, user.emailDigest);
+                setToggleState(urgentAlertsToggle, user.urgentAlerts);
+                const pushNotificationsToggle = document.getElementById("pushNotificationsToggle");
+                const weeklySummaryToggle = document.getElementById("weeklySummaryToggle");
+                if (pushNotificationsToggle) setToggleState(pushNotificationsToggle, user.pushNotifications);
+                if (weeklySummaryToggle) setToggleState(weeklySummaryToggle, user.weeklySummary);
+
+                // Appearance (Theme)
+                setThemeUI(user.appearance || "light");
+
+                // API Key
+                if (apiKeyDisplay) {
+                    apiKeyDisplay.textContent = formatApiKey(user.apiKey);
+                }
+
+                // 2FA
+                if (tfaButton) {
+                    if (user.twoFactorEnabled) {
+                        tfaButton.textContent = "Disable 2FA";
+                        tfaButton.className = "px-6 py-2 bg-outline-variant text-on-surface rounded-xl font-label-md font-bold shadow-md hover:shadow-lg transition-all";
+                    } else {
+                        tfaButton.textContent = "Enable 2FA";
+                        tfaButton.className = "px-6 py-2 bg-primary text-on-primary rounded-xl font-label-md font-bold shadow-lg hover:shadow-xl hover:-translate-y-px transition-all";
+                    }
+                }
+
+                // Clear passwords
+                if (currentPasswordInput) currentPasswordInput.value = "";
+                if (newPasswordInput) newPasswordInput.value = "";
+                const confirmPasswordInput = document.getElementById("confirmPasswordInput");
+                if (confirmPasswordInput) confirmPasswordInput.value = "";
+            }
+
+            function setToggleState(btn, active) {
+                if (!btn) return;
+                const circle = btn.querySelector('div');
+                if (active) {
+                    btn.classList.remove('bg-outline-variant');
+                    btn.classList.add('bg-primary');
+                    if (circle) {
+                        circle.style.left = 'auto';
+                        circle.style.right = '4px';
+                    }
+                } else {
+                    btn.classList.remove('bg-primary');
+                    btn.classList.add('bg-outline-variant');
+                    if (circle) {
+                        circle.style.right = 'auto';
+                        circle.style.left = '4px';
+                    }
+                }
+            }
+
+            function formatApiKey(key) {
+                if (!key) return "kv_prod_••••••••••••••••7a3x";
+                return key.substring(0, 8) + "••••••••••••••••" + key.substring(key.length - 4);
+            }
+
+            // Save settings
+            if (saveBtn) {
+                saveBtn.addEventListener("click", async () => {
+                    const newPassword = newPasswordInput.value;
+                    const currentPassword = currentPasswordInput.value;
+                    const confirmPasswordInput = document.getElementById("confirmPasswordInput");
+                    const confirmPassword = confirmPasswordInput ? confirmPasswordInput.value : "";
+
+                    const email = emailInput.value.trim();
+                    const name = displayNameInput.value.trim();
+                    if (!name) {
+                        showToast("Display Name cannot be empty.", "error");
+                        return;
+                    }
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        showToast("Email must be valid.", "error");
+                        return;
+                    }
+
+                    const updatePayload = {
+                        name: name,
+                        email: email,
+                        timezone: timezoneSelect.value,
+                        language: languageSelect.value,
+                        currency: currencySelect.value,
+                        shelterName: shelterNameInput.value,
+                        shelterTaxId: shelterTaxIdInput.value,
+                        shelterAddress: shelterAddressInput.value,
+                        emailDigest: emailDigestToggle.classList.contains("bg-primary"),
+                        urgentAlerts: urgentAlertsToggle.classList.contains("bg-primary"),
+                        appearance: document.querySelector('html').classList.contains("dark") ? "dark" : "light"
+                    };
+
+                    const pushNotificationsToggle = document.getElementById("pushNotificationsToggle");
+                    const weeklySummaryToggle = document.getElementById("weeklySummaryToggle");
+                    if (pushNotificationsToggle) {
+                        updatePayload.pushNotifications = pushNotificationsToggle.classList.contains("bg-primary");
+                    }
+                    if (weeklySummaryToggle) {
+                        updatePayload.weeklySummary = weeklySummaryToggle.classList.contains("bg-primary");
+                    }
+
+                    if (newPassword || confirmPassword || currentPassword) {
+                        if (!currentPassword) {
+                            showToast("Current password is required to change password.", "error");
+                            return;
+                        }
+                        if (!newPassword) {
+                            showToast("New password is required.", "error");
+                            return;
+                        }
+                        if (newPassword.length < 6) {
+                            showToast("Password must be at least 6 characters long.", "error");
+                            return;
+                        }
+                        if (newPassword !== confirmPassword) {
+                            showToast("Passwords do not match.", "error");
+                            return;
+                        }
+                        updatePayload.currentPassword = currentPassword;
+                        updatePayload.newPassword = newPassword;
+                    }
+
+                    setSavingState(true);
+
+                    try {
+                        const res = await fetch(API_BASE_URL + "/api/auth/profile", {
+                            method: "PUT",
+                            headers,
+                            body: JSON.stringify(updatePayload)
+                        });
+
+                        const resData = await res.json();
+                        if (!res.ok) {
+                            throw new Error(resData.message || "Failed to update settings");
+                        }
+
+                        originalData = resData.user;
+                        populateFields(resData.user);
+                        
+                        const userObj = JSON.parse(localStorage.getItem("kittyverse_user") || "{}");
+                        userObj.name = resData.user.name;
+                        userObj.email = resData.user.email;
+                        localStorage.setItem("kittyverse_user", JSON.stringify(userObj));
+
+                        // Refresh top nav items in DOM
+                        const profileAvatarImg = document.getElementById("profileAvatarImg");
+                        const profileNameText = document.getElementById("profileNameText");
+                        const profileRoleText = document.getElementById("profileRoleText");
+                        if (profileAvatarImg && resData.user.avatarUrl) {
+                            profileAvatarImg.src = resData.user.avatarUrl;
+                        }
+                        if (profileNameText) {
+                            profileNameText.textContent = resData.user.name || "Shelter Admin";
+                        }
+                        if (profileRoleText) {
+                            const roleVal = userObj.role ? (userObj.role.charAt(0).toUpperCase() + userObj.role.slice(1).toLowerCase()) : "Administrator";
+                            profileRoleText.textContent = roleVal.toUpperCase();
+                        }
+
+                        showToast("Settings saved successfully.", "success");
+                    } catch (error) {
+                        console.error(error);
+                        showToast(error.message || "Unable to save changes.", "error");
+                    } finally {
+                        setSavingState(false);
+                    }
+                });
+            }
+
+            if (discardBtn) {
+                discardBtn.addEventListener("click", () => {
+                    populateFields(originalData);
+                    showToast("Changes discarded.", "success");
+                });
+            }
+
+            window.toggleSwitch = function(btn) {
+                const circle = btn.querySelector('div');
+                const isActive = btn.classList.contains('bg-primary');
+                
+                if (isActive) {
+                    btn.classList.remove('bg-primary');
+                    btn.classList.add('bg-outline-variant');
+                    if (circle) {
+                        circle.style.right = 'auto';
+                        circle.style.left = '4px';
+                    }
+                } else {
+                    btn.classList.remove('bg-outline-variant');
+                    btn.classList.add('bg-primary');
+                    if (circle) {
+                        circle.style.left = 'auto';
+                        circle.style.right = '4px';
+                    }
+                }
+            };
+
+            window.toggleTfa = async function() {
+                if (tfaButton) {
+                    tfaButton.disabled = true;
+                    tfaButton.classList.add("opacity-50", "cursor-not-allowed");
+                }
+                const newState = !originalData.twoFactorEnabled;
+                try {
+                    const res = await fetch(API_BASE_URL + "/api/auth/profile", {
+                        method: "PUT",
+                        headers,
+                        body: JSON.stringify({ twoFactorEnabled: newState })
+                    });
+                    const resData = await res.json();
+                    if (!res.ok) throw new Error(resData.message || "Failed to toggle 2FA");
+                    
+                    originalData = resData.user;
+                    populateFields(resData.user);
+                    showToast(`Two-factor authentication ${newState ? 'enabled' : 'disabled'} successfully.`, "success");
+                } catch (error) {
+                    console.error(error);
+                    showToast(error.message || "Failed to update 2FA state.", "error");
+                } finally {
+                    if (tfaButton) {
+                        tfaButton.disabled = false;
+                        tfaButton.classList.remove("opacity-50", "cursor-not-allowed");
+                    }
+                }
+            };
+
+            window.regenerateApiKey = async function() {
+                const randomHex = Array.from({length: 24}, () => Math.floor(Math.random()*16).toString(16)).join('');
+                const newKey = "kv_prod_" + randomHex;
+                try {
+                    const res = await fetch(API_BASE_URL + "/api/auth/profile", {
+                        method: "PUT",
+                        headers,
+                        body: JSON.stringify({ apiKey: newKey })
+                    });
+                    const resData = await res.json();
+                    if (!res.ok) throw new Error(resData.message || "Failed to regenerate API key");
+                    
+                    originalData = resData.user;
+                    populateFields(resData.user);
+                    showToast("API Key regenerated successfully.", "success");
+                } catch (error) {
+                    console.error(error);
+                    showToast("Failed to regenerate API Key.", "error");
+                }
+            };
+
+            window.copyApiKey = function() {
+                if (originalData.apiKey) {
+                    navigator.clipboard.writeText(originalData.apiKey);
+                    showToast("Copied Successfully", "success");
+                }
+            };
+
+            window.uploadImage = async function(input, type) {
+                if (!input.files || !input.files[0]) return;
+                const file = input.files[0];
+
+                const allowedExtensions = ["jpg", "jpeg", "png", "webp"];
+                const fileExtension = file.name.split('.').pop().toLowerCase();
+                if (!allowedExtensions.includes(fileExtension)) {
+                    showToast("Unsupported file type. Only JPG, JPEG, PNG, and WEBP images are allowed.", "error");
+                    input.value = "";
+                    return;
+                }
+
+                const maxBytes = 5 * 1024 * 1024;
+                if (file.size > maxBytes) {
+                    showToast("Image size must be less than 5 MB.", "error");
+                    input.value = "";
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append(type, file);
+
+                showToast(`Uploading ${type === 'avatar' ? 'profile' : 'cover'} photo...`, "success");
+
+                try {
+                    const res = await fetch(API_BASE_URL + "/api/auth/profile", {
+                        method: "PUT",
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        },
+                        body: formData
+                    });
+
+                    const resData = await res.json();
+                    if (!res.ok) throw new Error(resData.message || `Failed to upload ${type}`);
+
+                    originalData = resData.user;
+                    populateFields(resData.user);
+                    
+                    showToast(`${type === 'avatar' ? 'Profile' : 'Cover'} photo updated successfully.`, "success");
+                } catch (error) {
+                    console.error(error);
+                    showToast(error.message || `Failed to upload ${type} image.`, "error");
+                } finally {
+                    input.value = "";
+                }
+            };
+
+            function setThemeUI(theme) {
+                const html = document.querySelector('html');
+                const lightBtn = document.getElementById("themeLightBtn");
+                const darkBtn = document.getElementById("themeDarkBtn");
+                const autoBtn = document.getElementById("themeAutoBtn");
+
+                // Always keep html in light mode
+                html.classList.remove('dark');
+
+                // Light button active visual style
+                if (lightBtn) {
+                    lightBtn.classList.remove("opacity-50");
+                    lightBtn.classList.add("opacity-100");
+                    const preview = lightBtn.querySelector("div");
+                    if (preview) {
+                        preview.classList.add("border-primary");
+                        preview.classList.remove("border-outline-variant");
+                    }
+                    const span = lightBtn.querySelector("span");
+                    if (span) {
+                        span.classList.add("text-primary");
+                        span.classList.remove("text-secondary");
+                    }
+                }
+
+                // Dark & Auto/System buttons disabled visual style
+                [darkBtn, autoBtn].forEach(btn => {
+                    if (btn) {
+                        btn.classList.add("opacity-30", "cursor-not-allowed");
+                        btn.classList.remove("opacity-50", "opacity-100");
+                        btn.setAttribute("disabled", "true");
+                        const preview = btn.querySelector("div");
+                        if (preview) {
+                            preview.classList.remove("border-primary");
+                            preview.classList.add("border-outline-variant");
+                        }
+                        const span = btn.querySelector("span");
+                        if (span) {
+                            span.classList.remove("text-primary");
+                            span.classList.add("text-secondary");
+                        }
+                    }
+                });
+            }
+
+            window.setTheme = async function(mode) {
+                if (mode !== 'light') {
+                    return;
+                }
+                setThemeUI('light');
+                localStorage.setItem("kittyverse_theme", 'light');
+                try {
+                    const res = await fetch(API_BASE_URL + "/api/auth/profile", {
+                        method: "PUT",
+                        headers,
+                        body: JSON.stringify({ appearance: 'light' })
+                    });
+                    const resData = await res.json();
+                    if (!res.ok) throw new Error(resData.message || "Failed to save theme preference");
+                    
+                    originalData = resData.user;
+                    populateFields(resData.user);
+                } catch (error) {
+                    console.error(error);
+                    showToast("Failed to update display preference.", "error");
+                }
+            };
+
+            function showToast(message, type = "success") {
+                let toast = document.getElementById('successToast');
+                if (toast) {
+                    toast.remove();
+                }
+                
+                toast = document.createElement('div');
+                toast.id = 'successToast';
+                
+                const isError = type === "error";
+                const iconName = isError ? "cancel" : "check_circle";
+                const iconCls = isError ? "text-[#ffb4ab]" : "text-primary-fixed-dim";
+
+                toast.className = "fixed bottom-6 right-6 bg-inverse-surface text-inverse-on-surface px-6 py-4 rounded-xl shadow-xl flex items-center gap-3 transform translate-y-24 transition-all duration-300 pointer-events-none z-50";
+                toast.innerHTML = `
+                    <span class="material-symbols-outlined ${iconCls}">${iconName}</span>
+                    <span class="font-label-md text-label-md text-white">${message}</span>
+                `;
+                document.body.appendChild(toast);
+
+                setTimeout(() => {
+                    toast.classList.remove('translate-y-24');
+                }, 10);
+
+                setTimeout(() => {
+                    toast.classList.add('translate-y-24');
+                }, 3000);
+            }
+
+            loadSettings();
+        });
+    </script>
+<script src="js/sidebar.js"></script>
+</body></html>

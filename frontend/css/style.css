@@ -1,0 +1,104 @@
+/* ==========================================
+   KITTYVERSE DESIGN SYSTEM
+========================================== */
+
+:root{
+
+    /* Primary */
+
+    --primary:#FF914D;
+    --primary-dark:#FF7B2C;
+
+    /* Background */
+
+    --background:#FFF8F2;
+    --surface:#FFFFFF;
+
+    /* Text */
+
+    --text:#262626;
+    --text-light:#777777;
+
+    /* Border */
+
+    --border:#ECECEC;
+
+    /* Radius */
+
+    --radius-sm:12px;
+    --radius-md:18px;
+    --radius-lg:28px;
+
+    /* Shadow */
+
+    --shadow:
+
+    0 15px 40px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================
+RESET
+========================================== */
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+font-family:"Poppins",sans-serif;
+
+background:var(--background);
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* ==========================================
+COMMON
+========================================== */
+
+img{
+
+display:block;
+
+max-width:100%;
+
+}
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+button{
+
+cursor:pointer;
+
+font-family:inherit;
+
+}
+
+.container{
+
+width:min(1200px,90%);
+
+margin:auto;
+
+}

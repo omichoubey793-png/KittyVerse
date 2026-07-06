@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shelter Management | KittyVerse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#ffb68e",
+                    "primary-fixed-dim": "#ffb68e",
+                    "surface-tint": "#9b4500",
+                    "on-tertiary-container": "#004853",
+                    "on-surface": "#2B2B2B",
+                    "on-primary-fixed-variant": "#763300",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#c8c6c6",
+                    "secondary": "#5f5e5e",
+                    "on-tertiary-fixed-variant": "#004e5a",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#fff1eb",
+                    "on-secondary-fixed-variant": "#474747",
+                    "primary-fixed": "#ffdbc9",
+                    "surface": "#fff8f6",
+                    "inverse-surface": "#392e29",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-secondary-container": "#656464",
+                    "tertiary-fixed": "#a5eeff",
+                    "on-surface-variant": "#564339",
+                    "surface-container-high": "#f7e4dc",
+                    "primary": "#FF914D",
+                    "tertiary-fixed-dim": "#42d8f3",
+                    "tertiary-container": "#00bed9",
+                    "tertiary": "#006878",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#331200",
+                    "surface-container": "#fdeae1",
+                    "secondary-container": "#e4e2e1",
+                    "surface-dim": "#e9d6ce",
+                    "background": "#FFF9F5",
+                    "outline": "#897267",
+                    "on-primary-container": "#FF914D",
+                    "on-background": "#2B2B2B",
+                    "surface-bright": "#fff8f6",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#001f25",
+                    "surface-container-highest": "#f2dfd6",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#f2dfd6",
+                    "inverse-on-surface": "#ffede5",
+                    "on-error": "#ffffff",
+                    "primary-container": "#FFF4EB",
+                    "outline-variant": "#dcc1b4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "lg": "24px",
+                    "xl": "40px",
+                    "max-width": "1440px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "2xl": "64px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "label-md": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Poppins', sans-serif; background-color: #fff8f6; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .nav-active { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+        .cat-card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -4px rgba(155, 69, 0, 0.08); }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #dcc1b4; border-radius: 10px; }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-up {
+            opacity: 0;
+            animation: fadeUp 0.4s ease forwards;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/config.js"></script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside></aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md flex justify-between items-center h-16 px-lg shadow-sm">
+<div class="flex items-center flex-1 max-w-2xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input id="searchInput" class="w-full pl-xl pr-md py-sm bg-surface-container border-none rounded-full focus:ring-2 focus:ring-primary/20 font-body-md text-body-md" placeholder="Search by name, breed or microchip..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg ml-xl">
+<div class="flex gap-md">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-secondary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-secondary">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-secondary">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-sm">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a friendly female shelter director with glasses, wearing a warm cream-colored sweater. The lighting is soft and natural, suggesting a bright office environment. The style is clean, modern, and high-fidelity, consistent with a premium management software aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfxAXZUWbnd7X6N5pk8D516ehGiuOZZwMMffjvIELkDibHDCZFLD6WS2uXgi_QayxnrAdgTSu1RNZohUHlYRTaIWfSbI2v0dfXD_Au5Bwi0tIzvhNUCDw65XSED9dGkazQ3CNmfFivUKW8XD5PNcRG-xtp__JJ-HW_yh4_K1VLRSyj0rG-LC-_xhLvQmYBBDJlA9Ge5sClHao9pks1FuZUpfXE0MFQyyANh1ZXlF1AEHruKZucpQhfU2_0ca_8wHKh_Gc5UGaE2Io"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold">Dr. Elena Meow</span>
+<span class="text-[10px] text-secondary uppercase tracking-wider">Admin</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="pt-24 px-xl pb-xl max-w-max-width mx-auto">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-xl">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Shelter Management</h1>
+<p id="paginationCount" class="font-body-md text-body-md text-secondary mt-xs">Manage rescued cats and monitor their health.</p>
+</div>
+<button onclick="openAddCatModal()" class="flex items-center gap-sm px-xl py-md bg-primary text-white rounded-xl font-label-md text-label-md shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                    + Add Cat
+                </button>
+</div>
+<!-- Filters -->
+<div class="flex gap-md mb-2xl overflow-x-auto pb-sm no-scrollbar" id="filterBtnContainer">
+<button data-filter="all" class="filter-btn px-lg py-sm rounded-full bg-primary text-white font-label-md text-label-md flex items-center gap-xs">
+                    All
+                    <span class="bg-white/20 px-xs rounded text-[10px]" id="cntAll">124</span>
+</button>
+<button data-filter="Healthy" class="filter-btn px-lg py-sm rounded-full bg-white border border-outline-variant text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center gap-xs">
+                    Healthy
+                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntHealthy">82</span>
+</button>
+<button data-filter="Under Treatment" class="filter-btn px-lg py-sm rounded-full bg-white border border-outline-variant text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center gap-xs">
+                    Treatment
+                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntTreatment">14</span>
+</button>
+<button data-filter="Vaccinated" class="filter-btn px-lg py-sm rounded-full bg-white border border-outline-variant text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center gap-xs">
+                    Vaccinated
+                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntReady">28</span>
+</button>
+<button data-filter="Adopted" class="filter-btn px-lg py-sm rounded-full bg-white border border-outline-variant text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center gap-xs">
+                    Adopted
+                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntAdopted">45</span>
+</button>
+<div class="ml-auto flex items-center gap-sm">
+<button id="gridToggleBtn" class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-secondary hover:bg-white transition-all bg-[#FFF4EB]">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+<button id="listToggleBtn" class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-secondary hover:bg-white transition-all opacity-40">
+<span class="material-symbols-outlined" data-icon="list">list</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid of Cats -->
+<div id="shelterCatsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-xl">
+<!-- Card 1 -->
+<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A majestic Ragdoll cat with bright blue eyes and fluffy cream and gray fur sitting gracefully on a minimalist wooden ledge. The background is a soft, blurred white interior with warm sunlight streaming in. High-end pet photography style, sharp focus on the feline's eyes, professional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACBjNLS-8gn9BfH5YhrIy-h9sAjcZgHZ44XHFVZxM7nW4YH-ulWd3GF3hyHoiBnk7yhY2Mv_LXYsMkS8ju4L9pSPWb82FxTNj-bMdhpsiPESwFGHH-4Y_pTAWbymQuBDfrq_VyfParGDOUNfiD9llNLg7Izr_emeQqKin16piVxwXda7wk26syzocBwaeKzYIiahRFvGWJr6dHH7a7dlr2UvQ0_OkPOxge0THFgUnE0tUG5Bq2A2Q-Hr-PDCRsIO8UEE6yRrv9ggQ"/>
+<div class="absolute top-md right-md">
+<span class="bg-tertiary-container/90 backdrop-blur-md text-on-tertiary-container px-md py-xs rounded-full font-label-sm text-label-sm">Healthy</span>
+</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Nimbus</h3>
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer" data-icon="favorite">favorite</span>
+</div>
+<p class="font-body-md text-body-md text-secondary mb-md">Ragdoll • 2 yrs • Male</p>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="verified">verified</span>
+<span class="text-label-sm font-label-sm text-tertiary">Fully Vaccinated</span>
+</div>
+<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
+<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View</button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A sleek black Bombay cat with piercing golden eyes looking directly into the camera. The cat is posed elegantly on a high-end designer sofa with neutral tones. Soft, ambient studio lighting emphasizes the glossy texture of the black fur. Minimalist, premium aesthetic, shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjCULSocbg2RVb34EIn3PdJAAaZtlTgXZMwm0HbR7j8ngrdFiBaK1N-xbPkFldfOdFBB5W_j0wDQ7AQbgTarysNN_TCXAgA0J1g-s79e9gebw0YZQkmVJuAFkvWx8S7F_bAfKJPOY0KvA11bwtU6-FVlMJ0SDVAszbLqg-Ugcq5RDm6lV00ftWXhSvbqpaZHLCeOVZ_NtDtWhRK8bnScf9Hzofwi1QYd3ehqa5Cqfxw6_xam8r5_VlkYl0DyAmZIb670ouRCBjoi4"/>
+<div class="absolute top-md right-md">
+<span class="bg-error-container/90 backdrop-blur-md text-on-error-container px-md py-xs rounded-full font-label-sm text-label-sm">Treatment</span>
+</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Onyx</h3>
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer" data-icon="favorite">favorite</span>
+</div>
+<p class="font-body-md text-body-md text-secondary mb-md">Bombay • 4 yrs • Female</p>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-[16px] text-error" data-icon="medical_services">medical_services</span>
+<span class="text-label-sm font-label-sm text-error">Dental Care Plan</span>
+</div>
+<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
+<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View</button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An adorable ginger tabby kitten with big green eyes playing with a white yarn ball on a soft cream rug. The scene is bright and airy with high-key lighting, creating a cheerful and warm atmosphere. Minimalist setting with premium textures. Photography is clean and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCopYQXDw3pvywxEZFiScnR_GWxYrS7Uk3YHuxtFN8hP9bvmVFIQgHRl6FhpB0I6Czk5Zcg1fsh5MufXdYL-eeJyfPOGi4Nt2ifonvxmYv3ruf4w95wSDsTsJsFHY5jbVMEr6TVE3D9xAhms5yikskj2CXAHwDJUKkmwtxdU8gEHnaBh46ISRfqotqcqGRYy95Rr7jyXNFf8H_QbuRweqrGuIRiR6xdn-hZ2ab-7b3n5ECMygRJGukFpktlENrTtz9PQEjwiiNjw8"/>
+<div class="absolute top-md right-md">
+<span class="bg-primary-container/90 backdrop-blur-md text-on-primary-container px-md py-xs rounded-full font-label-sm text-label-sm">New Intake</span>
+</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Marmalade</h3>
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer" data-icon="favorite">favorite</span>
+</div>
+<p class="font-body-md text-body-md text-secondary mb-md">Tabby • 3 mos • Male</p>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="history">history</span>
+<span class="text-label-sm font-label-sm text-secondary">Pending Screening</span>
+</div>
+<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
+<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View</button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A beautiful silver shaded British Shorthair cat with round amber eyes resting on a minimalist concrete-colored platform. The background is a clean, neutral gray wall. Lighting is soft and even, highlighting the dense texture of the silver fur. Modern, architectural, and high-end aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFUtSRCoJYAzqUzAUj4o-1PeqCfDvghqh6DdV1-C2QDb3Brh8dROfL57raARRoNvSHI-dXBqkeXXgDe2EoZny_oz3dfrGQ701Acy8OWR8Ludc09C0dey9r45cyvTIIdo9JliVrJF3wISzyi9tV7QyXunrdoR2ftQvyzcSJmgbO-OVjs6_mj8zFj4YRq7EnvB4iAUe0rN9IHlpIQJhWWwo2ZOv6dWCjpSDXHr2bQ2Gt2GI-qkcgGt3HIxMaW6f3ZJ7dNiYAXvTwsq8"/>
+<div class="absolute top-md right-md">
+<span class="bg-secondary-container/90 backdrop-blur-md text-on-secondary-container px-md py-xs rounded-full font-label-sm text-label-sm">Adopted</span>
+</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Sterling</h3>
+<span class="material-symbols-outlined text-primary" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<p class="font-body-md text-body-md text-secondary mb-md">British Shorthair • 5 yrs • Male</p>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm text-primary">Success Story</span>
+</div>
+<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
+<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View Profile</button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5 (Repeated pattern for grid fullness) -->
+<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A striking Bengal cat with vivid leopard-like spots exploring a minimalist sunlit room with pale wood floors. The cat is captured in mid-step, showing grace and muscle tone. The environment is uncluttered and premium, emphasizing the cat's natural beauty and active nature. High-contrast, vibrant pet photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7uOrRSCVWBPf6naXIbnjyb4pJCoPf-EDBk-nPNjjJU2Q7Gf5IDW7K4dKnPK-IhVYT1PaPiCgjqtCbCgqT09jinik0JbeyXEo0imjfs5TIzZLEFyZ0ktV6cu0l5wKS4nqvqI4zEg6XW4PazpcP5_QFgwPuIxlyeCkI7BJZN5yhJdooQsC6d_Wbv-y-G_tXQTKCWm7OprX8_b9CCK-qvdGLcIdkSu-qE38GfBaPlAgfc4xtawpOTekCU5Az8yViNQw7VndlOziIbH8"/>
+<div class="absolute top-md right-md">
+<span class="bg-tertiary-container/90 backdrop-blur-md text-on-tertiary-container px-md py-xs rounded-full font-label-sm text-label-sm">Healthy</span>
+</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Leo</h3>
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer" data-icon="favorite">favorite</span>
+</div>
+<p class="font-body-md text-body-md text-secondary mb-md">Bengal • 1 yr • Male</p>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="verified">verified</span>
+<span class="text-label-sm font-label-sm text-tertiary">Highly Active</span>
+</div>
+<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
+<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View</button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A fluffy Calico cat curled up on a designer knit blanket in a modern light-filled living room. The cat looks cozy and content. The color palette of the image includes soft oranges, blacks, and creams, mirroring the cat's fur. The background is a clean, minimalist home setting. Soft-focus, warm, premium lifestyle photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwOXOMEzzvaz-ElkYxP0-IJMgutW6W1s7WLPo9UsvxEl9c482DMrs_HPVcZ8wAOAZpxCT2Zgt0e-dOXsF3R4nprVhxCNglYfpk2KxUDPp-6ebHL3P3_3A3hD5JkEmf4ma_yAK1Kc-oh1-oyfsQ8YRSk4D89bhvpEGWh7jNpsyA_fpMuUiCBxCXs2JJG_X5AxLoKtdnHGyGDPSkYUbxXgA1ETy51_M0G-ZVbjiAct1Pad67AKzKsbhsmy3aW0uahP6UYaFDGDDdyW4"/>
+<div class="absolute top-md right-md">
+<span class="bg-tertiary-container/90 backdrop-blur-md text-on-tertiary-container px-md py-xs rounded-full font-label-sm text-label-sm">Healthy</span>
+</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Patches</h3>
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer" data-icon="favorite">favorite</span>
+</div>
+<p class="font-body-md text-body-md text-secondary mb-md">Calico • 6 yrs • Female</p>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span>
+<span class="text-label-sm font-label-sm text-tertiary">Senior Care Plan</span>
+</div>
+<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
+<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View</button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Empty State/Add New Placeholder -->
+<div class="group border-2 border-dashed border-outline-variant rounded-[32px] overflow-hidden flex flex-col items-center justify-center p-xl gap-md cursor-pointer hover:bg-white hover:border-primary transition-all duration-300">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="add_circle">add_circle</span>
+</div>
+<div class="text-center">
+<span class="font-headline-md text-headline-md block text-on-surface">New Rescue</span>
+<span class="font-body-md text-body-md text-secondary">Start intake process</span>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More -->
+<div class="mt-2xl flex flex-col items-center gap-lg">
+<p class="font-label-md text-label-md text-secondary">Showing 6 of 124 residents</p>
+<button class="px-2xl py-md bg-white border border-outline-variant text-on-surface rounded-full font-label-md text-label-md hover:bg-surface-container transition-all flex items-center gap-sm">
+                    Load More Residents
+                    <span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Floating Action Button for Mobile -->
+<div class="md:hidden fixed bottom-md right-md">
+<button onclick="window.location.href='add-cat.html'" class="w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<!-- AI Helper Minimal Bubble -->
+<div class="fixed bottom-lg right-lg z-50">
+<button onclick="window.location.href='chat.html'" class="group relative flex items-center gap-sm p-sm bg-white dark:bg-surface-dim rounded-full shadow-lg border border-outline-variant hover:pr-lg transition-all">
+<div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</div>
+<span class="max-w-0 overflow-hidden group-hover:max-w-[200px] transition-all font-label-md text-label-md whitespace-nowrap">Ask AI Assistant</span>
+</div>
+
+<!-- Profile Sliding Drawer Overlay -->
+<div id="profileDrawerOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none">
+    <!-- Sliding Drawer Panel -->
+    <div id="profileDrawer" class="fixed right-0 top-0 bottom-0 w-full md:w-[40%] bg-[#FFF9F5] shadow-2xl transition-transform duration-300 translate-x-full flex flex-col justify-between overflow-hidden rounded-l-[20px] border-l border-orange-100">
+        <!-- Header with Close button -->
+        <div class="p-lg flex items-center justify-between border-b border-orange-100/50 bg-white">
+            <h3 class="font-headline-md text-headline-md font-bold text-text-main flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">pets</span>
+                Rescue Profile
+            </h3>
+            <button id="closeDrawerBtnTop" class="w-10 h-10 rounded-full hover:bg-orange-50 text-secondary hover:text-primary flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        
+        <!-- Content scroll container -->
+        <div class="flex-1 overflow-y-auto p-lg space-y-lg hide-scrollbar">
+            <!-- HEADER SECTION -->
+            <div class="space-y-md">
+                <!-- Large Cat Photo -->
+                <div class="relative h-64 rounded-[20px] overflow-hidden shadow-md">
+                    <img id="drawerCatImage" class="w-full h-full object-cover" src="" alt="Cat Photo"/>
+                    <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md px-md py-sm rounded-[20px] border border-orange-100">
+                        <h4 id="drawerCatName" class="font-bold text-xl text-text-main"></h4>
+                        <p id="drawerCatBreed" class="text-xs text-secondary"></p>
+                    </div>
+                </div>
+
+                <!-- Status Badges row -->
+                <div class="flex flex-wrap gap-2 items-center">
+                    <span id="drawerCatHealth" class="inline-block text-xs font-semibold px-3 py-1 rounded-full"></span>
+                    <span id="drawerCatVax" class="inline-block text-xs font-semibold px-3 py-1 rounded-full"></span>
+                    <span id="drawerCatAdoption" class="inline-block text-xs font-semibold px-3 py-1 rounded-full"></span>
+                </div>
+
+                <!-- Gender, Age, Weight specs -->
+                <div class="grid grid-cols-3 gap-sm text-center">
+                    <div class="bg-white p-sm rounded-[20px] border border-orange-50 shadow-sm">
+                        <p class="text-[9px] uppercase tracking-wider text-secondary font-semibold">Gender</p>
+                        <p id="drawerCatGender" class="text-xs font-bold text-text-main mt-0.5"></p>
+                    </div>
+                    <div class="bg-white p-sm rounded-[20px] border border-orange-50 shadow-sm">
+                        <p class="text-[9px] uppercase tracking-wider text-secondary font-semibold">Age</p>
+                        <p id="drawerCatAge" class="text-xs font-bold text-text-main mt-0.5"></p>
+                    </div>
+                    <div class="bg-white p-sm rounded-[20px] border border-orange-50 shadow-sm">
+                        <p class="text-[9px] uppercase tracking-wider text-secondary font-semibold">Weight</p>
+                        <p id="drawerCatWeight" class="text-xs font-bold text-text-main mt-0.5"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INFORMATION SECTION -->
+            <div class="bg-white p-lg rounded-[20px] border border-orange-50 shadow-sm space-y-md">
+                <h4 class="text-xs font-bold text-primary uppercase tracking-wider border-b border-orange-50 pb-2">Information</h4>
+                <div class="grid grid-cols-2 gap-y-sm gap-x-md text-xs">
+                    <div>
+                        <p class="text-[10px] text-secondary font-semibold">Rescue Date</p>
+                        <p id="drawerInfoRescueDate" class="font-bold text-text-main mt-0.5"></p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-secondary font-semibold">Rescue Location</p>
+                        <p id="drawerInfoRescueLocation" class="font-bold text-text-main mt-0.5"></p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-secondary font-semibold">Shelter ID</p>
+                        <p id="drawerInfoShelterID" class="font-bold text-text-main mt-0.5"></p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-secondary font-semibold">Microchip Number</p>
+                        <p id="drawerInfoMicrochip" class="font-bold text-text-main mt-0.5"></p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-secondary font-semibold">Assigned Volunteer</p>
+                        <p id="drawerInfoVolunteer" class="font-bold text-text-main mt-0.5"></p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-secondary font-semibold">Current Shelter Area</p>
+                        <p id="drawerInfoArea" class="font-bold text-text-main mt-0.5"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEDICAL SUMMARY SECTION -->
+            <div class="space-y-sm">
+                <h4 class="text-xs font-bold text-primary uppercase tracking-wider">Medical Summary</h4>
+                <div class="grid grid-cols-2 gap-sm">
+                    <div class="bg-white p-md rounded-[20px] border border-orange-50 shadow-sm">
+                        <p class="text-[10px] text-secondary font-semibold">Last Checkup</p>
+                        <p id="drawerMedCheckup" class="text-xs font-bold text-text-main mt-1"></p>
+                    </div>
+                    <div class="bg-white p-md rounded-[20px] border border-orange-50 shadow-sm">
+                        <p class="text-[10px] text-secondary font-semibold">Vaccination Status</p>
+                        <p id="drawerMedVaxStatus" class="text-xs font-bold text-text-main mt-1"></p>
+                    </div>
+                    <div class="bg-white p-md rounded-[20px] border border-orange-50 shadow-sm">
+                        <p class="text-[10px] text-secondary font-semibold text-red-500">Next Vaccine Due</p>
+                        <p id="drawerMedNextVax" class="text-xs font-bold text-red-500 mt-1"></p>
+                    </div>
+                    <div class="bg-white p-md rounded-[20px] border border-orange-50 shadow-sm">
+                        <p class="text-[10px] text-secondary font-semibold">Current Treatment</p>
+                        <p id="drawerMedTreatment" class="text-xs font-bold text-text-main mt-1"></p>
+                    </div>
+                    <div class="bg-white p-md rounded-[20px] border border-orange-50 shadow-sm">
+                        <p class="text-[10px] text-secondary font-semibold">Allergies</p>
+                        <p id="drawerMedAllergies" class="text-xs font-bold text-text-main mt-1"></p>
+                    </div>
+                    <div class="bg-white p-md rounded-[20px] border border-orange-50 shadow-sm">
+                        <p class="text-[10px] text-secondary font-semibold">Diet Plan</p>
+                        <p id="drawerMedDiet" class="text-xs font-bold text-text-main mt-1"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VACCINATION MANAGEMENT SECTION -->
+            <div class="space-y-sm">
+                <div class="flex items-center justify-between">
+                    <h4 class="text-xs font-bold text-primary uppercase tracking-wider">Vaccination Management</h4>
+                    <button id="btnOpenScheduleVax" class="text-primary hover:text-[#ff8033] text-xs font-bold flex items-center gap-1 transition-all active:scale-95 duration-200">
+                        <span class="material-symbols-outlined text-[16px]">add_circle</span>
+                        + Schedule Vaccination
+                    </button>
+                </div>
+                <div id="drawerVaxHistoryContainer" class="space-y-sm">
+                    <!-- Vaccine history cards will be injected dynamically -->
+                </div>
+            </div>
+
+            <!-- MEDICAL TIMELINE SECTION -->
+            <div class="space-y-sm">
+                <h4 class="text-xs font-bold text-primary uppercase tracking-wider">Medical Timeline</h4>
+                <div id="drawerMedicalTimeline" class="relative pl-6 space-y-md before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-[#FF914D]/30 max-h-96 overflow-y-auto pr-2 hide-scrollbar">
+                    <!-- Timeline items will be injected dynamically -->
+                </div>
+            </div>
+
+            <!-- FANNY AI INSIGHTS SECTION -->
+            <div class="space-y-sm pt-xs">
+                <div class="flex items-center gap-2">
+                    <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=100&auto=format&fit=crop" class="w-8 h-8 rounded-full object-cover border-2 border-orange-100 shadow-sm" alt="Fanny AI" />
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <h4 class="text-xs font-bold text-text-main">Fanny AI Insights</h4>
+                            <span class="bg-[#FFF4EB] text-primary text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-orange-100 uppercase">AI</span>
+                        </div>
+                        <p class="text-[10px] text-secondary">AI-powered health recommendations for this rescue.</p>
+                    </div>
+                </div>
+
+                <!-- AI Insights Card -->
+                <div class="bg-white rounded-[20px] border-l-4 border-[#FF914D] border-y border-r border-orange-100/50 shadow-sm p-lg space-y-md">
+                    <!-- Dynamic details will be injected here -->
+                    <div id="drawerAiInsightsContent" class="space-y-sm"></div>
+                    
+                    <!-- Quick Action Buttons -->
+                    <div class="grid grid-cols-1 gap-sm pt-2 border-t border-orange-50/50">
+                        <button id="aiBtnGenerate" class="w-full py-2 bg-[#FFF4EB] hover:bg-[#FF914D] text-[#FF914D] hover:text-white text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 active:scale-95 duration-200">
+                            <span class="material-symbols-outlined text-[16px]">analytics</span>
+                            Generate AI Report
+                        </button>
+                        <div class="grid grid-cols-2 gap-sm">
+                            <button id="aiBtnAsk" class="w-full py-2.5 bg-[#FFF4EB] hover:bg-[#FF914D] text-[#FF914D] hover:text-white text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 active:scale-95 duration-200">
+                                <span class="material-symbols-outlined text-[16px]">chat</span>
+                                Ask Fanny
+                            </button>
+                            <button id="aiBtnSchedule" class="w-full py-2.5 bg-[#FFF4EB] hover:bg-[#FF914D] text-[#FF914D] hover:text-white text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 active:scale-95 duration-200">
+                                <span class="material-symbols-outlined text-[16px]">notifications</span>
+                                Schedule Reminder
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer with Action Buttons -->
+        <div class="p-lg border-t border-orange-100/50 bg-white space-y-sm">
+            <div class="grid grid-cols-2 gap-sm">
+                <button id="actionEditCat" class="py-2.5 bg-[#FF914D] hover:bg-[#ff8033] text-white text-xs font-bold rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 active:scale-95 duration-200">
+                    <span class="material-symbols-outlined text-[16px]">edit</span>
+                    Edit Cat
+                </button>
+                <button id="actionScheduleVax" class="py-2.5 bg-orange-50 border border-orange-100 hover:bg-[#FFF4EB] text-primary text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 active:scale-95 duration-200">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    Schedule Vaccine
+                </button>
+                <button id="actionExportReport" class="py-2.5 bg-white border border-orange-200 hover:bg-orange-50/50 text-[#FF914D] text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 active:scale-95 duration-200">
+                    <span class="material-symbols-outlined text-[16px]">download</span>
+                    Export Medical Report
+                </button>
+                <button id="closeDrawerBtn" class="py-2.5 bg-secondary/10 hover:bg-secondary/20 text-secondary text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 active:scale-95 duration-200">
+                    <span class="material-symbols-outlined text-[16px]">close</span>
+                    Close
+                </button>
+            </div>
+            <button id="actionDeleteCat" class="w-full py-2.5 bg-red-50 hover:bg-red-100 border border-red-200 text-[#EF4444] text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 active:scale-95 duration-200">
+                <span class="material-symbols-outlined text-[16px]">delete</span>
+                Delete Cat
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Add Cat Modal Overlay -->
+<div id="addCatModalOverlay" class="fixed inset-0 bg-black/45 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none flex items-center justify-center p-md">
+    <!-- Modal Panel -->
+    <div id="addCatModal" class="w-full max-w-xl bg-[#FFF9F5] rounded-[24px] shadow-2xl transition-all duration-300 scale-95 opacity-0 flex flex-col overflow-hidden border border-orange-100/50">
+        <!-- Header -->
+        <div class="p-lg bg-white border-b border-orange-100/50">
+            <h3 class="font-headline-md text-headline-md font-bold text-text-main">Add New Rescue</h3>
+            <p class="text-xs text-secondary mt-0.5">Register a rescued cat into KittyVerse.</p>
+        </div>
+        
+        <!-- Form container -->
+        <form id="addCatForm" class="flex-1 overflow-y-auto p-lg space-y-md max-h-[70vh] hide-scrollbar" enctype="multipart/form-data">
+            <!-- Drag and Drop Image Upload -->
+            <div>
+                <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Upload Cat Photo</label>
+                <div id="dropZone" class="border-2 border-dashed border-orange-200 rounded-xl p-md text-center hover:bg-orange-50/50 cursor-pointer transition-colors flex flex-col items-center justify-center gap-xs">
+                    <span class="material-symbols-outlined text-3xl text-[#FF914D]">cloud_upload</span>
+                    <p class="text-xs font-semibold text-text-main">Drag & drop photo here or <span class="text-primary hover:underline">browse</span></p>
+                    <p class="text-[10px] text-secondary">Supports JPG, PNG (Max 5MB)</p>
+                    <input type="file" id="catPhotoInput" name="image" class="hidden" accept="image/*"/>
+                </div>
+                <!-- Preview Container -->
+                <div id="photoPreviewContainer" class="hidden mt-sm relative w-full h-32 rounded-xl overflow-hidden shadow-inner border border-orange-100">
+                    <img id="photoPreview" class="w-full h-full object-cover" src=""/>
+                    <button type="button" id="removePhotoBtn" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/85 text-white flex items-center justify-center transition-colors">
+                        <span class="material-symbols-outlined text-[16px]">close</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Form Grid fields -->
+            <div class="grid grid-cols-2 gap-md">
+                <!-- Name -->
+                <div>
+                    <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Cat Name *</label>
+                    <input type="text" name="name" required class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D] placeholder-secondary/50" placeholder="e.g. Pumpkin"/>
+                </div>
+                <!-- Breed -->
+                <div>
+                    <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Breed *</label>
+                    <input type="text" name="breed" required class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D] placeholder-secondary/50" placeholder="e.g. Tabby"/>
+                </div>
+                <!-- Age -->
+                <div>
+                    <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Age (Years) *</label>
+                    <input type="number" name="age" min="0" required class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D] placeholder-secondary/50" placeholder="e.g. 2"/>
+                </div>
+                <!-- Gender -->
+                <div>
+                    <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Gender *</label>
+                    <select name="gender" required class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D]">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <!-- Weight -->
+                <div>
+                    <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Weight *</label>
+                    <input type="text" name="color" required class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D] placeholder-secondary/50" placeholder="e.g. 4.2 kg"/>
+                </div>
+                <!-- Rescue Date -->
+                <div>
+                    <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Rescue Date</label>
+                    <input type="date" name="rescueDate" class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D]"/>
+                </div>
+                <!-- Location -->
+                <div class="col-span-2">
+                    <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Rescue Location *</label>
+                    <input type="text" name="location" required class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D] placeholder-secondary/50" placeholder="e.g. Zone B - Tokyo"/>
+                </div>
+                <!-- Health Status -->
+                <div>
+                    <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Health Status</label>
+                    <select name="healthStatus" class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D]">
+                        <option value="Healthy">Healthy</option>
+                        <option value="Under Observation">Under Treatment / Observation</option>
+                        <option value="Ready for Adoption">Ready for Adoption</option>
+                    </select>
+                </div>
+                <!-- Vaccination Status -->
+                <div>
+                    <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Vaccination Status</label>
+                    <select name="vaccinationStatus" class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D]">
+                        <option value="Vaccinated">Vaccinated</option>
+                        <option value="Pending Booster">Pending Booster</option>
+                        <option value="First Dose Only">First Dose Only</option>
+                    </select>
+                </div>
+                <!-- Adoption Status -->
+                <div class="col-span-2">
+                    <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Adoption Status</label>
+                    <select name="adoptionStatus" class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D]">
+                        <option value="Available">Available</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Adopted">Adopted</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Medical Notes -->
+            <div>
+                <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Medical Notes</label>
+                <textarea name="description" rows="3" class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D] placeholder-secondary/50" placeholder="Add details about checkups, treatments..."></textarea>
+            </div>
+        </form>
+
+        <!-- Buttons Footer -->
+        <div class="p-lg bg-white border-t border-orange-100/50 flex justify-end gap-sm">
+            <button type="button" id="cancelAddCatBtn" class="px-5 py-2.5 bg-secondary/10 hover:bg-secondary/20 text-secondary text-xs font-semibold rounded-xl transition-all">
+                Cancel
+            </button>
+            <button type="button" id="saveCatBtn" class="px-5 py-2.5 bg-[#FF914D] hover:bg-[#ff8033] text-white text-xs font-semibold rounded-xl transition-all shadow-sm">
+                Save Cat
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Success Toast Notification -->
+<div id="successToast" class="fixed top-6 right-6 z-50 bg-[#FFF4EB] border border-emerald-200 text-emerald-800 px-lg py-md rounded-[20px] shadow-lg flex items-center gap-sm transition-all duration-300 translate-y-[-100px] opacity-0 pointer-events-none">
+    <span class="material-symbols-outlined text-emerald-600">check_circle</span>
+    <span class="text-xs font-bold font-label-md">Cat added successfully.</span>
+</div>
+
+<!-- Delete Confirmation Dialog Overlay -->
+<div id="deleteConfirmOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none flex items-center justify-center p-md">
+    <!-- Dialog Panel -->
+    <div id="deleteConfirmDialog" class="w-full max-w-sm bg-[#FFF9F5] rounded-[20px] shadow-2xl p-lg border border-orange-100/50 transition-all duration-300 scale-95 opacity-0 flex flex-col gap-md">
+        <div class="flex items-start gap-md">
+            <div class="w-10 h-10 rounded-full bg-red-50 text-[#EF4444] flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">warning</span>
+            </div>
+            <div>
+                <h3 class="font-bold text-base text-text-main">Delete Rescue Record?</h3>
+                <p class="text-xs text-secondary mt-1 leading-relaxed">This action will permanently remove this cat from the shelter database.</p>
+                <p class="text-xs text-[#FF914D] font-semibold mt-1">This action cannot be undone.</p>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="flex justify-end gap-sm mt-xs">
+            <button type="button" id="cancelDeleteBtn" class="px-4 py-2 bg-secondary/10 hover:bg-secondary/20 text-secondary text-xs font-semibold rounded-xl transition-all">
+                Cancel
+            </button>
+            <button type="button" id="confirmDeleteBtn" class="px-4 py-2 bg-[#EF4444] hover:bg-[#dc2626] text-white text-xs font-semibold rounded-xl transition-all shadow-sm">
+                Delete Cat
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Report Loading Overlay -->
+<div id="reportLoadingOverlay" class="fixed inset-0 bg-black/45 backdrop-blur-sm z-[60] transition-opacity duration-300 opacity-0 pointer-events-none flex items-center justify-center">
+    <div class="bg-white rounded-[24px] shadow-2xl p-xl flex flex-col items-center justify-center gap-md border border-orange-100/50 max-w-xs text-center">
+        <div class="w-10 h-10 rounded-full border-4 border-orange-50 border-t-[#FF914D] animate-spin"></div>
+        <p class="text-xs font-bold text-text-main">Generating Medical Report...</p>
+    </div>
+</div>
+
+<!-- Report Preview Modal Overlay -->
+<div id="reportPreviewOverlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none flex items-center justify-center p-md">
+    <!-- Preview Panel -->
+    <div id="reportPreviewDialog" class="w-full max-w-4xl h-[90vh] bg-[#FFF9F5] rounded-[24px] shadow-2xl transition-all duration-300 scale-95 opacity-0 flex flex-col overflow-hidden border border-orange-100/50">
+        <!-- Header -->
+        <div class="p-lg bg-white border-b border-orange-100/50 flex items-center justify-between shrink-0">
+            <div>
+                <h3 class="font-headline-md text-headline-md font-bold text-text-main">Medical Report Preview</h3>
+                <p class="text-xs text-secondary mt-0.5">Review the generated medical record for this rescue.</p>
+            </div>
+            <button id="closeReportBtn" class="w-8 h-8 rounded-full bg-secondary/10 hover:bg-secondary/20 flex items-center justify-center text-secondary transition-all">
+                <span class="material-symbols-outlined text-[18px]">close</span>
+            </button>
+        </div>
+        
+        <!-- Scrollable Report Preview Body (Simulated PDF document) -->
+        <div class="flex-1 overflow-y-auto p-lg bg-stone-100 flex justify-center custom-scrollbar">
+            <!-- Simulated PDF Page A4 -->
+            <div id="pdfPaperSheet" class="w-[794px] min-h-[1123px] bg-white shadow-md p-12 flex flex-col justify-between font-sans text-stone-800 relative scale-90 sm:scale-100 origin-top my-4">
+                <!-- Watermark -->
+                <div class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
+                    <span class="text-8xl font-bold tracking-widest text-[#FF914D] rotate-[30deg]">KITTYVERSE</span>
+                </div>
+                
+                <!-- Report Content goes here dynamically -->
+                <div id="pdfReportContent" class="space-y-6 relative z-10 flex flex-col h-full justify-between flex-1">
+                    <!-- Dynamic PDF Template Content -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer with actions -->
+        <div class="p-lg bg-white border-t border-orange-100/50 flex justify-between items-center shrink-0">
+            <p class="text-[10px] text-secondary">Generated automatically by KittyVerse AI Engine</p>
+            <div class="flex gap-sm">
+                <button type="button" id="downloadReportBtn" class="px-5 py-2.5 bg-secondary/10 hover:bg-secondary/20 text-secondary text-xs font-semibold rounded-xl transition-all">
+                    Download PDF
+                </button>
+                <button type="button" id="printReportBtn" class="px-5 py-2.5 bg-[#FF914D] hover:bg-[#ff8033] text-white text-xs font-semibold rounded-xl transition-all shadow-sm">
+                    Print Report
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Schedule Vaccine Modal Overlay -->
+<div id="scheduleVaxOverlay" class="fixed inset-0 bg-black/45 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none flex items-center justify-center p-md">
+    <!-- Modal Panel -->
+    <div id="scheduleVaxModal" class="w-full max-w-sm bg-[#FFF9F5] rounded-[24px] shadow-2xl transition-all duration-300 scale-95 opacity-0 flex flex-col overflow-hidden border border-orange-100/50">
+        <!-- Header -->
+        <div class="p-lg bg-white border-b border-orange-100/50">
+            <h3 class="font-headline-md text-headline-md font-bold text-text-main">Schedule Vaccination</h3>
+            <p class="text-xs text-secondary mt-0.5">Book a vaccine booster or dose for this rescue.</p>
+        </div>
+        
+        <!-- Form Body -->
+        <form id="scheduleVaxForm" class="p-lg space-y-md" onsubmit="return false;">
+            <!-- Select Vaccine -->
+            <div>
+                <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Vaccine Name</label>
+                <select name="vaccineName" class="w-full border-orange-200 rounded-xl text-xs py-2.5 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D]" required>
+                    <option value="Rabies">Rabies Booster</option>
+                    <option value="FVRCP">FVRCP (Core)</option>
+                    <option value="FeLV">Feline Leukemia (FeLV)</option>
+                    <option value="Calicivirus">Calicivirus Booster</option>
+                </select>
+            </div>
+            
+            <!-- Date -->
+            <div>
+                <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Date Scheduled</label>
+                <input type="date" name="scheduleDate" class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D]" required/>
+            </div>
+            
+            <!-- Notes -->
+            <div>
+                <label class="text-[11px] text-secondary font-semibold uppercase tracking-wider block mb-sm">Notes / Comments</label>
+                <textarea name="scheduleNotes" rows="2" class="w-full border-orange-200 rounded-xl text-xs py-2 px-3 focus:ring-1 focus:ring-[#FF914D] focus:border-[#FF914D] placeholder-secondary/50" placeholder="E.g., Second booster dose, observation required..."></textarea>
+            </div>
+        </form>
+        
+        <!-- Footer -->
+        <div class="p-lg bg-white border-t border-orange-100/50 flex justify-end gap-sm">
+            <button type="button" id="cancelScheduleVaxBtn" class="px-4 py-2 bg-secondary/10 hover:bg-secondary/20 text-secondary text-xs font-semibold rounded-xl transition-all">
+                Cancel
+            </button>
+            <button type="button" id="submitScheduleVaxBtn" class="px-5 py-2.5 bg-[#FF914D] hover:bg-[#ff8033] text-white text-xs font-semibold rounded-xl transition-all shadow-sm">
+                Schedule
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+        // Simple interactive micro-interactions
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.getAttribute('href') === '#') e.preventDefault();
+            });
+        });
+
+        // Hover effect for filter chips
+        const chips = document.querySelectorAll('.filter-chip');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('bg-primary', 'text-on-primary'));
+                chip.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+    </script>
+<script src="js/sidebar.js"></script>
+<script src="js/shelter.js"></script>
+</body></html>

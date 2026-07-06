@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KittyVerse | Smart Shelter Management Platform</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/landing.css">
+
+    <!-- Anti-flicker script for Splash Overlay -->
+    <script>
+        if (sessionStorage.getItem("kittyverse_splashed")) {
+            document.write('<style>#splash-overlay { display: none !important; }</style>');
+        }
+    </script>
+</head>
+<body>
+
+<!-- ==========================================
+SPLASH SCREEN OVERLAY
+========================================== -->
+<div id="splash-overlay">
+    <div class="paws-arc">
+        <span class="splash-paw">🐾</span>
+        <span class="splash-paw">🐾</span>
+        <span class="splash-paw">🐾</span>
+    </div>
+    
+    <div class="logo-container">
+        <svg viewBox="0 0 100 100" width="80" height="80">
+            <path d="M50 90 A40 40 0 1 1 50 10 A40 40 0 0 1 50 90 Z" fill="none" stroke="#FF914D" stroke-width="4" stroke-linecap="round"/>
+            <path d="M30 42 L40 26 L48 36 M70 42 L60 26 L52 36" fill="none" stroke="#FF914D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="40" cy="52" r="3.5" fill="#FF914D"/>
+            <circle cx="60" cy="52" r="3.5" fill="#FF914D"/>
+            <path d="M44 65 Q50 70 56 65" fill="none" stroke="#FF914D" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+    </div>
+    
+    <div class="branding-content">
+        <h1 class="branding-title">KittyVerse</h1>
+        <p class="branding-tagline">Where every paw finds a home, because every paw deserves a forever home.</p>
+    </div>
+    
+    <div class="branding-footer">
+        Powered by Team FannyPaws 🐾
+    </div>
+</div>
+
+<script>
+    (function() {
+        try {
+            if (sessionStorage.getItem("kittyverse_splashed")) {
+                const overlay = document.getElementById("splash-overlay");
+                if (overlay) {
+                    overlay.remove();
+                }
+            } else {
+                setTimeout(() => {
+                    sessionStorage.setItem("kittyverse_splashed", "true");
+                    const overlay = document.getElementById("splash-overlay");
+                    if (overlay) {
+                        overlay.style.transition = "opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s ease";
+                        overlay.style.opacity = "0";
+                        overlay.style.visibility = "hidden";
+                        setTimeout(() => overlay.remove(), 600);
+                    }
+                }, 5000);
+            }
+        } catch (e) {
+            console.error("Splash error:", e);
+            const overlay = document.getElementById("splash-overlay");
+            if (overlay) overlay.remove();
+        }
+    })();
+</script>
+
+<!-- ==========================================
+NAVBAR
+========================================== -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="assets/logo.svg" alt="KittyVerse">
+            <span>KittyVerse</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+        <a href="login.html" class="login-btn">Login</a>
+    </nav>
+</header>
+
+<!-- ==========================================
+HERO SECTION
+========================================== -->
+<section id="home" class="hero">
+    <div class="hero-left">
+        <span class="hero-badge">Smart Shelter Management Platform</span>
+        
+        <h1>Because every paw<br>deserves a<br><span class="highlight">forever</span> home.</h1>
+        
+        <p>
+            KittyVerse is an intelligent platform built to help shelters manage rescued cats,
+            health records, vaccinations, adoptions and analytics — all from one beautiful dashboard.
+        </p>
+        
+        <div class="hero-buttons">
+            <a href="signup.html" class="primary-btn">
+                Get Started <i class="ri-arrow-right-line"></i>
+            </a>
+        </div>
+
+        <!-- Social Proof -->
+        <div class="hero-social-proof">
+            <div class="avatar-group">
+                <div class="avatar" style="background-color: #FFECE2; color: #FF914D;">🐱</div>
+                <div class="avatar" style="background-color: #E2F5FF; color: #00A3FF;">🐶</div>
+                <div class="avatar" style="background-color: #EBFEE2; color: #2BD400;">🐹</div>
+                <div class="avatar" style="background-color: #F8E2FF; color: #D400FF;">🐰</div>
+                <div class="avatar" style="background-color: #FFE2E2; color: #FF0000;">🦊</div>
+            </div>
+            <div class="social-proof-text">
+                <span class="sub-text">Trusted by shelters and cat lovers worldwide</span>
+                <span class="count-text"><strong>+120 shelters</strong></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="hero-right">
+        <img src="assets/images/dashboard-preview.png" alt="KittyVerse Dashboard Preview" class="dashboard-preview-img">
+    </div>
+</section>
+
+<!-- ==========================================
+WHY KITTYVERSE
+========================================== -->
+<section id="features" class="features">
+    <div class="section-title">
+        <span>Why KittyVerse?</span>
+        <h2>Everything Your Shelter Needs, All In One Place.</h2>
+        <p>
+            Manage rescues, health records, vaccinations, adoptions and analytics from one intelligent platform.
+        </p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon-wrapper">
+                <i class="ri-home-heart-line"></i>
+            </div>
+            <h3>Shelter Management</h3>
+            <p>
+                Organize rescued cats, shelter information and rescue history.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon-wrapper">
+                <i class="ri-heart-pulse-line"></i>
+            </div>
+            <h3>Health Records</h3>
+            <p>
+                Track medications, treatments and vaccinations.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon-wrapper">
+                <i class="ri-user-heart-line"></i>
+            </div>
+            <h3>Adoption Journey</h3>
+            <p>
+                Monitor every cat until they find their forever home.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon-wrapper">
+                <i class="ri-bar-chart-box-line"></i>
+            </div>
+            <h3>Analytics</h3>
+            <p>
+                Understand shelter performance with real-time insights.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+WORKFLOW
+========================================== -->
+<section id="about" class="workflow">
+    <div class="section-title">
+        <span>Simple Workflow</span>
+        <h2>From Rescue To Forever Home</h2>
+    </div>
+
+    <div class="workflow-grid">
+        <div class="step">
+            <div class="number">01</div>
+            <h3>Rescue</h3>
+        </div>
+
+        <div class="step">
+            <div class="number">02</div>
+            <h3>Health Check</h3>
+        </div>
+
+        <div class="step">
+            <div class="number">03</div>
+            <h3>Care</h3>
+        </div>
+
+        <div class="step">
+            <div class="number">04</div>
+            <h3>Adoption</h3>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+CALL TO ACTION
+========================================== -->
+<section class="cta">
+    <h2>Ready To Transform Your Shelter?</h2>
+    <p>Join KittyVerse and make every rescue smarter.</p>
+    <a href="signup.html">Get Started</a>
+</section>
+
+<!-- ==========================================
+FOOTER
+========================================== -->
+<footer id="contact">
+    <div class="footer-content">
+        <h2>KittyVerse</h2>
+        <p>Where every paw finds a home, because every paw deserves a forever home.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="about.html">About</a>
+        <a href="login.html">Login</a>
+    </div>
+
+    <div class="footer-bottom">
+        <p class="powered-by">Powered by Team FannyPaws 🐾</p>
+        <p class="copyright">© 2026 KittyVerse</p>
+    </div>
+</footer>
+
+</body>
+</html>

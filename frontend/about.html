@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | KittyVerse</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/landing.css">
+
+    <style>
+        .about-container {
+            max-width: 900px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.04);
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,145,77,0.1);
+        }
+
+        .about-card h1 {
+            color: #FF914D;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .about-card p.intro {
+            font-size: 16px;
+            color: #4B5563;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .about-card h2 {
+            color: #222;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .about-item {
+            background: #FFF9F5;
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid rgba(255,145,77,0.08);
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .about-item:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255,145,77,0.2);
+        }
+
+        .about-item span.paw {
+            font-size: 20px;
+            filter: saturate(1.2);
+            user-select: none;
+        }
+
+        .about-item h3 {
+            color: #FF914D;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .about-item p {
+            color: #6B7280;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+
+        .motto {
+            margin-top: 40px;
+            font-weight: 700;
+            color: #FF914D;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-card {
+                padding: 40px 20px;
+            }
+            .about-container {
+                margin-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==========================================
+NAVBAR
+========================================== -->
+<header>
+    <nav class="navbar">
+        <div class="logo" style="cursor: pointer;" onclick="window.location.href='index.html'">
+            <img src="assets/logo.svg" alt="KittyVerse">
+            <span>KittyVerse</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+        </ul>
+
+        <a href="login.html" class="login-btn">Login</a>
+    </nav>
+</header>
+
+<!-- ==========================================
+MAIN ABOUT CONTENT
+========================================== -->
+<main class="about-container">
+    <div class="about-card">
+        <!-- Decorative scattered paw prints -->
+        <span style="position: absolute; top: 20px; left: 20px; opacity: 0.15; font-size: 24px; user-select: none;">🐾</span>
+        <span style="position: absolute; bottom: 20px; right: 20px; opacity: 0.15; font-size: 24px; user-select: none;">🐾</span>
+        <span style="position: absolute; top: 40px; right: 30px; opacity: 0.08; font-size: 18px; user-select: none;">🐾</span>
+        <span style="position: absolute; bottom: 40px; left: 30px; opacity: 0.08; font-size: 18px; user-select: none;">🐾</span>
+        <span style="position: absolute; top: 50%; left: 15px; opacity: 0.05; font-size: 20px; user-select: none;">🐾</span>
+        <span style="position: absolute; top: 45%; right: 15px; opacity: 0.05; font-size: 20px; user-select: none;">🐾</span>
+
+        <h1>About KittyVerse 🐾</h1>
+        
+        <p class="intro">
+            KittyVerse is a cute and smart shelter management platform dedicated to helping rescue centers care for stray cats and connect them with loving families. 
+            We build tools to make every shelter operation simpler, so you can spend less time on paperwork and more time with the kitties.
+        </p>
+
+        <h2>What KittyVerse Actually Does 🐾</h2>
+
+        <div class="about-grid">
+            <div class="about-item">
+                <span class="paw">🐾</span>
+                <div>
+                    <h3>Rescue Case Records</h3>
+                    <p>Log new rescue intakes with detailed information on breed, physical traits, location, and initial condition status.</p>
+                </div>
+            </div>
+            
+            <div class="about-item">
+                <span class="paw">🐾</span>
+                <div>
+                    <h3>Medical Tracking</h3>
+                    <p>Keep histories of checkups, treatments, and vaccination milestones up to date so every kitty stays healthy and clean.</p>
+                </div>
+            </div>
+
+            <div class="about-item">
+                <span class="paw">🐾</span>
+                <div>
+                    <h3>Adoption Pipelines</h3>
+                    <p>Organize incoming applications, run background reviews, and manage interview schedules to find correct home matches.</p>
+                </div>
+            </div>
+
+            <div class="about-item">
+                <span class="paw">🐾</span>
+                <div>
+                    <h3>Fanny AI Assistant</h3>
+                    <p>Our cat helper assistant draft adoption profiles, write summaries, and analyze compatibility scores to help you make decisions.</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="motto">
+            Because every paw deserves a forever home. 🐾
+        </p>
+    </div>
+</main>
+
+<!-- ==========================================
+FOOTER
+========================================== -->
+<footer id="contact">
+    <div class="footer-content">
+        <h2>KittyVerse</h2>
+        <p>Where every paw finds a home, because every paw deserves a forever home.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="about.html">About</a>
+        <a href="login.html">Login</a>
+    </div>
+
+    <div class="footer-bottom">
+        <p class="powered-by">Powered by Team FannyPaws 🐾</p>
+        <p class="copyright">© 2026 KittyVerse</p>
+    </div>
+</footer>
+
+</body>
+</html>

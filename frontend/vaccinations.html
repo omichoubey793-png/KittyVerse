@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vaccination Dashboard | KittyVerse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #F5F5F5;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #dcc1b4;
+            border-radius: 10px;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#ffb68e",
+                        "primary-fixed-dim": "#ffb68e",
+                        "surface-tint": "#9b4500",
+                        "on-tertiary-container": "#004853",
+                        "on-surface": "#2B2B2B",
+                        "on-primary-fixed-variant": "#763300",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "secondary": "#5f5e5e",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#fff1eb",
+                        "on-secondary-fixed-variant": "#474747",
+                        "primary-fixed": "#ffdbc9",
+                        "surface": "#fff8f6",
+                        "inverse-surface": "#392e29",
+                        "secondary-fixed": "#e4e2e1",
+                        "on-secondary-container": "#656464",
+                        "tertiary-fixed": "#a5eeff",
+                        "on-surface-variant": "#564339",
+                        "surface-container-high": "#f7e4dc",
+                        "primary": "#FF914D",
+                        "tertiary-fixed-dim": "#42d8f3",
+                        "tertiary-container": "#00bed9",
+                        "tertiary": "#006878",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#331200",
+                        "surface-container": "#fdeae1",
+                        "secondary-container": "#e4e2e1",
+                        "surface-dim": "#e9d6ce",
+                        "background": "#FFF9F5",
+                        "outline": "#897267",
+                        "on-primary-container": "#FF914D",
+                        "on-background": "#2B2B2B",
+                        "surface-bright": "#fff8f6",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#001f25",
+                        "surface-container-highest": "#f2dfd6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#f2dfd6",
+                        "inverse-on-surface": "#ffede5",
+                        "on-error": "#ffffff",
+                        "primary-container": "#FFF4EB",
+                        "outline-variant": "#dcc1b4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "max-width": "1440px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "2xl": "64px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "label-md": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"]
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="js/config.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased overflow-x-hidden">
+<!-- SideNavBar (Authority: JSON & Context) -->
+<aside></aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-surface/80 backdrop-blur-md flex justify-between items-center h-16 px-lg">
+<div class="flex items-center gap-lg flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-full pl-xl pr-md py-sm text-body-md focus:ring-2 focus:ring-primary-container" placeholder="Search medical records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-sm text-secondary hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-sm text-secondary hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<button class="p-sm text-secondary hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="w-px h-6 bg-outline-variant mx-sm"></div>
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-cover bg-center" data-alt="A professional headshot of a female veterinarian with a warm, confident expression, wearing a clean white lab coat and a stethoscope. She is set against a brightly lit, minimalist clinic background with soft orange and cream accents, embodying a premium and trustworthy medical atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtiG4dsLCox9PIdwxpv75EKWBKEiYuUhfSML4BJD96YoJvlU65ykL6VugomQnnnoTtI0mIFktBvJvSaldvjH1uIiXmDecO5Gxla7tLm7nAtWZkXNvvIlN58j1TphnFlEQp6GAGZnQ_jupcqL_aOeUul7Nva1g_GBE8Sf59FwAu2ii1hrpH4C_UoA5PD2dPUaJj-OlNz1QeXBX8QyZTea9idc-PqWHXnZSBHctUtkHnLCTMAVkGzP2BAIoase3OJdg8cvHph7q42H8')"></div>
+<span class="font-label-md font-semibold text-on-surface">Dr. Sarah Whiskers</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen px-margin-desktop pb-2xl">
+<!-- Header Section -->
+<section class="mt-xl mb-2xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Vaccination Dashboard</h2>
+<p class="text-body-lg text-secondary max-w-2xl">Monitor health milestones and manage immunizations for all feline residents. Precision care for every kitty.</p>
+</section>
+<!-- Summary Cards (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-2xl">
+<div class="bg-white p-lg rounded-[24px] border border-[#F5F5F5] hover:shadow-xl transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="p-sm rounded-xl bg-primary-fixed text-primary">
+<span class="material-symbols-outlined" data-icon="event_upcoming">event_upcoming</span>
+</div>
+<span class="text-label-sm font-bold text-primary">+12% vs last week</span>
+</div>
+<p class="text-label-md text-secondary uppercase tracking-wider">Upcoming Shots</p>
+<h3 class="text-display-lg font-bold text-on-surface">24</h3>
+<div class="mt-md flex -space-x-2">
+<!-- Avatars for upcoming cats -->
+<div class="w-8 h-8 rounded-full border-2 border-white bg-cover" data-alt="A close-up portrait of a fluffy ginger Maine Coon cat with bright amber eyes, looking curiously at the camera. The background is a soft, out-of-focus white room with warm sunlight streaming in, capturing a serene and healthy feline aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCZ_nzKgaD5EHDHq5mVf2FBiCo51ftngsYEKLH1FEoZLFFUK3o9ExQ9MNFLkC3YFOpUeQZElYA5z_i58q5rXYW7WGQ_4fsSbDb457SxgWvQqWM1P2ZuDvbzMXsBa_3pVHZFbwWh1Zn-Vz49iU6G3Qczh6rV5sOXJBBxhWM4QranDnJk0_NUiXBl16Dnf-1CnldxbbqRWpjN7rJzFyktI26Wr6WvToaeDk5CNbDYDJZdmxhPPx43OO6aoFFZnmBeG7V-6AnuIbhOw8c')"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-cover" data-alt="A sleek black Bombay cat with vibrant green eyes, sitting elegantly on a light cream surface. The lighting is soft and professional, highlighting the glossy texture of the cat's fur, in a clean, high-end medical shelter environment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBheC1rrcdD6LO5cxxLMXGczvSKJiv-p_OEJPkmu3mSZbnGFGh_4335NZPg66sSzhl6C35wnHMDGwbo9NykYQpoXxHzPnG-vheUCSGXpCQPww1lcZLKsKQz8CMGm0QHQH6ylktv2_6DbskWZE2TDjSEjBi0e4iFn7DIw8GnnCYSmb2QVfaNoMa-sM2rbWVAJu-uH1b4jS3bt6TCjxcqCP4fCpu6BnC-_5N_XDkxvOr7gJLHaSYmzVFpOuhcj2mAgu2orsxaStRbxiY')"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[10px] font-bold text-secondary">+21</div>
+</div>
+</div>
+<div class="bg-white p-lg rounded-[24px] border border-[#F5F5F5] hover:shadow-xl transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="p-sm rounded-xl bg-tertiary-fixed text-tertiary">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+</div>
+<span class="text-label-sm font-bold text-tertiary">98% Completion</span>
+</div>
+<p class="text-label-md text-secondary uppercase tracking-wider">Completed Today</p>
+<h3 class="text-display-lg font-bold text-on-surface">08</h3>
+<div class="mt-md w-full bg-secondary-fixed h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[98%]"></div>
+</div>
+</div>
+<div class="bg-white p-lg rounded-[24px] border border-[#F5F5F5] hover:shadow-xl transition-all duration-300 border-l-4 border-l-error">
+<div class="flex justify-between items-start mb-md">
+<div class="p-sm rounded-xl bg-error-container text-error">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<span class="text-label-sm font-bold text-error">High Priority</span>
+</div>
+<p class="text-label-md text-secondary uppercase tracking-wider">Overdue Booster</p>
+<h3 class="text-display-lg font-bold text-on-surface">03</h3>
+<p class="text-label-sm text-error mt-sm">Requires immediate attention</p>
+</div>
+</div>
+<!-- Main Dashboard Section: Calendar & Lists -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-2xl">
+<!-- Column: Today's Appointments & Calendar -->
+<div class="lg:col-span-8 space-y-2xl">
+<!-- Modern Calendar View -->
+<section class="bg-white p-lg rounded-[24px] border border-[#F5F5F5]">
+<div class="flex justify-between items-center mb-xl">
+<div>
+<h4 class="font-headline-md text-headline-md">Vaccination Calendar</h4>
+<p class="text-body-md text-secondary">October 2023</p>
+</div>
+<div class="flex gap-sm">
+<button class="p-sm rounded-lg hover:bg-surface-container transition-colors"><span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span></button>
+<button class="p-sm rounded-lg hover:bg-surface-container transition-colors"><span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+<div class="calendar-grid gap-sm mb-md text-center text-label-sm text-secondary font-bold uppercase tracking-widest">
+<div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+</div>
+<div class="calendar-grid gap-sm">
+<!-- Simplified Calendar for Visual Demo -->
+<div class="aspect-square flex items-center justify-center text-label-md text-outline-variant">24</div>
+<div class="aspect-square flex items-center justify-center text-label-md text-outline-variant">25</div>
+<div class="aspect-square flex items-center justify-center text-label-md text-outline-variant">26</div>
+<div class="aspect-square flex items-center justify-center text-label-md text-outline-variant">27</div>
+<div class="aspect-square flex items-center justify-center text-label-md text-outline-variant">28</div>
+<div class="aspect-square flex items-center justify-center text-label-md text-outline-variant">29</div>
+<div class="aspect-square flex items-center justify-center text-label-md text-outline-variant">30</div>
+<div class="aspect-square flex flex-col items-center justify-center text-label-md relative hover:bg-surface-container-low rounded-xl cursor-pointer">1</div>
+<div class="aspect-square flex flex-col items-center justify-center text-label-md relative hover:bg-surface-container-low rounded-xl cursor-pointer">2</div>
+<div class="aspect-square flex flex-col items-center justify-center text-label-md relative hover:bg-surface-container-low rounded-xl cursor-pointer">3</div>
+<div class="aspect-square flex flex-col items-center justify-center text-label-md relative hover:bg-surface-container-low rounded-xl cursor-pointer">4
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-1"></span>
+</div>
+<div class="aspect-square flex flex-col items-center justify-center text-label-md relative bg-primary text-on-primary rounded-xl shadow-md">5
+                            <span class="w-1.5 h-1.5 bg-white rounded-full mt-1"></span>
+</div>
+<div class="aspect-square flex flex-col items-center justify-center text-label-md relative hover:bg-surface-container-low rounded-xl cursor-pointer">6</div>
+<div class="aspect-square flex flex-col items-center justify-center text-label-md relative hover:bg-surface-container-low rounded-xl cursor-pointer">7</div>
+</div>
+</section>
+<!-- Today's Vaccinations List -->
+<section>
+<div class="flex justify-between items-end mb-lg">
+<h4 class="font-headline-md text-headline-md">Today's Schedule</h4>
+<button class="text-primary font-label-md hover:underline">View All</button>
+</div>
+<div class="space-y-md">
+<!-- Cat Card 1 -->
+<div class="bg-white p-md rounded-[24px] border border-[#F5F5F5] flex items-center gap-lg hover:shadow-md transition-shadow">
+<div class="w-16 h-16 rounded-2xl bg-cover bg-center flex-shrink-0" data-alt="A portrait of a beautiful Siamese cat with piercing blue eyes and dark points on its ears and face. The cat is sitting in a sunlit corner of a high-end minimalist room, looking serene and healthy, embodying the premium care of the shelter." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCl1M4aS9po14ldaZnIJ18kfeqf_9DWTFzuQddkj6_5lZ6xoT9T5d583pk3eYUFjzJe6gZx2BDrKU1XxYRPDbhTXIq-ULqcMYhPwiLzvmDjgAqHjHonY4TiLbyPO2CYBe5s8SNLwKlchima_YzhaWi5_E7lk8wjDiTcK4SsvyHulvRLm4R_hsRKRvA5R30YYY4RsAkZzNVs5CHj1r-OMECxzzRcXoMlb-Oe2dOw-FCjcfiWDSkh6WDB212-cCfzxZt8_eodvnphzjM')"></div>
+<div class="flex-1">
+<h5 class="font-bold text-body-lg">Mochi</h5>
+<p class="text-label-md text-secondary">Domestic Shorthair • 8 months</p>
+</div>
+<div class="flex flex-col items-end gap-xs">
+<span class="px-sm py-1 bg-surface-container text-on-primary-container rounded-full text-label-sm font-bold">FVRCP Booster</span>
+<span class="text-label-sm text-secondary">Room 102 • 10:30 AM</span>
+</div>
+<button class="p-sm rounded-full bg-primary/5 text-primary hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="medication">medication</span>
+</button>
+</div>
+<!-- Cat Card 2 -->
+<div class="bg-white p-md rounded-[24px] border border-[#F5F5F5] flex items-center gap-lg hover:shadow-md transition-shadow">
+<div class="w-16 h-16 rounded-2xl bg-cover bg-center flex-shrink-0" data-alt="A cute Calico kitten with patches of orange, black, and white fur, playing with a small ball in a bright, modern nursery room. The floor is a light-colored wood, and the overall lighting is soft and cheerful, reflecting a high-quality care facility." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCX8dTtv6LpiHRbKum_iPwZ8tH7gtb-mxWATLoo9EMbPOk8CrZesMVg-NpHTi-TdrsgzHHOLGxFLMN-dBtEZ6ccFCZOVG6AmAyj-jkt8ZExK7SQMfIUcTNjAUmPmTcb_8gcK74TrEVbBJXBw7QhFbjuDB7Z7tN_jY1Lo0oKUT0D9Z7AKUTK1t-gh913IiaiAXDD_vH5fpnOmZ-E72sYKIU3rYHBZA5H7SubjckNUOIGfEi4891RvkEhjyblILFhzQZY9Q98NWFCrvk')"></div>
+<div class="flex-1">
+<h5 class="font-bold text-body-lg">Patches</h5>
+<p class="text-label-md text-secondary">Calico • 3 months</p>
+</div>
+<div class="flex flex-col items-end gap-xs">
+<span class="px-sm py-1 bg-tertiary-container/20 text-on-tertiary-container rounded-full text-label-sm font-bold">Rabies (Initial)</span>
+<span class="text-label-sm text-secondary">Main Hall • 11:15 AM</span>
+</div>
+<button class="p-sm rounded-full bg-primary/5 text-primary hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="medication">medication</span>
+</button>
+</div>
+<!-- Cat Card 3 (Completed) -->
+<div class="bg-surface-container/50 p-md rounded-[24px] border border-dashed border-outline-variant flex items-center gap-lg opacity-70">
+<div class="w-16 h-16 rounded-2xl bg-cover bg-center grayscale flex-shrink-0" data-alt="A dignified grey Russian Blue cat with deep emerald eyes, sitting regally on a high shelf in a minimalist apartment. The cat's smooth, silver fur is beautifully illuminated by soft daylight, and the background is a clean, modern white space." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPi5JyLz6voQcE88QELvsOWqzrJRo5cVPABC5tHmWqllwZK-LXGJsSNjv19VjFSec6yHqxVIoxtW-x8ypGwsyqPlrI6tPv6CwbKCdK8zPqgkAQx5QzyKJxAaWpTT_R7pyjfrpKnkoZLfItyrjFqWMc53dVJeFAOzk9WqVC1TtPRV4ZpBKo8gMYmXyum3ePaqNAUhW3aBnhfdniGbCIxIKCV1GWWZCAXJ854PNjaCVLMGMGAlp4hQs8WTUQmYa7EBRa4ZQTaZh272I')"></div>
+<div class="flex-1">
+<h5 class="font-bold text-body-lg">Gandalf</h5>
+<p class="text-label-md text-secondary">Russian Blue • 4 years</p>
+</div>
+<div class="flex flex-col items-end gap-xs">
+<span class="px-sm py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm font-bold">FeLV Vaccination</span>
+<span class="text-label-sm text-secondary">Completed at 09:00 AM</span>
+</div>
+<div class="p-sm rounded-full bg-tertiary text-on-tertiary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Column: Reminders & AI Recommendations -->
+<div class="lg:col-span-4 space-y-2xl">
+<!-- Reminders Timeline -->
+<section class="bg-white p-lg rounded-[24px] border border-[#F5F5F5]">
+<h4 class="font-headline-md text-headline-md mb-xl">Booster Reminders</h4>
+<div class="space-y-lg relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant">
+<div class="relative pl-lg">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-white border-4 border-primary z-10"></div>
+<div class="flex flex-col">
+<span class="text-label-sm font-bold text-primary">In 3 Days</span>
+<p class="font-bold text-on-surface">Luna • Rabies Booster</p>
+<p class="text-label-md text-secondary">Due: Oct 08, 2023</p>
+</div>
+</div>
+<div class="relative pl-lg">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-white border-4 border-outline-variant z-10"></div>
+<div class="flex flex-col">
+<span class="text-label-sm font-bold text-secondary">Next Week</span>
+<p class="font-bold text-on-surface">Simba • FVRCP</p>
+<p class="text-label-md text-secondary">Due: Oct 12, 2023</p>
+</div>
+</div>
+<div class="relative pl-lg">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-white border-4 border-outline-variant z-10"></div>
+<div class="flex flex-col">
+<span class="text-label-sm font-bold text-secondary">Oct 20th</span>
+<p class="font-bold text-on-surface">Daisy • FeLV</p>
+<p class="text-label-md text-secondary">Due: Oct 20, 2023</p>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Insights Panel -->
+<section class="bg-primary/5 p-lg rounded-[24px] border border-primary/10 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 text-primary/10 rotate-12">
+<span class="material-symbols-outlined text-8xl" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<h4 class="font-bold text-primary">AI Medical Insight</h4>
+</div>
+<p class="text-body-md text-on-primary-container leading-relaxed mb-md">
+                            Based on recent intake records, we recommend batch-ordering 50 units of **FVRCP** this month. Adoption rates for kittens under 12 weeks are projected to rise by 15% next month.
+                        </p>
+<button class="w-full py-sm bg-white border border-primary/20 text-primary rounded-xl font-label-md font-bold hover:bg-primary hover:text-white transition-all">
+                            Review Supply Chain
+                        </button>
+</div>
+</section>
+<!-- Quick Actions Grid -->
+<div class="grid grid-cols-2 gap-md">
+<button class="bg-white p-md rounded-[24px] border border-[#F5F5F5] flex flex-col items-center gap-sm hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="upload_file">upload_file</span>
+<span class="text-label-sm font-bold">Import Lab</span>
+</button>
+<button class="bg-white p-md rounded-[24px] border border-[#F5F5F5] flex flex-col items-center gap-sm hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="print">print</span>
+<span class="text-label-sm font-bold">Print Logs</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only on dashboard/home-like screens) -->
+<button class="fixed bottom-lg right-lg w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<script>
+        // Simple Interaction logic
+        document.querySelectorAll('button, a').forEach(elem => {
+            elem.addEventListener('mousedown', () => {
+                elem.classList.add('scale-95');
+            });
+            elem.addEventListener('mouseup', () => {
+                elem.classList.remove('scale-95');
+            });
+        });
+    </script>
+<script src="js/sidebar.js"></script>
+</body></html>

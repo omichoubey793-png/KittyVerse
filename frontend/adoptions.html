@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Adoption Management | KittyVerse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .notion-shadow {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+        .glass-header {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #dcc1b4;
+            border-radius: 10px;
+        }
+        .workflow-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 40px;
+            height: 2px;
+            background: #f2dfd6;
+            z-index: 0;
+        }
+        .workflow-step:last-child::after {
+            display: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#ffb68e",
+                        "primary-fixed-dim": "#ffb68e",
+                        "surface-tint": "#9b4500",
+                        "on-tertiary-container": "#004853",
+                        "on-surface": "#2B2B2B",
+                        "on-primary-fixed-variant": "#763300",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "secondary": "#5f5e5e",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#fff1eb",
+                        "on-secondary-fixed-variant": "#474747",
+                        "primary-fixed": "#ffdbc9",
+                        "surface": "#fff8f6",
+                        "inverse-surface": "#392e29",
+                        "secondary-fixed": "#e4e2e1",
+                        "on-secondary-container": "#656464",
+                        "tertiary-fixed": "#a5eeff",
+                        "on-surface-variant": "#564339",
+                        "surface-container-high": "#f7e4dc",
+                        "primary": "#FF914D",
+                        "tertiary-fixed-dim": "#42d8f3",
+                        "tertiary-container": "#00bed9",
+                        "tertiary": "#006878",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#331200",
+                        "surface-container": "#fdeae1",
+                        "secondary-container": "#e4e2e1",
+                        "surface-dim": "#e9d6ce",
+                        "background": "#FFF9F5",
+                        "outline": "#897267",
+                        "on-primary-container": "#FF914D",
+                        "on-background": "#2B2B2B",
+                        "surface-bright": "#fff8f6",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#001f25",
+                        "surface-container-highest": "#f2dfd6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#f2dfd6",
+                        "inverse-on-surface": "#ffede5",
+                        "on-error": "#ffffff",
+                        "primary-container": "#FFF4EB",
+                        "outline-variant": "#dcc1b4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "12px",
+                        "2xl": "24px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "max-width": "1440px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "2xl": "64px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "label-md": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="js/config.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- SideNavBar Shell -->
+<aside></aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] z-40 bg-surface/80 backdrop-blur-md px-lg h-16 flex items-center justify-between shadow-sm border-b border-outline-variant/30">
+<div class="flex items-center gap-lg flex-1">
+<div class="relative w-full max-w-md hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-2 pl-10 pr-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-label-md outline-none" placeholder="Search applications or feline IDs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 rounded-full hover:bg-surface-container text-secondary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container text-secondary">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-sm cursor-pointer group">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold text-xs overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional profile portrait of a shelter administrator, soft warm studio lighting, minimalist clean background, high-end photography style, warm neutral tones to match the KittyVerse brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqq2Um0HcGL-5IS3YSYH7O-Nr33EJ1zV8fwzJVGpfqeCOfc-mgbkPGGHV4Ubeo6N7Yor8t5xMeRT-XXI1IsmB4lN7Um5USQlaVOeefGzRwEyCxbr9_cxjCb9P5ZenQTngDLfIdxhC2jnI9p8-zPX0NXcmRtSAtL-p_cKS10EGePWLi0ECAF83KvPHoFx62yat3LQtUgnue7RsjVS05FXKSEcFjud0FmIzglJC144ff3C3-GHDvzedIoXmkcTAhNjiimBwCM6bTNNo"/>
+</div>
+<span class="font-label-md text-on-surface group-hover:text-primary transition-colors">Admin Sarah</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-xl px-lg md:ml-64 min-h-screen">
+<div class="max-w-[1200px] mx-auto">
+<!-- Header Section -->
+<div class="mb-2xl flex flex-col md:flex-row md:items-end justify-between gap-lg">
+<div>
+<h2 class="font-headline-lg text-on-surface">Adoption Pipeline</h2>
+<p class="text-secondary mt-1 font-body-md">Connecting 42 feline friends with their forever homes this month.</p>
+</div>
+<!-- Tab Navigation -->
+<div class="flex bg-surface-container-low p-1 rounded-2xl notion-shadow border border-outline-variant/50">
+<button class="px-md py-2 rounded-xl text-label-md font-bold text-primary bg-surface-container-lowest notion-shadow transition-all">Available Cats</button>
+<button class="px-md py-2 rounded-xl text-label-md font-medium text-secondary hover:text-on-surface transition-all">Pending Applications</button>
+<button class="px-md py-2 rounded-xl text-label-md font-medium text-secondary hover:text-on-surface transition-all">Adopted Cats</button>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Left Column: Featured Available Cats -->
+<div class="lg:col-span-8 space-y-xl">
+<section>
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-md text-on-surface">Spotlight Residents</h3>
+<button class="text-primary font-label-md flex items-center gap-xs hover:underline">
+                                View all residents <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Cat Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden notion-shadow border border-outline-variant hover:border-primary/30 transition-all group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up portrait of a majestic long-haired ginger cat sitting on a minimalist white velvet cushion. Soft morning light enters from a nearby window, illuminating its amber eyes. Clean, high-end warm tech aesthetic, minimalist background with a hint of warm cream tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtrJnq3CfELcTUCAXv8iNOH4ge8iEdRDY4eSz9VKlKrvFq0GfVPn-t3yhsO_8bSY7szRQXOi3KL_qOtVlCdVE-X_l6fsi6iH96sDFlXVBvk9AiNbNNQw4MVRxNyNYZJYJvSMvZzIw1JsRD0N3zocYsJOuaYmrdQvljuZl_kS6tHHkaWGjmyVMlxsJrX6hxLgzPxM3-MYcTA9COWVtF46IVyzAhp3L9XhpgwOSA-UIdm-qujjchQfSMDOluBEyEJR1qlBECUL2BFyg"/>
+<div class="absolute top-md right-md bg-tertiary text-on-tertiary px-sm py-1 rounded-lg text-label-sm font-bold uppercase tracking-wider">Available</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-sm">
+<h4 class="font-headline-md text-[20px]">Cinnamon</h4>
+<span class="text-secondary font-label-md">2.5 Years</span>
+</div>
+<p class="text-secondary font-body-md line-clamp-2 mb-lg">Sweet-natured ginger prince looking for a quiet home with plenty of sunbeams to nap in.</p>
+<div class="flex items-center gap-sm">
+<div class="bg-surface-container px-sm py-1 rounded-lg text-label-sm text-on-surface-variant">Indoor Only</div>
+<div class="bg-surface-container px-sm py-1 rounded-lg text-label-sm text-on-surface-variant">FIV Negative</div>
+</div>
+</div>
+</div>
+<!-- Cat Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden notion-shadow border border-outline-variant hover:border-primary/30 transition-all group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An elegant grey Siamese mix kitten playing with a simple organic cotton yarn ball in a bright, airy room with light wood floors. The style is modern minimalist, with soft shadows and a warm, inviting atmosphere consistent with a premium pet rescue brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLKZ7DBWGiMWxWmW0Wu7LbGj1Pzhpk1M38ipgmG_dD9Km0MPDOxTcQe-mVQ7Luug9-r0RDC3K6z4lNr95-KgB4zHC0Cy7QpJvXnr5yFjMjhBfUJQIcCLN1FgQG_ppvU8lUlLHUqH_pEe83qV05gyPmxKvAfjyPPH8MK8gWfV6Vj6rwVDpfiR3FDg4cK_s4C4tTKpz_dWRqikbjAi_mDDV3Q21-vta2jCKoIyuzmBiHw0GIxAvjfqEbrUxeVzti7cj5cWVxgwQE2JQ"/>
+<div class="absolute top-md right-md bg-secondary-container text-on-secondary-container px-sm py-1 rounded-lg text-label-sm font-bold uppercase tracking-wider">Medical Hold</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-sm">
+<h4 class="font-headline-md text-[20px]">Mist</h4>
+<span class="text-secondary font-label-md">5 Months</span>
+</div>
+<p class="text-secondary font-body-md line-clamp-2 mb-lg">Playful and vocal kitten currently recovering from minor dental work. Ready soon!</p>
+<div class="flex items-center gap-sm">
+<div class="bg-surface-container px-sm py-1 rounded-lg text-label-sm text-on-surface-variant">Active</div>
+<div class="bg-surface-container px-sm py-1 rounded-lg text-label-sm text-on-surface-variant">Great with kids</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Active Workflow Trackers -->
+<section>
+<h3 class="font-headline-md text-on-surface mb-lg">In-Progress Journeys</h3>
+<div class="space-y-md">
+<!-- Workflow Item 1 -->
+<div class="bg-surface-container-lowest p-lg rounded-2xl border border-outline-variant notion-shadow">
+<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-md mb-xl">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Small round avatar of a black tuxedo cat with bright green eyes, set against a warm beige background. High-quality digital pet photography, soft lighting, clean professional feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEXS3D-3VjLnqZgTpkci71Tfu1HbhFGOX5ZiWB2fWsDmUE2ZOFR8gAd8CBt8mzT-9EXSJwl8QcCRVwm7ezeg6epnF6iKWFAa3hLlVytdgG2VaCFyYhYt1C-OTz-h0xVoVPX3enb_OPXBDi4H_dc1KQwKiCkUhd4t6UlXvqZv9Rk1YOau6gCchQLstiKVk3pdLcI2VA7byxBW5D8PTawpZNn9d9UpsWX91TCc2eyPjaLoxvC1hMsOkNrgt_hF7SmW0E-F_W4pxCTNo"/>
+</div>
+<div>
+<h5 class="font-label-md font-bold text-on-surface">Oliver's Adoption</h5>
+<p class="text-label-sm text-secondary">Adopter: Emily Chen</p>
+</div>
+</div>
+<div class="bg-primary-container/10 text-primary px-md py-1 rounded-full text-label-sm font-bold">Contacted</div>
+</div>
+<div class="relative flex items-center justify-between px-md overflow-x-auto pb-4">
+<div class="flex flex-col items-center gap-2 relative z-10 workflow-step min-w-[80px]">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-bold text-on-surface">Applied</span>
+</div>
+<div class="flex flex-col items-center gap-2 relative z-10 workflow-step min-w-[80px]">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-bold text-on-surface">Review</span>
+</div>
+<div class="flex flex-col items-center gap-2 relative z-10 workflow-step min-w-[80px]">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center animate-pulse shadow-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="chat">chat</span>
+</div>
+<span class="text-label-sm font-bold text-primary">Interview</span>
+</div>
+<div class="flex flex-col items-center gap-2 relative z-10 workflow-step min-w-[80px]">
+<div class="w-8 h-8 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="home">home</span>
+</div>
+<span class="text-label-sm text-secondary">Visit</span>
+</div>
+<div class="flex flex-col items-center gap-2 relative z-10 min-w-[80px]">
+<div class="w-8 h-8 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="celebration">celebration</span>
+</div>
+<span class="text-label-sm text-secondary">Final</span>
+</div>
+</div>
+</div>
+<!-- Workflow Item 2 -->
+<div class="bg-surface-container-lowest p-lg rounded-2xl border border-outline-variant notion-shadow">
+<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-md mb-xl">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Small round avatar of a calico cat with distinct orange and black patches on white fur, friendly expression, looking into camera. Minimalist warm white background, premium photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKPMFL4ExsU1Tpa5leMqajzjOhdlAZ8vdW3O-BgrGMRtuWWGMgcEzcmSc9cKYkzr4dGGehJBD8PqrWpHd-JaBpDfCUi_t3P1nHict1tU1MDut3OX62XsNRDDw3tl9jrHtDtS21fD-F90k_U8Lsy2HGBJyIeI4b2H4HQaMHn5mpFB3DgBxTKKLtvkSWTN8kRXRgRp3veUrM0fh2uc8pzNa1uTskN3hjpSYdon-otPSd9IysYm7RZwDqoZWC3coRjXCBvp-dDMS-hPc"/>
+</div>
+<div>
+<h5 class="font-label-md font-bold text-on-surface">Patches' Adoption</h5>
+<p class="text-label-sm text-secondary">Adopter: Marcus Wright</p>
+</div>
+</div>
+<div class="bg-tertiary-container/20 text-tertiary px-md py-1 rounded-full text-label-sm font-bold">Reviewing</div>
+</div>
+<div class="relative flex items-center justify-between px-md overflow-x-auto pb-4">
+<div class="flex flex-col items-center gap-2 relative z-10 workflow-step min-w-[80px]">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-bold text-on-surface">Applied</span>
+</div>
+<div class="flex flex-col items-center gap-2 relative z-10 workflow-step min-w-[80px]">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-[18px]" data-icon="pending">pending</span>
+</div>
+<span class="text-label-sm font-bold text-primary">Review</span>
+</div>
+<div class="flex flex-col items-center gap-2 relative z-10 workflow-step min-w-[80px]">
+<div class="w-8 h-8 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="chat">chat</span>
+</div>
+<span class="text-label-sm text-secondary">Interview</span>
+</div>
+<div class="flex flex-col items-center gap-2 relative z-10 workflow-step min-w-[80px]">
+<div class="w-8 h-8 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="home">home</span>
+</div>
+<span class="text-label-sm text-secondary">Visit</span>
+</div>
+<div class="flex flex-col items-center gap-2 relative z-10 min-w-[80px]">
+<div class="w-8 h-8 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="celebration">celebration</span>
+</div>
+<span class="text-label-sm text-secondary">Final</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: New Applications & Stats -->
+<div class="lg:col-span-4 space-y-xl">
+<!-- Stats Card -->
+<div class="bg-primary-container/10 p-lg rounded-2xl border border-primary-container/20">
+<div class="flex items-center gap-sm mb-md text-primary">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<h4 class="font-label-md font-bold uppercase tracking-wide">Monthly Snapshot</h4>
+</div>
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-label-md">Success Stories</span>
+<span class="font-headline-md text-primary">28</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-label-md">In Pipeline</span>
+<span class="font-headline-md text-on-surface">14</span>
+</div>
+<div class="h-[2px] bg-outline-variant/30 w-full my-sm"></div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-label-md">Avg. Placement Time</span>
+<span class="font-headline-md text-on-surface">12d</span>
+</div>
+</div>
+</div>
+<!-- New Applications -->
+<section>
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-on-surface">Recent Applications</h3>
+<select id="applicationFilter" class="bg-surface-container-lowest border border-outline-variant rounded-xl text-label-sm font-semibold px-3 py-1.5 text-secondary focus:ring-1 focus:ring-primary focus:border-primary outline-none cursor-pointer">
+<option value="all">All</option>
+<option value="pending">Pending</option>
+<option value="approved">Approved</option>
+<option value="rejected">Rejected</option>
+</select>
+</div>
+<div class="space-y-md">
+<!-- App Card 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:shadow-lg transition-shadow cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-secondary font-bold text-xs">AM</div>
+<div>
+<h6 class="font-label-md font-bold group-hover:text-primary transition-colors">Alice Miller</h6>
+<p class="text-label-sm text-secondary">Applying for: Luna</p>
+</div>
+</div>
+<span class="bg-tertiary/10 text-tertiary px-sm py-0.5 rounded text-[10px] font-bold uppercase">New</span>
+</div>
+<div class="flex items-center gap-sm mt-md">
+<button class="flex-1 bg-surface px-md py-1.5 rounded-lg border border-outline-variant text-label-sm hover:bg-surface-container transition-colors">Quick View</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary/5 text-primary hover:bg-primary/10">
+<span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span>
+</button>
+</div>
+</div>
+<!-- App Card 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:shadow-lg transition-shadow cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-secondary font-bold text-xs">JD</div>
+<div>
+<h6 class="font-label-md font-bold group-hover:text-primary transition-colors">James Doe</h6>
+<p class="text-label-sm text-secondary">Applying for: Simba</p>
+</div>
+</div>
+<span class="bg-secondary/10 text-secondary px-sm py-0.5 rounded text-[10px] font-bold uppercase">Contacted</span>
+</div>
+<div class="flex items-center gap-sm mt-md">
+<button class="flex-1 bg-surface px-md py-1.5 rounded-lg border border-outline-variant text-label-sm hover:bg-surface-container transition-colors">Quick View</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary/5 text-primary hover:bg-primary/10">
+<span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span>
+</button>
+</div>
+</div>
+<!-- App Card 3 -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:shadow-lg transition-shadow cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-secondary font-bold text-xs">SK</div>
+<div>
+<h6 class="font-label-md font-bold group-hover:text-primary transition-colors">Sarah Klein</h6>
+<p class="text-label-sm text-secondary">Applying for: Oreo</p>
+</div>
+</div>
+<span class="bg-primary/10 text-primary px-sm py-0.5 rounded text-[10px] font-bold uppercase">Reviewing</span>
+</div>
+<div class="flex items-center gap-sm mt-md">
+<button class="flex-1 bg-surface px-md py-1.5 rounded-lg border border-outline-variant text-label-sm hover:bg-surface-container transition-colors">Quick View</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary/5 text-primary hover:bg-primary/10">
+<span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar for Mobile -->
+<nav class="fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant flex md:hidden justify-around items-center h-16 px-md z-50">
+<button class="flex flex-col items-center text-secondary">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center text-secondary">
+<span class="material-symbols-outlined" data-icon="pets">pets</span>
+<span class="text-[10px] font-label-md">Cats</span>
+</button>
+<button class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined" data-icon="volunteer_activism" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span class="text-[10px] font-label-md">Adopt</span>
+</button>
+<button class="flex flex-col items-center text-secondary">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-[10px] font-label-md">Chat</span>
+</button>
+<button class="flex flex-col items-center text-secondary">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-label-md">Settings</span>
+</button>
+</nav>
+
+<!-- Drawer Overlay -->
+<div id="drawerOverlay" class="fixed inset-0 bg-[#231a14]/40 backdrop-blur-sm z-40 hidden transition-opacity duration-300 opacity-0"></div>
+
+<!-- View Details Drawer -->
+<div id="detailsDrawer" class="fixed top-0 right-0 h-screen w-full sm:w-[500px] bg-[#FFF9F5] border-l border-outline-variant/30 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto">
+    <!-- Header -->
+    <div class="sticky top-0 bg-[#FFF9F5]/80 backdrop-blur-md px-lg py-md border-b border-outline-variant/30 flex justify-between items-center z-10">
+        <h3 class="font-headline-md text-on-surface">Application Details</h3>
+        <button id="closeDrawerBtn" class="p-2 rounded-full hover:bg-surface-container text-secondary">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+
+    <!-- Content Container -->
+    <div id="drawerContent" class="p-lg space-y-xl">
+        <!-- Dynamic Content -->
+    </div>
+</div>
+
+<!-- Adoption Form Modal -->
+<div id="adoptionModalOverlay" class="fixed inset-0 bg-[#231a14]/40 backdrop-blur-sm z-40 hidden transition-opacity duration-300 opacity-0 flex items-center justify-center">
+    <div class="bg-[#FFF9F5] rounded-3xl border border-outline-variant/50 p-lg w-full max-w-lg mx-4 shadow-2xl space-y-md transform scale-95 transition-all duration-300 opacity-0" id="adoptionModal">
+        <div class="flex justify-between items-center border-b border-outline-variant/30 pb-sm">
+            <h3 class="font-headline-md text-on-surface text-lg font-bold">Submit Adoption Application</h3>
+            <button id="closeAdoptionModalBtn" class="p-2 rounded-full hover:bg-surface-container text-secondary">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <form id="adoptionApplicationForm" class="space-y-md text-sm">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+                <div>
+                    <label class="block font-bold text-xs uppercase tracking-wide text-secondary mb-1">Phone Number</label>
+                    <input type="text" id="app-phone" placeholder="+1 (555) 0199" required class="w-full bg-white border border-outline-variant rounded-xl px-md py-sm outline-none focus:ring-2 focus:ring-primary/20">
+                </div>
+                <div>
+                    <label class="block font-bold text-xs uppercase tracking-wide text-secondary mb-1">Home Address</label>
+                    <input type="text" id="app-address" placeholder="782 Broadway, New York, NY" required class="w-full bg-white border border-outline-variant rounded-xl px-md py-sm outline-none focus:ring-2 focus:ring-primary/20">
+                </div>
+            </div>
+            <div>
+                <label class="block font-bold text-xs uppercase tracking-wide text-secondary mb-1">Reason for Adoption</label>
+                <textarea id="app-reason" placeholder="Why would you like to adopt this cat?" required rows="2" class="w-full bg-white border border-outline-variant rounded-xl px-md py-sm outline-none focus:ring-2 focus:ring-primary/20"></textarea>
+            </div>
+            <div>
+                <label class="block font-bold text-xs uppercase tracking-wide text-secondary mb-1">Previous Pet Experience</label>
+                <textarea id="app-experience" placeholder="Detail any past pet ownership or shelter volunteering." required rows="2" class="w-full bg-white border border-outline-variant rounded-xl px-md py-sm outline-none focus:ring-2 focus:ring-primary/20"></textarea>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+                <div>
+                    <label class="block font-bold text-xs uppercase tracking-wide text-secondary mb-1">Residence Type</label>
+                    <select id="app-houseType" class="w-full bg-white border border-outline-variant rounded-xl px-md py-sm outline-none focus:ring-2 focus:ring-primary/20">
+                        <option value="Apartment (pet-friendly, indoor only)">Apartment</option>
+                        <option value="Single family house with secure backyard">Single Family House</option>
+                        <option value="Suburban townhouse with screened porch">Townhouse</option>
+                        <option value="Condo with plenty of vertical spaces/shelves">Condo</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-bold text-xs uppercase tracking-wide text-secondary mb-1">Household Members</label>
+                    <input type="text" id="app-family" placeholder="Living alone, couple, family of 4..." required class="w-full bg-white border border-outline-variant rounded-xl px-md py-sm outline-none focus:ring-2 focus:ring-primary/20">
+                </div>
+            </div>
+            <div class="flex justify-end gap-sm pt-sm border-t border-outline-variant/30">
+                <button type="button" id="cancelAdoptionBtn" class="px-md py-2 border border-outline-variant rounded-xl hover:bg-surface-container transition-colors">Cancel</button>
+                <button type="submit" class="px-md py-2 bg-primary hover:bg-[#ff8033] text-white rounded-xl font-bold transition-all shadow-sm">Submit Application</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+        const token = localStorage.getItem("kittyverse_token");
+        const headers = {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json"
+        };
+
+        let animals = [];
+        let adoptions = [];
+        let currentTab = "available";
+
+        let pendingAdoptionAnimalId = null;
+        let editingAdoptionId = null;
+
+        function openAdoptionModal() {
+            const overlay = document.getElementById("adoptionModalOverlay");
+            const modal = document.getElementById("adoptionModal");
+            if (overlay && modal) {
+                overlay.classList.remove("hidden");
+                setTimeout(() => {
+                    overlay.classList.remove("opacity-0");
+                    modal.classList.remove("scale-95", "opacity-0");
+                    modal.classList.add("scale-100", "opacity-100");
+                }, 10);
+            }
+        }
+
+        function closeAdoptionModal() {
+            const overlay = document.getElementById("adoptionModalOverlay");
+            const modal = document.getElementById("adoptionModal");
+            if (overlay && modal) {
+                modal.classList.remove("scale-100", "opacity-100");
+                modal.classList.add("scale-95", "opacity-0");
+                overlay.classList.add("opacity-0");
+                setTimeout(() => {
+                    overlay.classList.add("hidden");
+                    document.getElementById("adoptionApplicationForm").reset();
+                }, 300);
+            }
+        }
+
+        async function submitAdoptionRequest(animalId) {
+            pendingAdoptionAnimalId = animalId;
+            editingAdoptionId = null;
+            openAdoptionModal();
+        }
+
+        function editAdoptionDetails(adoptionId) {
+            editingAdoptionId = adoptionId;
+            pendingAdoptionAnimalId = null;
+
+            // Load existing details if any
+            const stored = localStorage.getItem(`kittyverse_adoption_details_${adoptionId}`);
+            if (stored) {
+                try {
+                    const details = JSON.parse(stored);
+                    document.getElementById("app-phone").value = details.phone || "";
+                    document.getElementById("app-address").value = details.address || "";
+                    document.getElementById("app-reason").value = details.reason || "";
+                    document.getElementById("app-experience").value = details.experience || "";
+                    document.getElementById("app-houseType").value = details.houseType || "Apartment (pet-friendly, indoor only)";
+                    document.getElementById("app-family").value = details.family || "";
+                } catch (e) {
+                    console.error("Error reading stored details:", e);
+                }
+            } else {
+                document.getElementById("adoptionApplicationForm").reset();
+            }
+
+            // Open the modal
+            openAdoptionModal();
+        }
+
+        window.submitAdoptionRequest = submitAdoptionRequest;
+        window.editAdoptionDetails = editAdoptionDetails;
+        window.closeAdoptionModal = closeAdoptionModal;
+
+        // Bind modal event listeners
+        document.addEventListener("DOMContentLoaded", () => {
+            const formApp = document.getElementById("adoptionApplicationForm");
+            if (formApp) {
+                formApp.addEventListener("submit", handleAdoptionFormSubmit);
+            }
+            const closeAppBtn = document.getElementById("closeAdoptionModalBtn");
+            if (closeAppBtn) {
+                closeAppBtn.addEventListener("click", closeAdoptionModal);
+            }
+            const cancelAppBtn = document.getElementById("cancelAdoptionBtn");
+            if (cancelAppBtn) {
+                cancelAppBtn.addEventListener("click", closeAdoptionModal);
+            }
+            const overlayApp = document.getElementById("adoptionModalOverlay");
+            if (overlayApp) {
+                overlayApp.addEventListener("click", (e) => {
+                    if (e.target === overlayApp) closeAdoptionModal();
+                });
+            }
+        });
+
+        async function handleAdoptionFormSubmit(e) {
+            e.preventDefault();
+
+            const phone = document.getElementById("app-phone").value.trim();
+            const address = document.getElementById("app-address").value.trim();
+            const reason = document.getElementById("app-reason").value.trim();
+            const experience = document.getElementById("app-experience").value.trim();
+            const houseType = document.getElementById("app-houseType").value;
+            const family = document.getElementById("app-family").value.trim();
+
+            const submitBtn = e.target.querySelector("button[type='submit']");
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = "Submitting...";
+            submitBtn.disabled = true;
+
+            const adoptionDetails = {
+                phone,
+                address,
+                reason,
+                experience,
+                houseType,
+                family
+            };
+
+            try {
+                if (pendingAdoptionAnimalId) {
+                    // Create new adoption request
+                    const response = await fetch(`${API_BASE_URL}/api/adoptions`, {
+                        method: "POST",
+                        headers,
+                        body: JSON.stringify({ animalId: pendingAdoptionAnimalId })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        const adoptionId = data.adoption._id;
+                        localStorage.setItem(`kittyverse_adoption_details_${adoptionId}`, JSON.stringify(adoptionDetails));
+                        showToast("Adoption request submitted successfully!", "success");
+                        closeAdoptionModal();
+                        loadAdoptionData();
+                    } else {
+                        showToast(data.message || "Failed to submit adoption request.", "error");
+                    }
+                } else if (editingAdoptionId) {
+                    // Update existing adoption request details locally
+                    localStorage.setItem(`kittyverse_adoption_details_${editingAdoptionId}`, JSON.stringify(adoptionDetails));
+                    showToast("Adoption details updated successfully!", "success");
+                    closeAdoptionModal();
+                    
+                    // If the details drawer is open, refresh it
+                    const drawer = document.getElementById('detailsDrawer');
+                    if (drawer && !drawer.classList.contains('translate-x-full')) {
+                        const ad = adoptions.find(a => a._id === editingAdoptionId);
+                        if (ad) {
+                            openDetailsDrawer(ad);
+                        }
+                    }
+                    loadAdoptionData();
+                }
+            } catch (error) {
+                console.error(error);
+                showToast("Network error: Could not save details.", "error");
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        const fallbackImages = [
+            "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=600",
+            "https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=600",
+            "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?q=80&w=600",
+            "https://images.unsplash.com/photo-1548247416-ec66f4900b2e?q=80&w=600",
+            "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=600",
+            "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?q=80&w=600",
+            "https://images.unsplash.com/photo-1561948955-570b270e7c36?q=80&w=600",
+            "https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?q=80&w=600",
+            "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=600",
+            "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?q=80&w=600",
+            "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?q=80&w=600",
+            "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=600"
+        ];
+
+        function getCatImage(cat, index, lastAssignedIndexObj) {
+            if (cat.photo) return cat.photo;
+            if (cat.imageUrl) return cat.imageUrl;
+            
+            const hashSource = cat._id || cat.name || String(index);
+            let hash = 0;
+            for (let i = 0; i < hashSource.length; i++) {
+                hash = hashSource.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            let imgIndex = Math.abs(hash) % fallbackImages.length;
+            
+            if (lastAssignedIndexObj && lastAssignedIndexObj.index === imgIndex) {
+                imgIndex = (imgIndex + 1) % fallbackImages.length;
+            }
+            if (lastAssignedIndexObj) {
+                lastAssignedIndexObj.index = imgIndex;
+            }
+            return fallbackImages[imgIndex];
+        }
+
+        function renderResidents(filteredCats) {
+            const grid = document.querySelector('section:first-of-type .grid');
+            if (!grid) return;
+
+            if (filteredCats.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-12 flex flex-col items-center justify-center text-secondary bg-surface-container-lowest rounded-2xl border border-outline-variant notion-shadow">
+                        <span class="material-symbols-outlined text-[48px] text-outline mb-2">info</span>
+                        <p class="font-label-md">No cats found in this category.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const lastResidentImgIndex = { index: -1 };
+            grid.innerHTML = filteredCats.map((cat, idx) => {
+                let statusCls = "bg-tertiary text-on-tertiary";
+                if (cat.adoptionStatus === "Pending") {
+                    statusCls = "bg-primary text-white";
+                } else if (cat.adoptionStatus === "Adopted") {
+                    statusCls = "bg-secondary text-white";
+                }
+
+                const tag1 = cat.healthStatus || "Healthy";
+                const tag2 = cat.vaccinationStatus || "Fully Vaccinated";
+                const catImg = getCatImage(cat, idx, lastResidentImgIndex);
+
+                return `
+                    <div class="bg-surface-container-lowest rounded-2xl overflow-hidden notion-shadow border border-outline-variant hover:border-primary/30 transition-all group flex flex-col justify-between">
+                        <div class="h-48 relative overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${catImg}" alt="${cat.name}"/>
+                            <div class="absolute top-md right-md ${statusCls} px-sm py-1 rounded-lg text-label-sm font-bold uppercase tracking-wider">${cat.adoptionStatus}</div>
+                        </div>
+                        <div class="p-lg flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-sm">
+                                    <h4 class="font-headline-md text-[20px]">${cat.name}</h4>
+                                    <span class="text-secondary font-label-md">${cat.age} yr${cat.age !== 1 ? 's' : ''}</span>
+                                </div>
+                                <p class="text-secondary font-body-md line-clamp-2 mb-lg">${cat.medicalNotes || 'No medical notes recorded.'}</p>
+                            </div>
+                            <div class="flex flex-col gap-md">
+                                <div class="flex items-center gap-sm">
+                                    <div class="bg-surface-container px-sm py-1 rounded-lg text-label-sm text-on-surface-variant">${tag1}</div>
+                                    <div class="bg-surface-container px-sm py-1 rounded-lg text-label-sm text-on-surface-variant">${tag2}</div>
+                                </div>
+                                ${cat.adoptionStatus === 'Available' ? `
+                                    <button class="w-full py-2.5 bg-primary hover:bg-[#ff8033] text-white rounded-xl text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-1.5" onclick="submitAdoptionRequest('${cat._id}')">
+                                        <span class="material-symbols-outlined text-[16px]">volunteer_activism</span> Apply for Adoption
+                                    </button>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderWorkflowTrackers(adoptionsList) {
+            const container = document.querySelectorAll('section')[1]?.querySelector('.space-y-md');
+            if (!container) return;
+
+            const activeAdoptions = adoptionsList.filter(ad => ad.status !== "rejected");
+
+            if (activeAdoptions.length === 0) {
+                container.innerHTML = `
+                    <div class="py-8 flex flex-col items-center justify-center text-secondary bg-surface-container-lowest rounded-2xl border border-outline-variant notion-shadow">
+                        <span class="material-symbols-outlined text-[36px] text-outline mb-2">route</span>
+                        <p class="font-label-md">No in-progress adoption journeys.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const stepHtml = (stepNum, icon, label, stepStatus) => {
+                let dotCls = "bg-surface-container border-2 border-outline-variant text-outline";
+                let textCls = "text-secondary";
+
+                if (stepStatus === 'completed') {
+                    dotCls = "bg-primary text-on-primary shadow-sm";
+                    textCls = "text-on-surface font-bold";
+                } else if (stepStatus === 'active') {
+                    dotCls = "bg-primary text-on-primary animate-pulse shadow-md";
+                    textCls = "text-primary font-bold";
+                }
+
+                const iconName = stepStatus === 'completed' ? 'check' : icon;
+                const isLast = stepNum === 5;
+                const stepClass = isLast ? "min-w-[80px]" : "workflow-step min-w-[80px]";
+
+                return `
+                    <div class="flex flex-col items-center gap-2 relative z-10 ${stepClass}">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center ${dotCls}">
+                            <span class="material-symbols-outlined text-[18px]" data-icon="${iconName}">${iconName}</span>
+                        </div>
+                        <span class="text-label-sm ${textCls}">${label}</span>
+                    </div>
+                `;
+            };
+
+            const lastTrackerImgIndex = { index: -1 };
+            container.innerHTML = activeAdoptions.map((ad, idx) => {
+                const cat = ad.animal || {};
+                const adopterName = ad.user ? ad.user.name : "Guest User";
+                const status = ad.status;
+
+                let badgeCls = "bg-primary-container/10 text-primary";
+                let badgeText = "Reviewing";
+                if (status === "approved") {
+                    badgeCls = "bg-tertiary-container/20 text-tertiary";
+                    badgeText = "Approved";
+                }
+
+                const isApproved = status === "approved";
+                const catImg = getCatImage(cat, idx, lastTrackerImgIndex);
+
+                return `
+                    <div class="bg-surface-container-lowest p-lg rounded-2xl border border-outline-variant notion-shadow">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-md mb-xl">
+                            <div class="flex items-center gap-md">
+                                <div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center overflow-hidden">
+                                    <img class="w-full h-full object-cover" src="${catImg}" alt="${cat.name || 'Cat'}"/>
+                                </div>
+                                <div>
+                                    <h5 class="font-label-md font-bold text-on-surface">${cat.name || 'Unknown'}'s Adoption</h5>
+                                    <p class="text-label-sm text-secondary">Adopter: ${adopterName}</p>
+                                </div>
+                            </div>
+                            <div class="${badgeCls} px-md py-1 rounded-full text-label-sm font-bold">${badgeText}</div>
+                        </div>
+                        <div class="relative flex items-center justify-between px-md overflow-x-auto pb-4">
+                            ${stepHtml(1, "check", "Applied", "completed")}
+                            ${stepHtml(2, "pending", "Review", isApproved ? "completed" : "active")}
+                            ${stepHtml(3, "chat", "Interview", isApproved ? "completed" : "pending")}
+                            ${stepHtml(4, "home", "Visit", isApproved ? "completed" : "pending")}
+                            ${stepHtml(5, "celebration", "Final", isApproved ? "completed" : "pending")}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderStats() {
+            const adoptedCount = animals.filter(a => a.adoptionStatus === "Adopted").length;
+            const pendingCount = adoptions.filter(a => a.status === "pending").length;
+
+            const statsContainer = document.querySelector('.bg-primary-container\\/10 .space-y-md');
+            if (statsContainer) {
+                const rows = statsContainer.querySelectorAll('.flex.justify-between.items-center');
+                if (rows.length >= 2) {
+                    const val1 = rows[0].querySelector('span.font-headline-md');
+                    const val2 = rows[1].querySelector('span.font-headline-md');
+                    if (val1) val1.textContent = adoptedCount;
+                    if (val2) val2.textContent = pendingCount;
+                }
+            }
+            
+            const caption = document.querySelector('main p.text-secondary');
+            if (caption) {
+                const availableCount = animals.filter(a => a.adoptionStatus === "Available" || a.adoptionStatus === "Ready for Adoption").length;
+                caption.textContent = `Connecting ${availableCount} feline friends with their forever homes this month.`;
+            }
+        }
+
+        function getDeterministicApplicationDetails(ad) {
+            const stored = localStorage.getItem(`kittyverse_adoption_details_${ad._id}`);
+            if (stored) {
+                try {
+                    return JSON.parse(stored);
+                } catch (e) {
+                    console.error("Failed to parse stored details:", e);
+                }
+            }
+
+            return {
+                phone: "Not Provided",
+                address: "Not Provided",
+                reason: "Not Provided",
+                experience: "Not Provided",
+                houseType: "Not Provided",
+                family: "Not Provided"
+            };
+        }
+
+        window.viewAdoptionDetails = function(id) {
+            const ad = adoptions.find(a => a._id === id);
+            if (ad) {
+                openDetailsDrawer(ad);
+            }
+        };
+
+        function generateAIAssessment(ad, details) {
+            const cat = ad.animal || {};
+            let score = 50;
+            const reasons = [];
+
+            // Experience Check
+            const exp = (details.experience || "").toLowerCase();
+            if (exp.includes("10 years")) {
+                score += 25;
+                reasons.push("✔ Experienced Cat Owner (10+ years)");
+            } else if (exp.includes("fostered")) {
+                score += 25;
+                reasons.push("✔ Experience with stray fostering");
+            } else if (exp.includes("volunteered")) {
+                score += 15;
+                reasons.push("✔ Shelter Volunteer Experience");
+            } else if (exp.includes("currently own")) {
+                score += 20;
+                reasons.push("✔ Existing social cat companion at home");
+            } else {
+                reasons.push("⚠ First-time Pet Owner");
+            }
+
+            // Housing Check
+            const house = (details.houseType || "").toLowerCase();
+            if (house.includes("single family")) {
+                score += 15;
+                reasons.push("✔ Large Single-Family House");
+                reasons.push("✔ Secure Backyard for supervised play");
+            } else if (house.includes("townhouse")) {
+                score += 15;
+                reasons.push("✔ Townhouse with secure screened porch");
+            } else if (house.includes("apartment")) {
+                score += 10;
+                reasons.push("✔ Safe, pet-friendly indoor-only setup");
+                reasons.push("⚠ Apartment Residence (Compact space)");
+            } else if (house.includes("condo")) {
+                score += 10;
+                reasons.push("✔ Vertical spaces/shelving setup prepared");
+                reasons.push("⚠ Condo Residence (Limited outdoor access)");
+            }
+
+            // Family Check
+            const fam = (details.family || "").toLowerCase();
+            if (fam.includes("alone") || fam.includes("work from home")) {
+                score += 10;
+                reasons.push("✔ Works from Home (High companionship)");
+            } else if (fam.includes("couple")) {
+                score += 10;
+                reasons.push("✔ Stable Couple Household (Shared care)");
+            } else if (fam.includes("kids") || fam.includes("children")) {
+                score += 5;
+                reasons.push("⚠ High-Activity Household (Children present)");
+            } else if (fam.includes("roommates")) {
+                score += 5;
+                reasons.push("✔ Roommates are all cat-supportive");
+                reasons.push("⚠ Roommate Shared Living (Higher turnover risk)");
+            }
+
+            // Cap score at 100
+            score = Math.min(100, score);
+
+            let recommendation = "Review";
+            if (score >= 80) {
+                recommendation = "Approve";
+            } else if (score < 60) {
+                recommendation = "Reject";
+            }
+
+            return {
+                score,
+                recommendation,
+                reasons
+            };
+        }
+
+        function openDetailsDrawer(ad) {
+            const drawer = document.getElementById('detailsDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+            const content = document.getElementById('drawerContent');
+
+            if (!drawer || !overlay || !content) return;
+
+            const cat = ad.animal || {};
+            const user = ad.user || {};
+            const details = getDeterministicApplicationDetails(ad);
+            const assessment = generateAIAssessment(ad, details);
+
+            const stages = [
+                { key: "submitted", label: "Application Submitted", icon: "assignment" },
+                { key: "verification", label: "Background Verification", icon: "verified_user" },
+                { key: "home", label: "Home Review", icon: "home" },
+                { key: "interview", label: "Interview", icon: "chat" },
+                { key: "decision", label: "Decision", icon: "gavel" }
+            ];
+
+            const getStageState = (stageKey, status) => {
+                if (stageKey === "submitted") return "completed";
+                if (status === "pending") {
+                    if (stageKey === "verification") return "active";
+                    return "inactive";
+                }
+                if (stageKey === "decision") {
+                    return status === "approved" ? "completed" : "rejected";
+                }
+                return "completed";
+            };
+
+            const timelineHtml = stages.map(st => {
+                const state = getStageState(st.key, ad.status);
+                let dotCls = "";
+                let textCls = "";
+                let iconName = st.icon;
+
+                if (state === "completed") {
+                    dotCls = "bg-primary text-white shadow-sm";
+                    textCls = "text-on-surface font-bold";
+                    iconName = "check";
+                } else if (state === "active") {
+                    dotCls = "bg-primary/10 text-primary border-2 border-primary animate-pulse";
+                    textCls = "text-primary font-bold";
+                } else if (state === "rejected") {
+                    dotCls = "bg-[#ba1a1a] text-white shadow-sm";
+                    textCls = "text-[#ba1a1a] font-bold";
+                    iconName = "close";
+                } else {
+                    dotCls = "bg-surface-container text-outline border border-outline-variant/50";
+                    textCls = "text-secondary";
+                }
+
+                let label = st.label;
+                if (st.key === "decision") {
+                    if (ad.status === "approved") label += " (Approved)";
+                    else if (ad.status === "rejected") label += " (Rejected)";
+                    else label += " (Pending)";
+                }
+
+                return `
+                    <div class="flex items-center gap-md relative z-10">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center ${dotCls}">
+                            <span class="material-symbols-outlined text-[18px]">${iconName}</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm ${textCls}">${label}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const catImg = getCatImage(cat, 0);
+            content.innerHTML = `
+                <!-- Cat Summary -->
+                <div class="bg-surface-container-lowest p-lg rounded-2xl border border-outline-variant/50 notion-shadow flex gap-md items-center">
+                    <img class="w-20 h-20 rounded-xl object-cover" src="${catImg}" alt="${cat.name}"/>
+                    <div>
+                        <h4 class="font-headline-md text-[20px] mb-xs">${cat.name || 'Unknown'}</h4>
+                        <p class="text-label-sm text-secondary">${cat.breed || 'Unknown'} • ${cat.age || 'Unknown'}</p>
+                        <div class="flex gap-sm mt-2">
+                            <span class="bg-primary/10 text-primary px-sm py-0.5 rounded text-[10px] font-bold uppercase">${cat.healthStatus || 'Healthy'}</span>
+                            <span class="bg-tertiary/10 text-tertiary px-sm py-0.5 rounded text-[10px] font-bold uppercase">${cat.vaccinationStatus || 'Vaccinated'}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applicant Info -->
+                <div class="space-y-md">
+                    <h4 class="font-label-md font-bold uppercase text-primary tracking-wide">Applicant Details</h4>
+                    <div class="bg-surface-container-lowest p-lg rounded-2xl border border-outline-variant/50 notion-shadow space-y-md">
+                        <div class="flex justify-between items-start text-sm">
+                            <span class="text-secondary font-medium">Full Name</span>
+                            <span class="text-on-surface font-bold text-right">${user.name || 'Guest Adopter'}</span>
+                        </div>
+                        <div class="flex justify-between items-start text-sm">
+                            <span class="text-secondary font-medium">Email Address</span>
+                            <span class="text-on-surface font-bold text-right">${user.email || 'N/A'}</span>
+                        </div>
+                        <div class="flex justify-between items-start text-sm">
+                            <span class="text-secondary font-medium">Phone Number</span>
+                            <span class="text-on-surface font-bold text-right">${details.phone}</span>
+                        </div>
+                        <div class="flex justify-between items-start text-sm">
+                            <span class="text-secondary font-medium">Home Address</span>
+                            <span class="text-on-surface font-bold text-right max-w-[200px]">${details.address}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fanny AI Adoption Assessment -->
+                <div class="space-y-md">
+                    <div class="flex items-center gap-sm">
+                        <span class="text-lg">🐾</span>
+                        <h4 class="font-label-md font-bold uppercase text-primary tracking-wide">Fanny AI Adoption Assessment</h4>
+                    </div>
+                    <div class="bg-surface-container-lowest p-lg rounded-2xl border-2 border-primary/20 notion-shadow space-y-md relative overflow-hidden">
+                        <div class="flex justify-between items-center pb-md border-b border-outline-variant/30">
+                            <div class="flex items-center gap-sm">
+                                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">AI</div>
+                                <div>
+                                    <h5 class="text-label-sm font-bold text-on-surface">Recommendation</h5>
+                                    <p class="text-headline-sm font-bold text-primary uppercase text-[16px]">${assessment.recommendation}</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-headline-lg font-bold text-primary">${assessment.score}</span>
+                                <span class="text-label-sm text-secondary">/100</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-sm">
+                            <h6 class="text-[11px] font-bold uppercase text-secondary tracking-wide">Assessment Details</h6>
+                            <div class="grid grid-cols-1 gap-2 text-sm">
+                                ${assessment.reasons.map(reason => {
+                                    const isAlert = reason.startsWith('⚠');
+                                    const text = reason.substring(2);
+                                    const icon = isAlert ? 'warning' : 'check_circle';
+                                    const iconColor = isAlert ? 'text-primary' : 'text-secondary';
+                                    const bgColor = isAlert ? 'bg-primary/5' : 'bg-surface-container/30';
+                                    return `
+                                        <div class="flex items-center gap-sm ${bgColor} p-sm rounded-xl">
+                                            <span class="material-symbols-outlined text-[18px] ${iconColor}">${icon}</span>
+                                            <span class="text-on-surface font-medium">${text}</span>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Application Answers -->
+                <div class="space-y-md">
+                    <h4 class="font-label-md font-bold uppercase text-primary tracking-wide">Application Questionnaire</h4>
+                    <div class="bg-surface-container-lowest p-lg rounded-2xl border border-outline-variant/50 notion-shadow space-y-lg">
+                        <div>
+                            <h5 class="text-label-sm font-bold text-on-surface mb-xs">Reason for Adoption</h5>
+                            <p class="text-body-md text-on-surface-variant bg-surface-container/30 p-md rounded-xl">${details.reason}</p>
+                        </div>
+                        <div>
+                            <h5 class="text-label-sm font-bold text-on-surface mb-xs">Previous Pet Experience</h5>
+                            <p class="text-body-md text-on-surface-variant bg-surface-container/30 p-md rounded-xl">${details.experience}</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-md">
+                            <div>
+                                <h5 class="text-label-sm font-bold text-on-surface mb-xs">Residence Type</h5>
+                                <p class="text-body-md text-on-surface-variant bg-surface-container/30 p-md rounded-xl">${details.houseType}</p>
+                            </div>
+                            <div>
+                                <h5 class="text-label-sm font-bold text-on-surface mb-xs">Household Members</h5>
+                                <p class="text-body-md text-on-surface-variant bg-surface-container/30 p-md rounded-xl">${details.family}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adoption Timeline -->
+                <div class="space-y-md">
+                    <h4 class="font-label-md font-bold uppercase text-primary tracking-wide">Adoption Timeline</h4>
+                    <div class="bg-surface-container-lowest p-lg rounded-2xl border border-outline-variant/50 notion-shadow space-y-lg relative">
+                        <div class="absolute left-10 top-8 bottom-8 w-0.5 bg-outline-variant/30"></div>
+                        ${timelineHtml}
+                    </div>
+                </div>
+
+                <!-- Action / Status -->
+                <div class="flex items-center justify-between p-md bg-surface-container rounded-2xl">
+                    <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-primary">info</span>
+                        <span class="text-label-sm font-semibold text-secondary">Status: <span class="font-bold text-on-surface uppercase">${ad.status}</span></span>
+                    </div>
+                    ${ad.status === 'pending' ? `
+                        <div class="flex gap-sm">
+                            <button class="bg-[#ba1a1a] hover:bg-[#a01212] text-white px-md py-1.5 rounded-xl text-label-sm font-bold shadow-sm transition-all" onclick="updateAdoptionStatus('${ad._id}', 'reject')">Reject</button>
+                            <button class="bg-primary hover:bg-[#ff8033] text-white px-md py-1.5 rounded-xl text-label-sm font-bold shadow-sm transition-all" onclick="updateAdoptionStatus('${ad._id}', 'approve')">Approve</button>
+                        </div>
+                    ` : ''}
+                </div>
+
+                <!-- Fill/Edit Details Button -->
+                <div class="pt-sm">
+                    <button class="w-full bg-primary hover:bg-[#ff8033] text-white py-2.5 rounded-xl text-label-sm font-bold shadow-sm transition-all flex items-center justify-center gap-1.5" onclick="editAdoptionDetails('${ad._id}')">
+                        <span class="material-symbols-outlined text-[16px]">edit</span> Fill / Edit Application Details
+                    </button>
+                </div>
+            `;
+
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                overlay.classList.remove('opacity-0');
+                drawer.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeDetailsDrawer() {
+            const drawer = document.getElementById('detailsDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+
+            if (!drawer || !overlay) return;
+
+            drawer.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 300);
+        }
+
+        function showToast(message, type = "success") {
+            let toast = document.getElementById('successToast');
+            if (toast) {
+                toast.remove();
+            }
+            
+            toast = document.createElement('div');
+            toast.id = 'successToast';
+            
+            const isError = type === "error";
+            const iconName = isError ? "cancel" : "check_circle";
+            const iconCls = isError ? "text-[#ffb4ab]" : "text-primary-fixed-dim";
+
+            toast.className = "fixed bottom-6 right-6 bg-inverse-surface text-inverse-on-surface px-6 py-4 rounded-xl shadow-xl flex items-center gap-3 transform translate-y-24 transition-all duration-300 pointer-events-none z-50";
+            toast.innerHTML = `
+                <span class="material-symbols-outlined ${iconCls}">${iconName}</span>
+                <span class="font-label-md text-label-md text-white">${message}</span>
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-24');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-24');
+            }, 3000);
+        }
+
+        window.updateAdoptionStatus = async function(adoptionId, action) {
+            const originalAdoptions = JSON.parse(JSON.stringify(adoptions));
+            const originalAnimals = JSON.parse(JSON.stringify(animals));
+
+            try {
+                const targetAd = adoptions.find(a => a._id === adoptionId);
+                if (targetAd) {
+                    targetAd.status = action === 'approve' ? 'approved' : 'rejected';
+
+                    if (action === 'approve') {
+                        const animalId = targetAd.animal?._id || targetAd.animal;
+                        const animalObj = animals.find(a => a._id === animalId);
+                        if (animalObj) {
+                            animalObj.adoptionStatus = "Adopted";
+                        }
+                        
+                        adoptions.forEach(ad => {
+                            const adAnimalId = ad.animal?._id || ad.animal;
+                            if (adAnimalId === animalId && ad._id !== targetAd._id && ad.status === "pending") {
+                                ad.status = "rejected";
+                            }
+                        });
+                    }
+                }
+
+                refreshUI();
+                closeDetailsDrawer();
+
+                const response = await fetch(`${API_BASE_URL}/api/adoptions/${adoptionId}/${action}`, {
+                    method: 'PUT',
+                    headers
+                });
+
+                if (!response.ok) {
+                    const errData = await response.json();
+                    throw new Error(errData.message || `Failed to ${action} adoption.`);
+                }
+
+                if (action === 'approve') {
+                    showToast("Adoption request approved successfully.", "success");
+                } else {
+                    showToast("Adoption request rejected successfully.", "error");
+                }
+
+            } catch (error) {
+                console.error("Action error:", error);
+                showToast(error.message || "Failed to update adoption status.", "error");
+                adoptions = originalAdoptions;
+                animals = originalAnimals;
+                refreshUI();
+            }
+        }
+
+        function renderRecentApplications(adoptionsList) {
+            const container = document.querySelectorAll('section')[2]?.querySelector('.space-y-md');
+            if (!container) return;
+
+            if (adoptionsList.length === 0) {
+                container.innerHTML = `
+                    <div class="py-8 flex flex-col items-center justify-center text-secondary bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-sm text-center">
+                        <span class="material-symbols-outlined text-[36px] text-outline mb-2">assignment</span>
+                        <p class="font-label-md">No recent applications.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = adoptionsList.map(ad => {
+                const cat = ad.animal || {};
+                const adopterName = ad.user ? ad.user.name : "Guest User";
+                const adopterInitials = adopterName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+                
+                let statusText = "New";
+                let statusCls = "bg-tertiary/10 text-tertiary";
+                if (ad.status === "approved") {
+                    statusText = "Approved";
+                    statusCls = "bg-secondary/10 text-secondary";
+                } else if (ad.status === "rejected") {
+                    statusText = "Rejected";
+                    statusCls = "bg-error/10 text-error";
+                }
+
+                return `
+                    <div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:shadow-lg transition-shadow cursor-pointer group">
+                        <div class="flex justify-between items-start mb-sm">
+                            <div class="flex items-center gap-md">
+                                <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-secondary font-bold text-xs">${adopterInitials}</div>
+                                <div>
+                                    <h6 class="font-label-md font-bold group-hover:text-primary transition-colors">${adopterName}</h6>
+                                    <p class="text-label-sm text-secondary">Applying for: ${cat.name || 'Unknown'}</p>
+                                </div>
+                            </div>
+                            <span class="${statusCls} px-sm py-0.5 rounded text-[10px] font-bold uppercase">${statusText}</span>
+                        </div>
+                        <div class="flex items-center gap-sm mt-md">
+                            <button class="flex-1 bg-surface px-md py-1.5 rounded-lg border border-outline-variant text-label-sm hover:bg-surface-container transition-colors" onclick="viewAdoptionDetails('${ad._id}')">Quick View</button>
+                            <button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary/5 text-primary hover:bg-primary/10" onclick="editAdoptionDetails('${ad._id}')">
+                                <span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function loadAdoptionData() {
+            const grid = document.querySelectorAll('section')[0]?.querySelector('.grid');
+            const workflowContainer = document.querySelectorAll('section')[1]?.querySelector('.space-y-md');
+            const recentAppsContainer = document.querySelectorAll('section')[2]?.querySelector('.space-y-md');
+
+            const loadingHtml = `
+                <div class="col-span-full py-12 flex flex-col items-center justify-center text-secondary">
+                    <div class="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+                    <p class="font-label-md">Loading adoption data...</p>
+                </div>
+            `;
+
+            if (grid) grid.innerHTML = loadingHtml;
+            if (workflowContainer) workflowContainer.innerHTML = loadingHtml;
+            if (recentAppsContainer) recentAppsContainer.innerHTML = loadingHtml;
+
+            try {
+                const [animalsRes, adoptionsRes] = await Promise.all([
+                    fetch(`${API_BASE_URL}/api/animals`, { headers }),
+                    fetch(`${API_BASE_URL}/api/adoptions`, { headers })
+                ]);
+
+                if (!animalsRes.ok) throw new Error("Failed to load animal residents.");
+
+                animals = await animalsRes.json();
+
+                if (adoptionsRes.ok) {
+                    adoptions = await adoptionsRes.json();
+                } else {
+                    const myAdoptionsRes = await fetch(`${API_BASE_URL}/api/adoptions/my`, { headers });
+                    if (myAdoptionsRes.ok) {
+                        adoptions = await myAdoptionsRes.json();
+                    } else {
+                        throw new Error("Failed to load adoption applications.");
+                    }
+                }
+
+                refreshUI();
+
+            } catch (error) {
+                console.error("Adoption load error:", error);
+                const errorHtml = `
+                    <div class="col-span-full py-12 flex flex-col items-center justify-center text-error bg-error-container/10 rounded-2xl border border-error/20 notion-shadow p-lg">
+                        <span class="material-symbols-outlined text-[48px] text-error mb-2">error</span>
+                        <p class="font-label-md font-bold">Failed to load data</p>
+                        <p class="text-sm mt-1 text-secondary">${error.message}</p>
+                        <button onclick="loadAdoptionData()" class="mt-4 px-md py-2 bg-primary text-white rounded-xl text-label-md font-bold hover:bg-[#ff8033]">Retry</button>
+                    </div>
+                `;
+                if (grid) grid.innerHTML = errorHtml;
+                if (workflowContainer) workflowContainer.innerHTML = errorHtml.replace("col-span-full", "");
+                if (recentAppsContainer) recentAppsContainer.innerHTML = errorHtml.replace("col-span-full", "");
+            }
+        }
+
+        let searchQuery = "";
+        let statusFilter = "all";
+
+        function refreshUI() {
+            let filteredCats = [];
+            if (currentTab === "available") {
+                filteredCats = animals.filter(c => c.adoptionStatus === "Available" || c.adoptionStatus === "Ready for Adoption");
+            } else if (currentTab === "pending") {
+                filteredCats = animals.filter(c => c.adoptionStatus === "Pending");
+            } else if (currentTab === "adopted") {
+                filteredCats = animals.filter(c => c.adoptionStatus === "Adopted");
+            }
+
+            const filteredAdoptions = adoptions.filter(ad => {
+                const cat = ad.animal || {};
+                const user = ad.user || {};
+
+                const matchesSearch = searchQuery === "" || 
+                    (cat.name || "").toLowerCase().includes(searchQuery) ||
+                    (user.name || "").toLowerCase().includes(searchQuery) ||
+                    (user.email || "").toLowerCase().includes(searchQuery);
+
+                const matchesStatus = statusFilter === "all" || ad.status === statusFilter;
+
+                return matchesSearch && matchesStatus;
+            });
+
+            renderResidents(filteredCats);
+            renderWorkflowTrackers(filteredAdoptions);
+            renderRecentApplications(filteredAdoptions);
+            renderStats();
+        }
+
+        // Tab switching logic
+        const tabs = document.querySelectorAll('button.px-md.py-2');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('bg-surface-container-lowest', 'text-primary', 'font-bold', 'notion-shadow');
+                    t.classList.add('text-secondary', 'font-medium');
+                });
+                tab.classList.add('bg-surface-container-lowest', 'text-primary', 'font-bold', 'notion-shadow');
+                tab.classList.remove('text-secondary', 'font-medium');
+
+                const tabText = tab.textContent.trim().toLowerCase();
+                if (tabText.includes("available")) {
+                    currentTab = "available";
+                } else if (tabText.includes("pending")) {
+                    currentTab = "pending";
+                } else if (tabText.includes("adopted")) {
+                    currentTab = "adopted";
+                }
+                refreshUI();
+            });
+        });
+
+        // Search & Filter event handlers
+        const searchInput = document.querySelector('header input[placeholder*="Search"]');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase().trim();
+                refreshUI();
+            });
+        }
+
+        const filterSelect = document.getElementById('applicationFilter');
+        if (filterSelect) {
+            filterSelect.addEventListener('change', (e) => {
+                statusFilter = e.target.value;
+                refreshUI();
+            });
+        }
+
+        // Close drawer handlers
+        const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+        if (closeDrawerBtn) {
+            closeDrawerBtn.addEventListener('click', closeDetailsDrawer);
+        }
+        const drawerOverlay = document.getElementById('drawerOverlay');
+        if (drawerOverlay) {
+            drawerOverlay.addEventListener('click', closeDetailsDrawer);
+        }
+
+        // Initialize Page
+        loadAdoptionData();
+
+        // Parallax scroll effect
+        window.addEventListener('scroll', () => {
+            const images = document.querySelectorAll('img');
+            const scrolled = window.pageYOffset;
+            images.forEach(img => {
+                const speed = 0.05;
+                if(img.parentElement.classList.contains('overflow-hidden')) {
+                    img.style.transform = `translateY(${scrolled * speed}px)`;
+                }
+            });
+        });
+    </script>
+<script src="js/sidebar.js"></script>
+</body></html>

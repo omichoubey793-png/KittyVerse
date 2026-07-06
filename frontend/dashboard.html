@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KittyVerse Dashboard | Overview</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#ffb68e",
+                    "primary-fixed-dim": "#ffb68e",
+                    "surface-tint": "#9b4500",
+                    "on-tertiary-container": "#004853",
+                    "on-surface": "#2B2B2B",
+                    "on-primary-fixed-variant": "#763300",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#c8c6c6",
+                    "secondary": "#5f5e5e",
+                    "on-tertiary-fixed-variant": "#004e5a",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#fff1eb",
+                    "on-secondary-fixed-variant": "#474747",
+                    "primary-fixed": "#ffdbc9",
+                    "surface": "#fff8f6",
+                    "inverse-surface": "#392e29",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-secondary-container": "#656464",
+                    "tertiary-fixed": "#a5eeff",
+                    "on-surface-variant": "#564339",
+                    "surface-container-high": "#f7e4dc",
+                    "primary": "#FF914D",
+                    "tertiary-fixed-dim": "#42d8f3",
+                    "tertiary-container": "#00bed9",
+                    "tertiary": "#006878",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#331200",
+                    "surface-container": "#fdeae1",
+                    "secondary-container": "#e4e2e1",
+                    "surface-dim": "#e9d6ce",
+                    "background": "#FFF9F5",
+                    "outline": "#897267",
+                    "on-primary-container": "#FF914D",
+                    "on-background": "#2B2B2B",
+                    "surface-bright": "#fff8f6",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#001f25",
+                    "surface-container-highest": "#f2dfd6",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#f2dfd6",
+                    "inverse-on-surface": "#ffede5",
+                    "on-error": "#ffffff",
+                    "primary-container": "#FFF4EB",
+                    "outline-variant": "#dcc1b4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "lg": "24px",
+                    "xl": "40px",
+                    "max-width": "1440px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "2xl": "64px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "label-md": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #FFF9F5;
+            font-family: 'Poppins', sans-serif;
+            color: #231a14;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .apple-shadow {
+            box-shadow: 0 4px 8px -2px rgba(0,0,0,0.02), 0 12px 24px -4px rgba(0,0,0,0.04);
+        }
+        .stripe-card {
+            background: #ffffff;
+            border: 1px solid #F5F5F5;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .stripe-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -4px rgba(0,0,0,0.06);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/config.js"></script>
+</head>
+<body class="bg-surface">
+<!-- SideNavBar Shell -->
+<aside></aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-surface/80 backdrop-blur-md flex justify-between items-center h-16 px-lg">
+<div class="flex items-center gap-lg flex-1">
+<div class="relative w-full max-w-xl">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary" data-icon="search">search</span>
+<input class="w-full bg-surface-container border-none rounded-xl pl-10 py-sm focus:ring-2 focus:ring-primary-container text-label-md" placeholder="Search rescued cats..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md text-secondary">
+<div class="relative">
+    <button id="notificationBellBtn" class="hover:text-primary transition-all active:scale-95 relative p-1 flex items-center">
+        <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+        <span id="notificationBadge" class="absolute -top-1 -right-1 bg-error text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+    </button>
+    <!-- Notifications Dropdown Menu -->
+    <div id="notificationDropdown" class="absolute right-0 mt-2 w-80 bg-white border border-outline-variant rounded-2xl shadow-xl py-2 z-50 hidden">
+        <div class="px-4 py-2 border-b border-outline-variant flex justify-between items-center">
+            <span class="font-label-md font-bold text-on-surface">Notifications</span>
+        </div>
+        <div id="notificationList" class="max-h-64 overflow-y-auto divide-y divide-outline-variant/30">
+            <!-- Rendered dynamically -->
+        </div>
+    </div>
+</div>
+</div>
+<div class="relative">
+    <button id="profileDropdownBtn" class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant focus:outline-none flex items-center">
+        <img id="profileAvatarImg" class="w-full h-full object-cover" data-alt="A professional headshot of a friendly female animal shelter administrator in a bright, modern office with soft lighting and a warm color palette, reflecting a high-end service-oriented aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwS5PQsg9eWIAARXwu_kI7wpqackHk8Y2H9PcZCVDzkxI4BWbzQdF3Pb9-E5Bin6-h0-I2lmB7JNPO8fjwl7zY_QvFRU_dAWlJEfY3IRmD3dFSMsi7GmTJAln6wtNp3TatReD_qBYaxyMQiDjmn3uh0NpCi5ZbItnz6-WnyECI5AfxkCGCDfB1nu31Vntx_riN4mdlBx-KIUGXvyOR6zpFm7K8K4zB8s8x4r2KNZuUrgIwjylnKbGqbGn09tFiA94bhlfnpQIiJNM"/>
+    </button>
+    <!-- Profile Dropdown Menu -->
+    <div id="profileDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-outline-variant rounded-2xl shadow-xl py-2 z-50 hidden">
+        <div class="px-4 py-2 border-b border-outline-variant">
+            <p id="profileNameText" class="font-label-md font-bold text-on-surface">Alex Whiskers</p>
+            <p id="profileRoleText" class="text-[10px] text-secondary tracking-wider uppercase">Admin</p>
+        </div>
+        <a href="settings.html" class="block px-4 py-2 text-sm text-secondary hover:bg-surface-container hover:text-primary transition-colors">My Profile</a>
+        <a href="settings.html" class="block px-4 py-2 text-sm text-secondary hover:bg-surface-container hover:text-primary transition-colors">Settings</a>
+        <button id="logoutBtn" class="w-full text-left block px-4 py-2 text-sm text-error hover:bg-red-50 transition-colors">Logout</button>
+    </div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-2xl max-w-max-width mx-auto">
+<!-- Welcome Section -->
+<section class="mb-2xl">
+<div class="flex flex-col gap-xs">
+<h2 id="welcomeHeader" class="font-headline-lg text-headline-lg text-on-background">Good morning, Shelter Admin!</h2>
+<p class="font-body-lg text-body-lg text-secondary">Here's what's happening at KittyVerse today.</p>
+</div>
+</section>
+<!-- Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-lg mb-2xl">
+<div class="stripe-card p-lg rounded-[24px] soft-shadow transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+<div class="flex items-center justify-between mb-md">
+<span class="material-symbols-outlined text-primary bg-primary-container/10 p-sm rounded-lg" data-icon="pets">pets</span>
+</div>
+<p class="font-label-md text-label-md text-secondary mb-xs">Total Cats</p>
+<h3 id="kpiTotalCats" class="font-headline-md text-headline-md font-bold">0</h3>
+</div>
+<div class="stripe-card p-lg rounded-[24px] soft-shadow transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+<div class="flex items-center justify-between mb-md">
+<span class="material-symbols-outlined text-tertiary bg-tertiary-container/10 p-sm rounded-lg" data-icon="check_circle">check_circle</span>
+</div>
+<p class="font-label-md text-label-md text-secondary mb-xs">Available Cats</p>
+<h3 id="kpiAvailableCats" class="font-headline-md text-headline-md font-bold">0</h3>
+</div>
+<div class="stripe-card p-lg rounded-[24px] soft-shadow transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+<div class="flex items-center justify-between mb-md">
+<span class="material-symbols-outlined text-primary bg-primary-container/10 p-sm rounded-lg" data-icon="volunteer_activism">volunteer_activism</span>
+</div>
+<p class="font-label-md text-label-md text-secondary mb-xs">Adopted Cats</p>
+<h3 id="kpiAdoptedCats" class="font-headline-md text-headline-md font-bold">0</h3>
+</div>
+<div class="stripe-card p-lg rounded-[24px] soft-shadow transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+<div class="flex items-center justify-between mb-md">
+<span class="material-symbols-outlined text-error bg-error-container/20 p-sm rounded-lg" data-icon="pending_actions">pending_actions</span>
+</div>
+<p class="font-label-md text-label-md text-secondary mb-xs">Pending Adoption</p>
+<h3 id="kpiPendingAdoption" class="font-headline-md text-headline-md font-bold">0</h3>
+</div>
+<div class="stripe-card p-lg rounded-[24px] soft-shadow transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+<div class="flex items-center justify-between mb-md">
+<span class="material-symbols-outlined text-error bg-error-container/20 p-sm rounded-lg" data-icon="medical_services">medical_services</span>
+</div>
+<p class="font-label-md text-label-md text-secondary mb-xs">Under Treatment</p>
+<h3 id="kpiUnderTreatment" class="font-headline-md text-headline-md font-bold">0</h3>
+</div>
+<div class="stripe-card p-lg rounded-[24px] soft-shadow transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+<div class="flex items-center justify-between mb-md">
+<span class="material-symbols-outlined text-tertiary bg-tertiary-container/10 p-sm rounded-lg" data-icon="vaccines">vaccines</span>
+</div>
+<p class="font-label-md text-label-md text-secondary mb-xs">Vaccinated Cats</p>
+<h3 id="kpiVaccinatedCats" class="font-headline-md text-headline-md font-bold">0</h3>
+</div>
+<div class="stripe-card p-lg rounded-[24px] soft-shadow transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+<div class="flex items-center justify-between mb-md">
+<span class="material-symbols-outlined text-primary bg-primary-container/10 p-sm rounded-lg" data-icon="schedule">schedule</span>
+</div>
+<p class="font-label-md text-label-md text-secondary mb-xs">New Rescues (30d)</p>
+<h3 id="kpiNewRescues" class="font-headline-md text-headline-md font-bold">0</h3>
+</div>
+</section>
+<!-- Bento Grid Main Content -->
+<div class="grid grid-cols-12 gap-lg items-start">
+<!-- Left Column: Recent Activity & Upcoming Vaccinations -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-lg">
+<!-- AI Health Assistant Widget (Fanny) -->
+<div class="bg-surface-container-low border border-primary-container/20 p-lg rounded-[24px] flex items-start gap-lg relative overflow-hidden">
+<div class="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined" data-icon="smart_toy" data-weight="fill">smart_toy</span>
+</div>
+<div class="flex-1">
+<div class="flex flex-col mb-xs">
+<div class="flex items-center gap-sm">
+<h4 class="font-label-md text-label-md font-bold text-primary">Chat with Fanny</h4>
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+</div>
+<span class="text-xs text-secondary font-medium mt-0.5">Your AI Rescue Companion</span>
+</div>
+<p id="fannySummaryText" class="font-body-md text-body-md text-on-surface">"Fanny noticed 3 cats are due for their rabies shot tomorrow. Would you like me to prepare the intake forms for <span class="font-semibold">Milo</span>, <span class="font-semibold">Luna</span>, and <span class="font-semibold">Oliver</span>?"</p>
+<div class="mt-md flex gap-sm">
+<button onclick="window.location.href='chat.html'" class="bg-primary text-white font-label-sm text-label-sm px-md py-sm rounded-lg hover:opacity-90 transition-all">Prepare Forms</button>
+<button onclick="this.closest('.bg-surface-container-low').style.display='none'" class="bg-white border border-outline-variant font-label-sm text-label-sm px-md py-sm rounded-lg hover:bg-surface-container transition-all">Remind me later</button>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/5 rounded-full blur-2xl"></div>
+</div>
+<!-- Recent Activity Timeline -->
+<div class="stripe-card p-xl rounded-[24px]">
+<h3 class="font-headline-md text-headline-md mb-xl flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="history">history</span>
+                        Recent Activity
+                    </h3>
+<div class="space-y-xl relative">
+<!-- Vertical line -->
+<div class="absolute left-[11px] top-4 bottom-4 w-px bg-outline-variant/30"></div>
+<!-- Timeline Item 1 -->
+<div class="flex gap-lg relative">
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[12px] text-white" data-icon="favorite">favorite</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-sm">
+<h4 class="font-label-md text-label-md font-bold">Oliver found a forever home!</h4>
+<span class="font-label-sm text-label-sm text-secondary">2h ago</span>
+</div>
+<p class="font-body-md text-body-md text-secondary mb-md">Oliver was successfully adopted by the Thompson family. Transition documents signed and medical records transferred.</p>
+<div class="flex items-center gap-sm p-sm bg-surface-container rounded-xl w-fit">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="A heart-warming photo of a ginger tabby cat sitting comfortably on a plush white couch, sunlight streaming through a nearby window in a cozy, minimalist living room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChXBUtUK6nSKWqzSXCVNs_4zJOtEw3kKjTinp9bz5_a-A0OwEbdY7BGVNHzuwSwSchi9SrIM033J30G5ablqJ1h8sS7Yrz2govvLT9IaslaYYjvF7lb1Dy3fzxPVTv27dwO2c2uMgmJySCZYVA6imAdc2thTEfBcw4yfQvvhgvIhgM-fsNQSZ-p3O1RWxIB9BfZ7wKF_ksotDFDGJdJvpUu8JKqYt7iz0cFvxD1ksb6KcePSB5CNH0-IPBlpUBhzKfVlwsUY40TnM"/>
+<div class="pr-md">
+<p class="font-label-sm text-label-sm font-bold">Oliver</p>
+<p class="font-label-sm text-[10px] text-secondary">ID: #KV-942</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="flex gap-lg relative">
+<div class="w-6 h-6 rounded-full bg-tertiary-container flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[12px] text-white" data-icon="medical_information">medical_information</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-sm">
+<h4 class="font-label-md text-label-md font-bold">New Rescue Intake: Whiskers</h4>
+<span class="font-label-sm text-label-sm text-secondary">5h ago</span>
+</div>
+<p class="font-body-md text-body-md text-secondary">Initial health check completed. No immediate emergencies. Scheduled for neutering next Tuesday.</p>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="flex gap-lg relative">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[12px] text-on-secondary-container" data-icon="photo_camera">photo_camera</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-sm">
+<h4 class="font-label-md text-label-md font-bold">Profile update: Bella</h4>
+<span class="font-label-sm text-label-sm text-secondary">8h ago</span>
+</div>
+<p class="font-body-md text-body-md text-secondary">New high-resolution photos added to adoption gallery by Volunteer Sarah.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Quick Actions & Vaccinations -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-lg">
+<!-- Quick Actions Card -->
+<div class="stripe-card p-lg rounded-[24px] bg-white apple-shadow">
+<h3 class="font-label-md text-label-md font-bold text-secondary uppercase tracking-wider mb-lg">Quick Actions</h3>
+<div class="grid grid-cols-1 gap-sm">
+<button onclick="window.location.href='add-cat.html'" class="flex items-center gap-md p-md rounded-xl hover:bg-primary-container/10 transition-colors text-left group">
+<span class="material-symbols-outlined text-primary bg-primary-container/10 p-sm rounded-lg group-hover:scale-110 transition-transform" data-icon="add_circle">add_circle</span>
+<div>
+<p class="font-label-md text-label-md font-bold">+ Add Cat</p>
+<p class="font-label-sm text-[11px] text-secondary">Register a new rescue</p>
+</div>
+</button>
+<button onclick="window.location.href='shelter.html'" class="flex items-center gap-md p-md rounded-xl hover:bg-primary-container/10 transition-colors text-left group">
+<span class="material-symbols-outlined text-primary bg-primary-container/10 p-sm rounded-lg group-hover:scale-110 transition-transform" data-icon="foundation">foundation</span>
+<div>
+<p class="font-label-md text-label-md font-bold">Shelter</p>
+<p class="font-label-sm text-[11px] text-secondary">Manage shelter residents</p>
+</div>
+</button>
+<button onclick="window.location.href='adoptions.html'" class="flex items-center gap-md p-md rounded-xl hover:bg-tertiary-container/10 transition-colors text-left group">
+<span class="material-symbols-outlined text-tertiary bg-tertiary-container/10 p-sm rounded-lg group-hover:scale-110 transition-transform" data-icon="volunteer_activism">volunteer_activism</span>
+<div>
+<p class="font-label-md text-label-md font-bold">Adoptions</p>
+<p class="font-label-sm text-[11px] text-secondary">View adoption pipeline</p>
+</div>
+</button>
+<button onclick="window.location.href='analytics.html'" class="flex items-center gap-md p-md rounded-xl hover:bg-tertiary-container/10 transition-colors text-left group">
+<span class="material-symbols-outlined text-tertiary bg-tertiary-container/10 p-sm rounded-lg group-hover:scale-110 transition-transform" data-icon="analytics">analytics</span>
+<div>
+<p class="font-label-md text-label-md font-bold">Analytics</p>
+<p class="font-label-sm text-[11px] text-secondary">View operational charts</p>
+</div>
+</button>
+<button onclick="window.location.href='chat.html'" class="flex items-center gap-md p-md rounded-xl hover:bg-surface-container-highest transition-colors text-left group">
+<span class="material-symbols-outlined text-secondary bg-surface-container p-sm rounded-lg group-hover:scale-110 transition-transform" data-icon="smart_toy">smart_toy</span>
+<div>
+<p class="font-label-md text-label-md font-bold">AI Assistant</p>
+<p class="font-label-sm text-[11px] text-secondary">Chat with Fanny</p>
+</div>
+</button>
+</div>
+</div>
+<!-- Upcoming Vaccinations Priority List -->
+<div class="stripe-card p-lg rounded-[24px]">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-label-md text-label-md font-bold text-secondary uppercase tracking-wider">Priority Vaccines</h3>
+<a class="text-primary font-label-sm text-label-sm hover:underline" href="#">View all</a>
+</div>
+<div class="space-y-md">
+<!-- Priority Item 1 -->
+<div class="flex items-center gap-md">
+<img class="w-12 h-12 rounded-xl object-cover" data-alt="Close-up portrait of a majestic long-haired white cat with piercing blue eyes, photographed in a high-key studio setting with very soft, clean shadows, highlighting its elegant features." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArNf-I5N9xdFvaSKSWxo4dKv4BYM0gL-EVlnz4ZwtOMxX2NO0VrW1d7dXfzRXmX4ICGffyLzr7lik_my-b9V2Jle8omcCG86e33ponwJriAwG_jbicrW8MdNIVHDyNm6FjqM3wJwtwukkyeox5q44drrEiXyGUO9MoA3VIj750XNHKUvi0mGXajxuEoR2I3siletu6SZuy4SzPsR0FQ5bkBxYatAnhf7HBvx0efYj4EbqvWkf_TdN0D2Gq2EJs6EMY62H0u9b0UKo"/>
+<div class="flex-1">
+<p class="font-label-md text-label-md font-bold">Milo</p>
+<p class="font-label-sm text-label-sm text-secondary">Rabies Booster</p>
+</div>
+<div class="text-right">
+<span class="block font-label-sm text-label-sm text-error font-bold">Tomorrow</span>
+<span class="font-label-sm text-[10px] text-secondary">09:00 AM</span>
+</div>
+</div>
+<div class="h-px bg-outline-variant/30"></div>
+<!-- Priority Item 2 -->
+<div class="flex items-center gap-md">
+<img class="w-12 h-12 rounded-xl object-cover" data-alt="A playful calico kitten with striking black, orange, and white patches, sitting against a neutral cream background in a brightly lit environment, evoking a sense of joy and warmth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhkGv8woWjX00MMFmi56Md9LeGBFyf4uNeyEmE5nqMyljF6S-5uJbho9ZHKyt7ctoZlOg8y68HBrc-jHK-6s5hzoaQ9iXJm2AVgj5K5sYjgOubCtHJ3F0kLjVfRPmI3cJXRxDu7RgY9h6v9l1i2XlDVMxj2E781nsZ4JjpqVo0NHJZthJp_tGntWYJMBesk6YZLAKCGvoHVCrdxwBRfQZXiw5O2nxJuFMwZr9IBBQhaFBX8hsRULngj0wq91rSe_AHJmLtYbd_j24"/>
+<div class="flex-1">
+<p class="font-label-md text-label-md font-bold">Luna</p>
+<p class="font-label-sm text-label-sm text-secondary">FVRCP</p>
+</div>
+<div class="text-right">
+<span class="block font-label-sm text-label-sm text-error font-bold">Tomorrow</span>
+<span class="font-label-sm text-[10px] text-secondary">10:30 AM</span>
+</div>
+</div>
+<div class="h-px bg-outline-variant/30"></div>
+<!-- Priority Item 3 -->
+<div class="flex items-center gap-md">
+<img class="w-12 h-12 rounded-xl object-cover" data-alt="A sleek black Bombay cat with luminous golden eyes, posing gracefully on a minimalist light grey surface, captured with soft-box lighting for a premium, clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZuToWBQjxEBXug78eZGXiGPxa0QD0lAWeJ9V5qDUjfd3sOPaxC38N-MB5dppciuVlAv_FRSQdlcyLxD9xtm1DKFtAzFZ4ytI4URTDxQOZX85ldpLBGNMPPYS1zM7hQMJDBbTC3kWQ5q3OQb7hp06igQXw9xBcOx04l0ApCPfhIsrLtfIOTGRZ0r0Ih5rh9VupCEAn478G6UiUPYJYuVETK2Mtj7Ako6nDi9CVg1DTZ67H1i1oEJA3d7ue1_1tIYU7SJKV2TNomFM"/>
+<div class="flex-1">
+<p class="font-label-md text-label-md font-bold">Oliver</p>
+<p class="font-label-sm text-label-sm text-secondary">FeLV</p>
+</div>
+<div class="text-right">
+<span class="block font-label-sm text-label-sm text-error font-bold">Tomorrow</span>
+<span class="font-label-sm text-[10px] text-secondary">02:00 PM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Ad Rate Mini Chart -->
+<div class="stripe-card p-lg rounded-[24px] bg-gradient-to-br from-primary-fixed to-primary-container/20 border-none">
+<p class="font-label-md text-label-md text-on-primary-fixed font-bold mb-md">Weekly Adoption Rate</p>
+<div class="flex items-end gap-sm h-16 mb-md">
+<div class="flex-1 bg-primary/20 rounded-t-sm h-1/2"></div>
+<div class="flex-1 bg-primary/40 rounded-t-sm h-2/3"></div>
+<div class="flex-1 bg-primary/30 rounded-t-sm h-1/2"></div>
+<div class="flex-1 bg-primary/60 rounded-t-sm h-4/5"></div>
+<div class="flex-1 bg-primary/80 rounded-t-sm h-3/4"></div>
+<div class="flex-1 bg-primary rounded-t-sm h-[95%]"></div>
+<div class="flex-1 bg-white/50 rounded-t-sm h-1/3"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-primary-fixed-variant">Last 7 days</span>
+<span class="font-label-md text-label-md font-bold text-primary">+24%</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<button onclick="window.location.href='add-cat.html'" class="fixed bottom-lg right-lg w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.stripe-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Potential for additional JS effects
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        if (searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('ring-2', 'ring-primary-container');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('ring-2', 'ring-primary-container');
+            });
+        }
+    </script>
+<script src="js/sidebar.js"></script>
+<script src="js/dashboard.js"></script>
+</body></html>

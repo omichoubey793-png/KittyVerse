@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KittyVerse | Fanny AI - KittyVerse Copilot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#ffb68e",
+                        "primary-fixed-dim": "#ffb68e",
+                        "surface-tint": "#9b4500",
+                        "on-tertiary-container": "#004853",
+                        "on-surface": "#2B2B2B",
+                        "on-primary-fixed-variant": "#763300",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "secondary": "#5f5e5e",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#fff1eb",
+                        "on-secondary-fixed-variant": "#474747",
+                        "primary-fixed": "#ffdbc9",
+                        "surface": "#fff8f6",
+                        "inverse-surface": "#392e29",
+                        "secondary-fixed": "#e4e2e1",
+                        "on-secondary-container": "#656464",
+                        "tertiary-fixed": "#a5eeff",
+                        "on-surface-variant": "#564339",
+                        "surface-container-high": "#f7e4dc",
+                        "primary": "#FF914D",
+                        "tertiary-fixed-dim": "#42d8f3",
+                        "tertiary-container": "#00bed9",
+                        "tertiary": "#006878",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#331200",
+                        "surface-container": "#fdeae1",
+                        "secondary-container": "#e4e2e1",
+                        "surface-dim": "#e9d6ce",
+                        "background": "#FFF9F5",
+                        "outline": "#897267",
+                        "on-primary-container": "#FF914D",
+                        "on-background": "#2B2B2B",
+                        "surface-bright": "#fff8f6",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#001f25",
+                        "surface-container-highest": "#f2dfd6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#f2dfd6",
+                        "inverse-on-surface": "#ffede5",
+                        "on-error": "#ffffff",
+                        "primary-container": "#FFF4EB",
+                        "outline-variant": "#dcc1b4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "max-width": "1440px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "2xl": "64px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "label-md": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scroll-hide::-webkit-scrollbar { display: none; }
+        .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .chat-bubble-user {
+            border-bottom-right-radius: 4px;
+        }
+        .chat-bubble-ai {
+            border-bottom-left-radius: 4px;
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="js/config.js"></script>
+</head>
+<body class="bg-background font-body-md text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Shell: SideNavBar -->
+<aside></aside>
+<!-- Shell: TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-surface/80 backdrop-blur-md z-40 flex justify-between items-center px-lg">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-2 pl-10 pr-4 text-label-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Search cat IDs, records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button class="p-2 text-secondary hover:text-primary transition-all active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-secondary hover:text-primary transition-all active:scale-95">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="p-2 text-secondary hover:text-primary transition-all active:scale-95">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<div class="h-10 w-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly animal shelter administrator, smiling warmly at the camera. The background is a clean, bright, modern office with soft warm lighting and subtle feline-themed decor. The image has a crisp, high-end photography style with shallow depth of field, maintaining the premium brand aesthetic of KittyVerse." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZUMGn4K58Kpw_bxjbJ6ANk3RLY4uf3vqxM5MgLtGL3o8xApBzYAkJA-0UuH4tULUrvDP99ic8hvCXEXtprB9jyntYUHmQZpXs0RDMwmHVfqJWLj4d3PIwEzSLAto-fAHMfNbZhg1lcyoNCIsy7oXCv0FH_FLmyL59pPE_WAV1r-8fQ8IJcY3-4dDcBOoaBrHWvAuJDMkbYTbBvIRmXEN6CAizx6qd2s5E6qOJciEtZUTkeCd0CBuONXwY2UWg3fdGnZxpkZzC-V0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 pt-16 h-screen flex">
+<!-- Chat History Sidebar -->
+<aside></aside>
+<!-- Chat Main Interface -->
+<section class="flex-1 flex flex-col relative bg-surface-bright">
+<!-- AI Header -->
+<div class="p-lg border-b border-outline-variant flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<h2 class="font-headline-md text-on-surface">Fanny AI - KittyVerse Copilot</h2>
+<p class="font-label-sm text-secondary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-green-500"></span> Online &amp; Ready to help
+                    </p>
+</div>
+</div>
+<!-- Messages Area -->
+<div class="flex-1 overflow-y-auto p-lg scroll-smooth" id="chat-scroller">
+<div class="max-w-3xl mx-auto space-y-xl">
+<!-- Welcome / Fanny Intro -->
+<div class="flex flex-col items-center text-center space-y-lg py-xl">
+<div class="w-48 h-48 rounded-full border-4 border-primary-container/30 overflow-hidden shadow-xl hover:scale-105 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="A high-end 3D character design of a friendly robotic kitten named Fanny. The kitten is matte white with soft orange glowing accents, friendly digital eyes, and a sleek, minimalist aesthetic similar to Apple or Pixar designs. The character sits in a warm, cream-colored studio with soft shadows and a professional, premium tech feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGVrhrapRdQkQoSUmO0WF3Rg_di9m-5lEHd9h3leeFZZ43eVkKh6NKK0CyoEKFxCnAEc5_FE7maBfZVh_fBT9nSZ_Gv3RTKiPogRKVSrxBaqg_vLXQeMylfW4nlXJGmgABGAijoVxSTFebKsPdV-HHYbVszes78-Lyrg5cvk4CzNgu1nYe7rbzH5Wl3nYAeGJOlYHX7grs7xrrJSOmPPRoYyxiM47vlWwXse5weTIelUO_AoVMsQtNZ7422iI1zQ-gETnaYlrX0FM"/>
+</div>
+<div class="max-w-xl">
+<h3 class="font-headline-lg text-primary">Meow! I'm Fanny.</h3>
+<p class="font-body-lg text-secondary mt-md">I help you manage medical records, generate adoption descriptions, and keep track of every kitty in your care. How can I assist you today?</p>
+</div>
+<!-- Suggestion Bento Grid -->
+<div class="grid grid-cols-2 gap-md w-full">
+<button class="suggestion-btn group p-lg bg-surface-container-lowest border border-outline-variant rounded-2xl text-left hover:border-primary transition-all hover:shadow-lg">
+<span class="material-symbols-outlined text-primary mb-sm">pets</span>
+<p class="font-label-md text-on-surface font-semibold">Show available cats</p>
+<p class="font-label-sm text-secondary mt-1 group-hover:text-primary-container transition-colors">List all cats currently available for adoption.</p>
+</button>
+<button class="suggestion-btn group p-lg bg-surface-container-lowest border border-outline-variant rounded-2xl text-left hover:border-primary transition-all hover:shadow-lg">
+<span class="material-symbols-outlined text-primary mb-sm">analytics</span>
+<p class="font-label-md text-on-surface font-semibold">Shelter statistics</p>
+<p class="font-label-sm text-secondary mt-1 group-hover:text-primary-container transition-colors">Get an overview of key analytics and health distribution.</p>
+</button>
+<button class="suggestion-btn group p-lg bg-surface-container-lowest border border-outline-variant rounded-2xl text-left hover:border-primary transition-all hover:shadow-lg">
+<span class="material-symbols-outlined text-primary mb-sm">volunteer_activism</span>
+<p class="font-label-md text-on-surface font-semibold">Pending adoptions</p>
+<p class="font-label-sm text-secondary mt-1 group-hover:text-primary-container transition-colors">Check active adoption requests awaiting decision.</p>
+</button>
+<button class="suggestion-btn group p-lg bg-surface-container-lowest border border-outline-variant rounded-2xl text-left hover:border-primary transition-all hover:shadow-lg">
+<span class="material-symbols-outlined text-primary mb-sm">emergency</span>
+<p class="font-label-md text-on-surface font-semibold">Latest rescues</p>
+<p class="font-label-sm text-secondary mt-1 group-hover:text-primary-container transition-colors">View recent rescue intakes and operations.</p>
+</button>
+<button class="suggestion-btn group p-lg bg-surface-container-lowest border border-outline-variant rounded-2xl text-left hover:border-primary transition-all hover:shadow-lg col-span-1">
+<span class="material-symbols-outlined text-primary mb-sm">vaccines</span>
+<p class="font-label-md text-on-surface font-semibold">Cats needing vaccination</p>
+<p class="font-label-sm text-secondary mt-1 group-hover:text-primary-container transition-colors">See which residents require upcoming vaccines.</p>
+</button>
+<button class="suggestion-btn group p-lg bg-surface-container-lowest border border-outline-variant rounded-2xl text-left hover:border-primary transition-all hover:shadow-lg col-span-1">
+<span class="material-symbols-outlined text-primary mb-sm">search</span>
+<p class="font-label-md text-on-surface font-semibold">Find cat Luna</p>
+<p class="font-label-sm text-secondary mt-1 group-hover:text-primary-container transition-colors">Search for a specific resident cat profile by name.</p>
+</button>
+</div>
+</div>
+<!-- Chat Bubbles Placeholder (Hidden initially, shown on interaction) -->
+<div class="space-y-lg hidden" id="messages-container">
+<div class="flex items-start gap-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex-shrink-0">
+<img class="w-full h-full rounded-full object-cover" data-alt="Avatar of a shelter staff member, modern minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsBZpql-dNqa5sjPuLqz4hg-ICjASSRo7IT9KQyixD598qR7vfMj-GqSI-QHZKjVJ09Gc5hizrIzVc-N8R5KoItFchgnp7BBGGU5LMp25T7fimh2DuIzYfaEoPaRGQkkDNYDJJofPHIQtLF77HLBE1FxU6_yxBcOdEenIJLNHokGm_8D_hvTveSNld6kxHIvvtlFnlp4YaR94lDJ47k_KyU38o4G2EgjBu2TKlEMc7bAAHMZnn9eNchczHcEj3OWF3bdD5PIwhw2Y"/>
+</div>
+<div class="chat-bubble-user bg-surface-container-highest p-md rounded-2xl max-w-[80%]">
+<p class="font-body-md">Can you give me a status update on the kitten nursery? I need to know which cats are ready for vaccination.</p>
+</div>
+</div>
+<div class="flex items-start gap-md flex-row-reverse">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+</div>
+<div class="chat-bubble-ai bg-white border border-outline-variant p-lg rounded-2xl max-w-[80%] shadow-sm">
+<p class="font-body-md text-on-surface">Of course! Based on the latest logs from the Nursery:</p>
+<ul class="mt-md space-y-sm">
+<li class="flex items-center gap-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-md"><strong>Mochi &amp; Chai:</strong> 8 weeks old. Reached target weight for FVRCP.</span>
+</li>
+<li class="flex items-center gap-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-md"><strong>Nugget:</strong> Medical hold (underweight). Recommend re-check in 5 days.</span>
+</li>
+</ul>
+<div class="mt-lg pt-md border-t border-outline-variant flex gap-md">
+<button class="text-primary font-label-md flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[16px]">print</span> Print Schedule
+                                    </button>
+<button class="text-secondary font-label-md flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[16px]">share</span> Share with Vet
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-lg bg-gradient-to-t from-surface via-surface to-transparent">
+<div class="max-w-3xl mx-auto">
+<div class="relative flex items-end gap-md p-2 bg-white border border-outline-variant rounded-[24px] shadow-sm focus-within:ring-2 focus-within:ring-primary transition-all">
+<button class="p-2 text-secondary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 resize-none py-3 font-body-md text-on-surface max-h-32 scroll-hide" id="chat-input" placeholder="Ask Fanny anything about your shelter..." rows="1"></textarea>
+<button class="bg-primary text-on-primary p-3 rounded-full flex items-center justify-center hover:opacity-90 transition-all active:scale-95 shadow-md" id="send-btn">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+</div>
+<p class="text-center mt-sm font-label-sm text-secondary">
+                        Fanny can make mistakes. Always verify medical dosages with a licensed veterinarian.
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<script src="js/sidebar.js"></script>
+<script src="js/chat.js"></script>
+</body></html>

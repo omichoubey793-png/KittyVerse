@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KittyVerse Analytics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#ffb68e",
+                    "primary-fixed-dim": "#ffb68e",
+                    "surface-tint": "#9b4500",
+                    "on-tertiary-container": "#004853",
+                    "on-surface": "#2B2B2B",
+                    "on-primary-fixed-variant": "#763300",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#c8c6c6",
+                    "secondary": "#5f5e5e",
+                    "on-tertiary-fixed-variant": "#004e5a",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#fff1eb",
+                    "on-secondary-fixed-variant": "#474747",
+                    "primary-fixed": "#ffdbc9",
+                    "surface": "#fff8f6",
+                    "inverse-surface": "#392e29",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-secondary-container": "#656464",
+                    "tertiary-fixed": "#a5eeff",
+                    "on-surface-variant": "#564339",
+                    "surface-container-high": "#f7e4dc",
+                    "primary": "#FF914D",
+                    "tertiary-fixed-dim": "#42d8f3",
+                    "tertiary-container": "#00bed9",
+                    "tertiary": "#006878",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#331200",
+                    "surface-container": "#fdeae1",
+                    "secondary-container": "#e4e2e1",
+                    "surface-dim": "#e9d6ce",
+                    "background": "#FFF9F5",
+                    "outline": "#897267",
+                    "on-primary-container": "#FF914D",
+                    "on-background": "#2B2B2B",
+                    "surface-bright": "#fff8f6",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#001f25",
+                    "surface-container-highest": "#f2dfd6",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#f2dfd6",
+                    "inverse-on-surface": "#ffede5",
+                    "on-error": "#ffffff",
+                    "primary-container": "#FFF4EB",
+                    "outline-variant": "#dcc1b4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "lg": "24px",
+                    "xl": "40px",
+                    "max-width": "1440px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "2xl": "64px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "label-md": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff8f6;
+            color: #231a14;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-gradient {
+            background: linear-gradient(180deg, rgba(255, 145, 77, 0.1) 0%, rgba(255, 145, 77, 0) 100%);
+        }
+        .stripe-card {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .stripe-card:hover {
+            box-shadow: 0 12px 24px -4px rgba(0,0,0,0.04), 0 4px 8px -2px rgba(0,0,0,0.02);
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="js/config.js"></script>
+</head>
+<body class="bg-background overflow-x-hidden">
+<!-- SideNavBar -->
+<aside></aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 flex justify-between items-center px-lg bg-surface/80 backdrop-blur-md z-40 shadow-sm">
+<div class="flex items-center gap-md w-1/3">
+<div class="relative w-full max-w-sm">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary/20 font-label-md text-label-md" placeholder="Search analytics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex gap-md text-secondary">
+<button class="hover:text-primary transition-all scale-95 active:scale-90 p-2"><span class="material-symbols-outlined">notifications</span></button>
+<button class="hover:text-primary transition-all scale-95 active:scale-90 p-2"><span class="material-symbols-outlined">chat_bubble</span></button>
+<button class="hover:text-primary transition-all scale-95 active:scale-90 p-2"><span class="material-symbols-outlined">help</span></button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-sm cursor-pointer hover:opacity-80 transition-opacity">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A professional headshot of a female shelter administrator in her 40s, smiling warmly. She is in a brightly lit, modern office with soft-focus feline-themed art in the background. The aesthetic is clean, high-end light-mode with warm orange accents, reflecting the premium KittyVerse brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7oHgLT21S6MgJqDY2N1kiqmRvq7ZM0fq7rb4DSJk_wSuqthWxU21M_gJCqbtVkd0IEShYg5Y8kggpTiO02dUUeyR3Rj3hItmm77dNbH9aVFoTJYB-J3aMLldCEIEI0fDF2JmRGMNp4FOLe35CSEor0UDChRwZZ7s4rIIdz6-0us4ZSPaLlWn3wRni4gagUS17wI9ET9y1tD65H1uk493KefhCEyDhRAX8XxM3KAQh0vbk6uACpnxKMZa_bMc4uKP-I0jQxgEJPGQ"/>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Director Sarah</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 mt-16 p-xl max-w-max-width mx-auto">
+<!-- Dashboard Header -->
+<div class="mb-2xl flex flex-col md:flex-row md:items-end justify-between gap-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Rescue Insights</h2>
+<p class="font-body-lg text-body-lg text-secondary">Real-time performance tracking for KittyVerse operations.</p>
+</div>
+<div class="flex gap-md">
+<button class="px-lg py-md bg-white border border-outline-variant rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors flex items-center gap-sm">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                    Last 30 Days
+                </button>
+<button class="px-lg py-md bg-white border border-outline-variant rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors flex items-center gap-sm">
+<span class="material-symbols-outlined">download</span>
+                    Export CSV
+                </button>
+</div>
+</div>
+<!-- Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-2xl">
+<div class="stripe-card bg-white p-lg rounded-[24px] border border-[#F5F5F5]">
+<div class="flex justify-between items-start mb-md">
+<div class="p-sm bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">volunteer_activism</span>
+</div>
+</div>
+<h4 class="font-label-md text-label-md text-secondary uppercase tracking-wider mb-xs">Active Adoptions</h4>
+<div class="font-headline-md text-headline-md text-on-surface">0</div>
+</div>
+<div class="stripe-card bg-white p-lg rounded-[24px] border border-[#F5F5F5]">
+<div class="flex justify-between items-start mb-md">
+<div class="p-sm bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">medical_services</span>
+</div>
+</div>
+<h4 class="font-label-md text-label-md text-secondary uppercase tracking-wider mb-xs">Medical Holds</h4>
+<div class="font-headline-md text-headline-md text-on-surface">0</div>
+</div>
+<div class="stripe-card bg-white p-lg rounded-[24px] border border-[#F5F5F5]">
+<div class="flex justify-between items-start mb-md">
+<div class="p-sm bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">favorite</span>
+</div>
+</div>
+<h4 class="font-label-md text-label-md text-secondary uppercase tracking-wider mb-xs">Rescue Rate</h4>
+<div class="font-headline-md text-headline-md text-on-surface">0%</div>
+</div>
+<div class="stripe-card bg-white p-lg rounded-[24px] border border-[#F5F5F5]">
+<div class="flex justify-between items-start mb-md">
+<div class="p-sm bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+</div>
+<h4 class="font-label-md text-label-md text-secondary uppercase tracking-wider mb-xs">Monthly Donations</h4>
+<div class="font-headline-md text-headline-md text-on-surface">$0</div>
+</div>
+</div>
+<!-- Charts Grid (Bento Style) -->
+<div class="grid grid-cols-12 gap-gutter mb-2xl">
+<!-- Monthly Rescue Growth -->
+<div class="col-span-12 lg:col-span-8 stripe-card bg-white p-lg rounded-[24px] border border-[#F5F5F5] flex flex-col">
+<div class="flex justify-between items-center mb-xl">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Monthly Rescue Volume</h3>
+<p class="font-label-md text-label-md text-secondary">Intake vs. Successful Rehoming</p>
+</div>
+<div class="flex gap-md items-center">
+<div class="flex items-center gap-xs font-label-sm text-label-sm text-secondary">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Intake
+                        </div>
+<div class="flex items-center gap-xs font-label-sm text-label-sm text-secondary">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Rehomed
+                        </div>
+</div>
+</div>
+<div class="relative h-64 w-full mt-auto">
+<!-- Simple SVG Chart Representation -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 1000 200">
+<!-- Grid Lines -->
+<line stroke="#F5F5F5" stroke-width="1" x1="0" x2="1000" y1="0" y2="0"></line>
+<line stroke="#F5F5F5" stroke-width="1" x1="0" x2="1000" y1="50" y2="50"></line>
+<line stroke="#F5F5F5" stroke-width="1" x1="0" x2="1000" y1="100" y2="100"></line>
+<line stroke="#F5F5F5" stroke-width="1" x1="0" x2="1000" y1="150" y2="150"></line>
+<line stroke="#F5F5F5" stroke-width="1" x1="0" x2="1000" y1="200" y2="200"></line>
+<!-- Area Gradient -->
+<defs>
+<lineargradient id="areaGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#FF914D;stop-opacity:0.2"></stop>
+<stop offset="100%" style="stop-color:#FF914D;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,200 L1000,200 L1000,200 L0,200 Z" fill="url(#areaGrad)"></path>
+<!-- Primary Line -->
+<path d="M0,200 L1000,200" fill="none" stroke="#FF914D" stroke-linecap="round" stroke-width="3"></path>
+<!-- Secondary Line -->
+<path d="M0,200 L1000,200" fill="none" stroke="#006878" stroke-dasharray="8,8" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="flex justify-between mt-md font-label-sm text-label-sm text-secondary">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span>
+</div>
+</div>
+</div>
+<!-- Health Distribution -->
+<div class="col-span-12 lg:col-span-4 stripe-card bg-white p-lg rounded-[24px] border border-[#F5F5F5] flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Health Distribution</h3>
+<p class="font-label-md text-label-md text-secondary mb-xl">Population wellness overview</p>
+<div class="flex-1 flex flex-col justify-center gap-lg">
+<div class="relative w-48 h-48 mx-auto">
+<!-- Simulated Donut Chart -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#F5F5F5" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#FF914D" stroke-dasharray="65 100" stroke-linecap="round" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#006878" stroke-dasharray="20 100" stroke-dashoffset="-65" stroke-linecap="round" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#ba1a1a" stroke-dasharray="15 100" stroke-dashoffset="-85" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-md text-headline-md text-on-surface">0</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">Total Cats</span>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-sm text-secondary">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span> Healthy
+                            </div>
+<span class="font-bold text-on-surface">0%</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-sm text-secondary">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span> Recovery
+                            </div>
+<span class="font-bold text-on-surface">0%</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-sm text-secondary">
+<span class="w-3 h-3 rounded-full bg-error"></span> Critical Care
+                            </div>
+<span class="font-bold text-on-surface">0%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Insights & AI Recommendations -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- AI Assistant Recommendations -->
+<div class="stripe-card bg-surface-container-low p-lg rounded-[24px] border border-outline-variant/30">
+<div class="flex items-center gap-md mb-xl">
+<div class="p-sm bg-tertiary-container text-on-tertiary-container rounded-xl">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">AI Insights</h3>
+<p class="font-label-md text-label-md text-secondary">Operational optimization tips</p>
+</div>
+</div>
+<div class="space-y-md">
+<div class="bg-white p-lg rounded-xl border border-outline-variant/20 text-center text-secondary py-lg flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-primary mb-xs">analytics</span>
+<p class="font-body-md text-sm">Analyzing shelter metrics for insights... 🐾</p>
+</div>
+<button class="w-full py-sm text-primary font-label-md text-label-md font-bold hover:underline">View full AI audit report</button>
+</div>
+</div>
+<!-- Adoption Growth Stats -->
+<div class="stripe-card bg-white p-lg rounded-[24px] border border-[#F5F5F5]">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xl">Regional Performance</h3>
+<div class="space-y-lg">
+<div>
+<div class="flex justify-between items-center mb-xs font-label-md text-label-md text-secondary">
+<span>Main Campus (North)</span>
+<span class="text-on-surface font-bold">0 Adoptions</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 0%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-xs font-label-md text-label-md text-secondary">
+<span>Satellite Annex (East)</span>
+<span class="text-on-surface font-bold">0 Adoptions</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 0%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-xs font-label-md text-label-md text-secondary">
+<span>Foster Network</span>
+<span class="text-on-surface font-bold">0 Adoptions</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 0%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Success Message Micro-interaction -->
+<div class="fixed bottom-lg right-lg bg-inverse-surface text-inverse-on-surface px-lg py-md rounded-xl shadow-xl flex items-center gap-md transform translate-y-24 transition-transform duration-300 pointer-events-none" id="toast">
+<span class="material-symbols-outlined text-primary-fixed-dim">check_circle</span>
+<span class="font-label-md text-label-md">Report successfully exported to cloud storage.</span>
+</div>
+<script>
+        const exportBtn = Array.from(document.querySelectorAll('button')).find(btn => btn.textContent.includes('Export CSV'));
+        const filter30DaysBtn = Array.from(document.querySelectorAll('button')).find(btn => btn.textContent.includes('Last 30 Days'));
+        const toast = document.getElementById('toast');
+        let allAnimals = null;
+        let isLast30DaysActive = false;
+
+        async function getAnimals() {
+            if (allAnimals) return allAnimals;
+            const token = localStorage.getItem("kittyverse_token");
+            const response = await fetch(`${API_BASE_URL}/api/animals`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            if (!response.ok) throw new Error("Could not load animal data.");
+            allAnimals = await response.json();
+            return allAnimals;
+        }
+
+        function convertToCSV(animals) {
+            const headers = [
+                "Name",
+                "Breed",
+                "Age",
+                "Gender",
+                "Health Status",
+                "Vaccination Status",
+                "Adoption Status",
+                "Rescue Date (createdAt)",
+                "Location"
+            ];
+
+            const rows = animals.map(animal => {
+                const escapeCSVValue = (val) => {
+                    if (val === undefined || val === null) return "";
+                    const stringified = String(val);
+                    if (stringified.includes(",") || stringified.includes('"') || stringified.includes("\n")) {
+                        return `"${stringified.replace(/"/g, '""')}"`;
+                    }
+                    return stringified;
+                };
+
+                return [
+                    escapeCSVValue(animal.name),
+                    escapeCSVValue(animal.breed),
+                    escapeCSVValue(animal.age),
+                    escapeCSVValue(animal.gender),
+                    escapeCSVValue(animal.healthStatus),
+                    escapeCSVValue(animal.vaccinationStatus),
+                    escapeCSVValue(animal.adoptionStatus),
+                    escapeCSVValue(animal.createdAt),
+                    escapeCSVValue(animal.location)
+                ].join(",");
+            });
+
+            return [headers.join(","), ...rows].join("\n");
+        }
+
+        function downloadCSV(csvContent, filename) {
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", filename);
+            link.style.visibility = "hidden";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function updateCardValue(title, value) {
+            const cardHeader = Array.from(document.querySelectorAll('h4')).find(h => h.textContent.includes(title));
+            if (cardHeader) {
+                const valueContainer = cardHeader.nextElementSibling;
+                if (valueContainer) {
+                    valueContainer.textContent = value;
+                }
+            }
+        }
+
+        function updateHealthPercent(label, pct) {
+            const containers = Array.from(document.querySelectorAll('.flex.items-center.justify-between'));
+            const matching = containers.find(c => c.textContent.includes(label));
+            if (matching) {
+                const valSpan = matching.querySelector('span.font-bold');
+                if (valSpan) {
+                    valSpan.textContent = pct + "%";
+                }
+            }
+        }
+
+        function refreshCharts(animals, is30Days) {
+            const today = new Date();
+            let intervals = [];
+            let labelTexts = [];
+
+            if (is30Days) {
+                const msInDay = 24 * 60 * 60 * 1000;
+                const startDate = new Date(today.getTime() - 30 * msInDay);
+                for (let i = 0; i < 8; i++) {
+                    const date1 = new Date(startDate.getTime() + i * 3.75 * msInDay);
+                    const date2 = new Date(startDate.getTime() + (i + 1) * 3.75 * msInDay);
+                    intervals.push({ start: date1, end: date2 });
+                    
+                    const dayNum = Math.round(i * 3.75);
+                    labelTexts.push("Day " + dayNum);
+                }
+            } else {
+                for (let i = 7; i >= 0; i--) {
+                    const d = new Date(today.getFullYear(), today.getMonth() - i, 1);
+                    const start = new Date(d.getFullYear(), d.getMonth(), 1);
+                    const end = new Date(d.getFullYear(), d.getMonth() + 1, 0, 23, 59, 59, 999);
+                    intervals.push({ start, end });
+                    
+                    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                    labelTexts.push(monthNames[d.getMonth()]);
+                }
+            }
+
+            const intakeCounts = intervals.map(interval => {
+                return animals.filter(a => {
+                    const cDate = new Date(a.createdAt);
+                    return cDate >= interval.start && cDate <= interval.end;
+                }).length;
+            });
+
+            const rehomedCounts = intervals.map(interval => {
+                return animals.filter(a => {
+                    const cDate = new Date(a.createdAt);
+                    const isAdopted = a.healthStatus === "Adopted" || a.adoptionStatus === "Adopted";
+                    return cDate >= interval.start && cDate <= interval.end && isAdopted;
+                }).length;
+            });
+
+            const maxIntake = Math.max(...intakeCounts, 1);
+            const maxRehomed = Math.max(...rehomedCounts, 1);
+            const maxVal = Math.max(maxIntake, maxRehomed, 5);
+
+            const getPathCoordinates = (coords) => {
+                return coords.map((count, i) => {
+                    const x = i * 1000 / 7;
+                    const y = 200 - (count / maxVal) * 160;
+                    return { x, y };
+                });
+            };
+
+            const intakeCoords = getPathCoordinates(intakeCounts);
+            const rehomedCoords = getPathCoordinates(rehomedCounts);
+
+            const buildPathD = (coords) => {
+                return "M " + coords[0].x + "," + coords[0].y + " " + coords.map(c => "L " + c.x + "," + c.y).slice(1).join(" ");
+            };
+
+            const intakeD = buildPathD(intakeCoords);
+            const rehomedD = buildPathD(rehomedCoords);
+            const areaD = intakeD + " L 1000,200 L 0,200 Z";
+
+            const svg = document.querySelector('svg.overflow-visible');
+            if (svg) {
+                const areaPath = svg.querySelector('path[fill="url(#areaGrad)"]');
+                if (areaPath) areaPath.setAttribute('d', areaD);
+
+                const primaryLine = svg.querySelector('path[stroke="#FF914D"]');
+                if (primaryLine) primaryLine.setAttribute('d', intakeD);
+
+                const secondaryLine = svg.querySelector('path[stroke="#006878"]');
+                if (secondaryLine) secondaryLine.setAttribute('d', rehomedD);
+            }
+
+            const labelContainer = document.querySelector('.flex.justify-between.mt-md.font-label-sm.text-label-sm.text-secondary');
+            if (labelContainer) {
+                labelContainer.innerHTML = labelTexts.map(label => `<span>${label}</span>`).join('');
+            }
+        }
+
+        function refreshRegionalPerformance(animals) {
+            const adoptions = animals.filter(a => a.healthStatus === "Adopted" || a.adoptionStatus === "Adopted");
+            
+            let mainCampus = 0;
+            let satelliteAnnex = 0;
+            let fosterNetwork = 0;
+
+            adoptions.forEach(a => {
+                const loc = (a.location || "").toLowerCase();
+                if (loc.includes("seattle") || loc.includes("london") || loc.includes("main")) {
+                    mainCampus++;
+                } else if (loc.includes("tokyo") || loc.includes("munich") || loc.includes("zone")) {
+                    satelliteAnnex++;
+                } else {
+                    fosterNetwork++;
+                }
+            });
+
+            const totalAdoptions = adoptions.length || 1;
+
+            const updateRegion = (name, count) => {
+                const containers = Array.from(document.querySelectorAll('.space-y-lg > div'));
+                const matching = containers.find(c => c.textContent.includes(name));
+                if (matching) {
+                    const textSpan = matching.querySelector('.font-bold');
+                    if (textSpan) textSpan.textContent = count + " Adoption" + (count !== 1 ? "s" : "");
+                    
+                    const bar = matching.querySelector('.bg-primary-container');
+                    if (bar) {
+                        const pct = Math.round((count / totalAdoptions) * 100);
+                        bar.style.width = pct + "%";
+                    }
+                }
+            };
+
+            updateRegion("Main Campus (North)", mainCampus);
+            updateRegion("Satellite Annex (East)", satelliteAnnex);
+            updateRegion("Foster Network", fosterNetwork);
+        }
+
+        function generateAIInsights(animals) {
+            const totalCount = animals.length;
+            if (totalCount === 0) {
+                return [
+                    {
+                        icon: "warning",
+                        iconColor: "text-primary",
+                        text: "No active shelter records found. Start intake to generate insights."
+                    }
+                ];
+            }
+
+            const healthyCount = animals.filter(a => a.healthStatus === "Healthy" || a.healthStatus === "Ready for Adoption").length;
+            const observationCount = animals.filter(a => a.healthStatus === "Under Observation" || a.healthStatus === "Under Treatment").length;
+            const pendingVaxCount = animals.filter(a => a.vaccinationStatus === "Pending Booster" || a.vaccinationStatus === "First Dose Only").length;
+            const adoptedCount = animals.filter(a => a.adoptionStatus === "Adopted" || a.healthStatus === "Adopted").length;
+            const availableCount = animals.filter(a => a.adoptionStatus === "Available" || a.adoptionStatus === "Ready for Adoption").length;
+
+            const healthyPct = Math.round((healthyCount / totalCount) * 100);
+            const observationPct = Math.round((observationCount / totalCount) * 100);
+
+            const insights = [];
+
+            // Rule 1: Healthy animals > 70%
+            if (healthyPct > 70) {
+                insights.push({
+                    icon: "check_circle",
+                    iconColor: "text-tertiary",
+                    text: `Shelter health is excellent at <strong>${healthyPct}% healthy</strong>. Continue the current preventative care schedule.`
+                });
+            }
+
+            // Rule 2: Under Observation / Treatment > 20%
+            if (observationPct > 20) {
+                insights.push({
+                    icon: "warning",
+                    iconColor: "text-error",
+                    text: `Veterinary workload is high (<strong>${observationPct}% under treatment</strong>). Schedule additional health inspections.`
+                });
+            } else {
+                insights.push({
+                    icon: "check_circle",
+                    iconColor: "text-tertiary",
+                    text: "Clinic caseload is fully stable. Medical holds are within optimal shelter capacity limits."
+                });
+            }
+
+            // Rule 3: Pending vaccinations
+            if (pendingVaxCount > 0) {
+                insights.push({
+                    icon: "medical_services",
+                    iconColor: "text-primary",
+                    text: `Prioritize care: <strong>${pendingVaxCount} rescued cats</strong> require immediate vaccination updates or booster doses this week.`
+                });
+            }
+
+            // Rule 4: Available vs Adopted
+            if (availableCount > adoptedCount * 2) {
+                insights.push({
+                    icon: "trending_up",
+                    iconColor: "text-primary",
+                    text: `Adoption pipeline warning: Available cats (<strong>${availableCount}</strong>) are significantly higher than Adopted cats. Consider launching a regional adoption campaign.`
+                });
+            } else if (adoptedCount > 0) {
+                insights.push({
+                    icon: "trending_up",
+                    iconColor: "text-tertiary",
+                    text: "Adoption rates are showing positive momentum. Promote currently ready residents on social channels."
+                });
+            }
+
+            // Rule 5: Growth/Intake volume
+            const msIn30Days = 30 * 24 * 60 * 60 * 1000;
+            const threshold = new Date().getTime() - msIn30Days;
+            const recentIntake = animals.filter(a => new Date(a.createdAt).getTime() >= threshold).length;
+            if (recentIntake > totalCount * 0.5) {
+                insights.push({
+                    icon: "campaign",
+                    iconColor: "text-primary",
+                    text: `Intake volume is rising rapidly (<strong>${recentIntake} new rescues</strong> in the last 30 days). Prepare additional foster capacities.`
+                });
+            }
+
+            return insights.slice(0, 4);
+        }
+
+        function refreshAIInsights(animals) {
+            const container = document.querySelector('.bg-surface-container-low .space-y-md');
+            if (!container) return;
+
+            const insights = generateAIInsights(animals);
+
+            const itemsHtml = insights.map(ins => `
+                <div class="bg-white p-md rounded-xl border border-outline-variant/20 flex gap-md items-start">
+                    <span class="material-symbols-outlined ${ins.iconColor} shrink-0">${ins.icon}</span>
+                    <p class="font-body-md text-body-md text-on-surface-variant">${ins.text}</p>
+                </div>
+            `).join('');
+
+            container.innerHTML = `
+                ${itemsHtml}
+                <button class="w-full py-sm text-primary font-label-md text-label-md font-bold hover:underline" onclick="alert('Full AI Operational audit report compiled: Case status healthy, preventative care priority scheduled.')">View full AI audit report</button>
+            `;
+        }
+
+        function refreshDashboard(animals) {
+            const totalCount = animals.length;
+            const adoptionsCount = animals.filter(a => a.adoptionStatus === "Adopted" || a.healthStatus === "Adopted").length;
+            const medicalHoldsCount = animals.filter(a => a.healthStatus === "Under Observation" || a.healthStatus === "Under Treatment").length;
+            
+            let rescueRate = 0;
+            if (totalCount > 0) {
+                rescueRate = Math.round(((totalCount - medicalHoldsCount) / totalCount) * 1000) / 10;
+            }
+
+            let donations = totalCount * 40;
+
+            updateCardValue("Active Adoptions", adoptionsCount);
+            updateCardValue("Medical Holds", medicalHoldsCount);
+            updateCardValue("Rescue Rate", rescueRate + "%");
+            updateCardValue("Monthly Donations", "$" + donations.toLocaleString());
+
+            const healthyCount = animals.filter(a => a.healthStatus === "Healthy" || a.healthStatus === "Ready for Adoption").length;
+            const recoveryCount = animals.filter(a => a.healthStatus === "Under Observation" || a.healthStatus === "Under Treatment").length;
+            const criticalCount = totalCount - healthyCount - recoveryCount;
+
+            let pHealthy = 0, pRecovery = 0, pCritical = 0;
+            if (totalCount > 0) {
+                pHealthy = Math.round((healthyCount / totalCount) * 100);
+                pRecovery = Math.round((recoveryCount / totalCount) * 100);
+                pCritical = 100 - pHealthy - pRecovery;
+            }
+
+            const totalCatsText = Array.from(document.querySelectorAll('.absolute.inset-0.flex.flex-col.items-center.justify-center span')).find(s => s.classList.contains('font-headline-md'));
+            if (totalCatsText) totalCatsText.textContent = totalCount;
+
+            updateHealthPercent("Healthy", pHealthy);
+            updateHealthPercent("Recovery", pRecovery);
+            updateHealthPercent("Critical Care", pCritical);
+
+            const circleHealthy = document.querySelector('circle[stroke="#FF914D"]');
+            const circleRecovery = document.querySelector('circle[stroke="#006878"]');
+            const circleCritical = document.querySelector('circle[stroke="#ba1a1a"]');
+
+            if (circleHealthy) {
+                circleHealthy.setAttribute('stroke-dasharray', `${pHealthy} 100`);
+            }
+            if (circleRecovery) {
+                circleRecovery.setAttribute('stroke-dasharray', `${pRecovery} 100`);
+                circleRecovery.setAttribute('stroke-dashoffset', `-${pHealthy}`);
+            }
+            if (circleCritical) {
+                circleCritical.setAttribute('stroke-dasharray', `${pCritical} 100`);
+                circleCritical.setAttribute('stroke-dashoffset', `-${pHealthy + pRecovery}`);
+            }
+
+            refreshCharts(animals, isLast30DaysActive);
+            refreshRegionalPerformance(animals);
+            refreshAIInsights(animals);
+        }
+
+        if (exportBtn) {
+            exportBtn.addEventListener('click', async () => {
+                try {
+                    const animals = await getAnimals();
+                    const targetAnimals = isLast30DaysActive 
+                        ? animals.filter(a => new Date(a.createdAt).getTime() >= new Date().getTime() - 30 * 24 * 60 * 60 * 1000)
+                        : animals;
+
+                    const csvContent = convertToCSV(targetAnimals);
+                    downloadCSV(csvContent, "analytics-report.csv");
+
+                    toast.classList.remove('translate-y-24');
+                    setTimeout(() => {
+                        toast.classList.add('translate-y-24');
+                    }, 3000);
+                } catch (error) {
+                    console.error("Export CSV error:", error);
+                    alert("Failed to export CSV. Make sure the backend is running.");
+                }
+            });
+        }
+
+        if (filter30DaysBtn) {
+            filter30DaysBtn.addEventListener('click', async () => {
+                try {
+                    const animals = await getAnimals();
+                    isLast30DaysActive = !isLast30DaysActive;
+
+                    if (isLast30DaysActive) {
+                        filter30DaysBtn.className = "px-lg py-md bg-primary text-white border border-primary rounded-xl font-label-md text-label-md hover:bg-[#ff8033] transition-colors flex items-center gap-sm shadow-sm font-semibold";
+                        
+                        const msInDay = 24 * 60 * 60 * 1000;
+                        const threshold = new Date().getTime() - 30 * msInDay;
+                        const filtered = animals.filter(a => new Date(a.createdAt).getTime() >= threshold);
+                        
+                        refreshDashboard(filtered);
+                    } else {
+                        filter30DaysBtn.className = "px-lg py-md bg-white border border-outline-variant rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors flex items-center gap-sm";
+                        
+                        refreshDashboard(animals);
+                    }
+                } catch (error) {
+                    console.error("30 Days filter error:", error);
+                }
+            });
+        }
+
+        // Initialize dashboard with real data
+        getAnimals().then(animals => {
+            refreshDashboard(animals);
+        }).catch(err => console.error(err));
+
+        // Hover animation for Metric Cards
+        document.querySelectorAll('.stripe-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+<script src="js/sidebar.js"></script>
+</body></html>

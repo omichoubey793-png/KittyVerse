@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Case | KittyVerse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#ffb68e",
+                    "primary-fixed-dim": "#ffb68e",
+                    "surface-tint": "#9b4500",
+                    "on-tertiary-container": "#004853",
+                    "on-surface": "#2B2B2B",
+                    "on-primary-fixed-variant": "#763300",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#c8c6c6",
+                    "secondary": "#5f5e5e",
+                    "on-tertiary-fixed-variant": "#004e5a",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#fff1eb",
+                    "on-secondary-fixed-variant": "#474747",
+                    "primary-fixed": "#ffdbc9",
+                    "surface": "#fff8f6",
+                    "inverse-surface": "#392e29",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-secondary-container": "#656464",
+                    "tertiary-fixed": "#a5eeff",
+                    "on-surface-variant": "#564339",
+                    "surface-container-high": "#f7e4dc",
+                    "primary": "#FF914D",
+                    "tertiary-fixed-dim": "#42d8f3",
+                    "tertiary-container": "#00bed9",
+                    "tertiary": "#006878",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#331200",
+                    "surface-container": "#fdeae1",
+                    "secondary-container": "#e4e2e1",
+                    "surface-dim": "#e9d6ce",
+                    "background": "#FFF9F5",
+                    "outline": "#897267",
+                    "on-primary-container": "#FF914D",
+                    "on-background": "#2B2B2B",
+                    "surface-bright": "#fff8f6",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#001f25",
+                    "surface-container-highest": "#f2dfd6",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#f2dfd6",
+                    "inverse-on-surface": "#ffede5",
+                    "on-error": "#ffffff",
+                    "primary-container": "#FFF4EB",
+                    "outline-variant": "#dcc1b4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "lg": "24px",
+                    "xl": "40px",
+                    "max-width": "1440px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "2xl": "64px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "label-md": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #FFF9F5;
+            color: #231a14;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #dcc1b4;
+            border-radius: 10px;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 8px -2px rgba(0,0,0,0.02);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 12px 24px -4px rgba(0,0,0,0.04), 0 4px 8px -2px rgba(0,0,0,0.02);
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="js/config.js"></script>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- Header Navigation Shell (Suppressed for focused task, but Brand remains) -->
+<header class="fixed top-0 left-0 right-0 h-20 bg-surface/80 backdrop-blur-md z-50 px-margin-desktop flex items-center justify-between border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="pets" style="font-variation-settings: 'FILL' 1;">pets</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">KittyVerse</h1>
+</div>
+<div class="flex items-center gap-lg">
+<button class="text-secondary hover:text-primary transition-colors flex items-center gap-sm">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+<span class="font-label-md text-label-md">Cancel Intake</span>
+</button>
+</div>
+</header>
+<main class="pt-32 pb-2xl max-w-[1000px] mx-auto px-margin-mobile md:px-0">
+<!-- Page Header -->
+<div class="mb-xl">
+<h2 class="font-headline-lg text-headline-lg mb-xs">New Resident Intake</h2>
+<p class="text-secondary font-body-md">Register a new rescue case into the KittyVerse management system. Please be as detailed as possible for medical records.</p>
+</div>
+<form class="space-y-lg">
+<!-- PHOTO UPLOAD SECTION -->
+<section class="bg-surface-container-lowest p-lg rounded-[24px] card-shadow transition-all duration-300 border border-surface-container">
+<h3 class="font-headline-md text-headline-md mb-md text-on-surface">Resident Profile Photo</h3>
+<div class="relative group cursor-pointer border-2 border-dashed border-outline-variant rounded-[20px] bg-surface-bright hover:bg-surface-container-low transition-colors duration-300 h-[400px] flex flex-col items-center justify-center text-center p-xl">
+<input aria-label="Upload cat photo" id="catImage" name="image" class="absolute inset-0 opacity-0 cursor-pointer" type="file" accept="image/*"/>
+<div class="w-20 h-20 bg-primary-container/10 rounded-full flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="add_a_photo">add_a_photo</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface mb-xs">Upload Profile Picture</p>
+<p class="text-secondary font-body-md max-w-sm">Drag and drop a high-resolution photo or click to browse. Preferred size: 1200x800px.</p>
+</div>
+</section>
+<!-- BASIC INFO GRID -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Basic Info Card -->
+<section class="bg-surface-container-lowest p-lg rounded-[24px] card-shadow border border-surface-container space-y-md">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Basic Identity</h3>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">Cat Name</label>
+<input id="catName" name="name" class="w-full bg-surface-bright border-outline-variant rounded-xl p-md focus:ring-primary focus:border-primary transition-all font-body-md" placeholder="e.g., Mochi" type="text" required/>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">Breed / Mix</label>
+<input id="catBreed" name="breed" class="w-full bg-surface-bright border-outline-variant rounded-xl p-md focus:ring-primary focus:border-primary transition-all font-body-md" placeholder="e.g., Domestic Shorthair" type="text" required/>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">Gender</label>
+<select id="catGender" name="gender" class="w-full bg-surface-bright border-outline-variant rounded-xl p-md focus:ring-primary focus:border-primary transition-all font-body-md" required>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+</select>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">Age (Years)</label>
+<input id="catAge" name="age" type="number" min="0" class="w-full bg-surface-bright border-outline-variant rounded-xl p-md focus:ring-primary focus:border-primary transition-all font-body-md" placeholder="e.g. 2" required/>
+</div>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">Color</label>
+<input id="catColor" name="color" class="w-full bg-surface-bright border-outline-variant rounded-xl p-md focus:ring-primary focus:border-primary transition-all font-body-md" placeholder="e.g., Tabby, Black, White" type="text" required/>
+</div>
+</section>
+<!-- Intake Details Card -->
+<section class="bg-surface-container-lowest p-lg rounded-[24px] card-shadow border border-surface-container space-y-md">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-primary" data-icon="calendar_today">calendar_today</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Intake Details</h3>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">Rescue Date</label>
+<input class="w-full bg-surface-bright border-outline-variant rounded-xl p-md focus:ring-primary focus:border-primary transition-all font-body-md" type="date"/>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">Rescue Location</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline" data-icon="location_on">location_on</span>
+<input class="w-full bg-surface-bright border-outline-variant rounded-xl py-md pl-xl pr-md focus:ring-primary focus:border-primary transition-all font-body-md" placeholder="Street, Neighborhood or City" type="text"/>
+</div>
+</div>
+<div class="p-md bg-surface-container-low rounded-xl border border-surface-container space-y-sm">
+<p class="font-label-md text-label-md text-primary">Map Reference</p>
+<div class="w-full h-32 rounded-lg bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist vector map of a city neighborhood, featuring soft cream-colored streets and warm orange highlights for points of interest. The style is modern, professional, and consistent with a high-end UI design system, using a restricted warm neutral palette." data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbzS8ouvop67tfyzUzsVQOwlDapkfbmzEZQCyfG6w8QYTc-n_PK5EMSkeMPQHhc3Kt_D14CZCQiIio7B_28DasEtxAdemEF4yEBEjBS9S47ZW_GWlDFTpw1p9oqy9ydtHNY2cS1cbgz75i7BgTCE1HJUmSXv3C7Au_Do-5LDCzXibJVroeRhTgLEhKjtm4bLzzC1wPuSBqK_g_v3Ko8outKgggEqNdpu442APRWQ2PChc18kFV46D7btZXxzi9mBpbkmdU9rnfCGU"/>
+</div>
+</div>
+</section>
+</div>
+<!-- HEALTH STATUS -->
+<section class="bg-surface-container-lowest p-lg rounded-[24px] card-shadow border border-surface-container">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary" data-icon="medical_services">medical_services</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Health &amp; Vaccinations</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-lg">
+<label class="flex items-center gap-md p-md border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-colors group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Vaccinated</span>
+<span class="text-xs text-secondary">Up to date records</span>
+</div>
+</label>
+<label class="flex items-center gap-md p-md border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-colors group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Neutered/Spayed</span>
+<span class="text-xs text-secondary">Verified by vet</span>
+</div>
+</label>
+<label class="flex items-center gap-md p-md border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-colors group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Microchipped</span>
+<span class="text-xs text-secondary">Registry updated</span>
+</div>
+</label>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">Description</label>
+<textarea id="catDescription" name="description" class="w-full bg-surface-bright border-outline-variant rounded-xl p-md focus:ring-primary focus:border-primary transition-all font-body-md" placeholder="Describe the cat's personality, medical condition, or rescue details..." rows="4" required></textarea>
+</div>
+</section>
+<!-- SHELTER ASSIGNMENT -->
+<section class="bg-surface-container-lowest p-lg rounded-[24px] card-shadow border border-surface-container">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary" data-icon="assignment_ind">assignment_ind</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Shelter Assignment</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">Primary Caretaker</label>
+<select class="w-full bg-surface-bright border-outline-variant rounded-xl p-md focus:ring-primary focus:border-primary transition-all font-body-md">
+<option>Dr. Sarah Jenkins (Senior Vet)</option>
+<option>Mark Thompson (Rescue Lead)</option>
+<option>Elena Rodriguez (Volunteer Coordinator)</option>
+<option>Assign Later</option>
+</select>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">Housing Unit</label>
+<select class="w-full bg-surface-bright border-outline-variant rounded-xl p-md focus:ring-primary focus:border-primary transition-all font-body-md">
+<option>Quarantine Wing - A1</option>
+<option>General Habitat - B4</option>
+<option>Senior Suite - S2</option>
+<option>Maternity Ward - M1</option>
+</select>
+</div>
+</div>
+</section>
+<!-- FORM ACTIONS -->
+<footer class="flex items-center justify-end gap-md pt-lg">
+<button class="px-xl py-md text-secondary hover:text-on-surface font-label-md text-label-md transition-colors rounded-xl border border-transparent hover:border-outline-variant" type="button">
+                    Cancel &amp; Discard
+                </button>
+<button class="bg-primary-container text-on-primary-container px-2xl py-md rounded-xl font-label-md text-label-md shadow-sm hover:shadow-lg transition-all hover:-translate-y-px active:scale-95 flex items-center gap-sm" type="submit">
+<span class="material-symbols-outlined" data-icon="save" style="font-variation-settings: 'FILL' 1;">save</span>
+                    Save Resident Case
+                </button>
+</footer>
+</form>
+</main>
+<!-- Success Toast (Hidden by default) -->
+<div class="fixed bottom-lg right-lg bg-surface-container-lowest border border-primary/20 shadow-2xl p-lg rounded-2xl flex items-center gap-md translate-y-24 opacity-0 transition-all duration-500 z-[100]" id="toast">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Resident added successfully</p>
+<p class="text-xs text-secondary">The case file is now active in management.</p>
+</div>
+</div>
+<script src="js/sidebar.js"></script>
+<script src="js/add-cat.js"></script>
+</body></html>

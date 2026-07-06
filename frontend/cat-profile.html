@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Luna - Cat Profile | KittyVerse</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for a cleaner feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #dcc1b4;
+            border-radius: 10px;
+        }
+        .apple-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#ffb68e",
+                      "primary-fixed-dim": "#ffb68e",
+                      "surface-tint": "#9b4500",
+                      "on-tertiary-container": "#004853",
+                      "on-surface": "#2B2B2B",
+                      "on-primary-fixed-variant": "#763300",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#c8c6c6",
+                      "secondary": "#5f5e5e",
+                      "on-tertiary-fixed-variant": "#004e5a",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#fff1eb",
+                      "on-secondary-fixed-variant": "#474747",
+                      "primary-fixed": "#ffdbc9",
+                      "surface": "#fff8f6",
+                      "inverse-surface": "#392e29",
+                      "secondary-fixed": "#e4e2e1",
+                      "on-secondary-container": "#656464",
+                      "tertiary-fixed": "#a5eeff",
+                      "on-surface-variant": "#564339",
+                      "surface-container-high": "#f7e4dc",
+                      "primary": "#FF914D",
+                      "tertiary-fixed-dim": "#42d8f3",
+                      "tertiary-container": "#00bed9",
+                      "tertiary": "#006878",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed": "#331200",
+                      "surface-container": "#fdeae1",
+                      "secondary-container": "#e4e2e1",
+                      "surface-dim": "#e9d6ce",
+                      "background": "#FFF9F5",
+                      "outline": "#897267",
+                      "on-primary-container": "#FF914D",
+                      "on-background": "#2B2B2B",
+                      "surface-bright": "#fff8f6",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#001f25",
+                      "surface-container-highest": "#f2dfd6",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#f2dfd6",
+                      "inverse-on-surface": "#ffede5",
+                      "on-error": "#ffffff",
+                      "primary-container": "#FFF4EB",
+                      "outline-variant": "#dcc1b4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "lg": "24px",
+                      "xl": "40px",
+                      "max-width": "1440px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "2xl": "64px",
+                      "md": "16px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "48px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Be Vietnam Pro"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "display-lg": ["Be Vietnam Pro"],
+                      "headline-lg": ["Be Vietnam Pro"],
+                      "label-md": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "label-sm": ["Be Vietnam Pro"],
+                      "headline-lg-mobile": ["Be Vietnam Pro"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="js/config.js"></script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Sidebar Navigation Shell -->
+<aside></aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen relative">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-surface/80 backdrop-blur-md shadow-sm h-16 flex justify-between items-center px-lg">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-full max-w-sm group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container border-none rounded-full py-2 pl-10 pr-4 text-label-md focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search cat profiles, medical records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<button class="px-md py-2 bg-primary text-white rounded-full font-label-md flex items-center gap-sm hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    Add New Case
+                </button>
+</div>
+</header>
+<!-- Page Content -->
+<div class="pt-16 max-w-max-width mx-auto px-lg pb-2xl">
+<!-- Hero Header Section -->
+<section class="mt-lg relative rounded-[32px] overflow-hidden group shadow-xl h-[480px]">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms] ease-out" data-alt="A high-end, professionally photographed portrait of a majestic white and orange cat named Luna with striking amber eyes. The lighting is soft and cinematic, highlighting her soft fur texture against a warm, minimalist cream background. The aesthetic is clean, emotional, and premium, echoing a luxury veterinary or pet wellness brand with a high-key color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZS9SpUWJQX-yWa5wZyuNYfiGpoy_ICbkAVyCZm9aMMPY3YALCHsp98CGEN46T9MPle4BJoOnDNZFytuaRGNdZb5arQkkSMhGH3G3NE6gnWy0FQCx2sS2uJezARaAj9QWxif4FfNiT0wuCg447lh806OHByYiln-faI04v2o8kf4eIwHQ9ctIUdQhhBCqwJJ4ubeCzBlonHY6gBU-w9njE4CniBkZatbJ-qduaFfgiAkb8gEzNcabUn4GElNVeRU1I4-wbSaI9OEA"/>
+<!-- Hero Content -->
+<div class="absolute bottom-0 left-0 p-xl z-20 w-full flex flex-col md:flex-row md:items-end justify-between gap-lg">
+<div>
+<div class="flex items-center gap-sm mb-sm">
+<span class="bg-tertiary-container text-on-tertiary-container px-md py-1 rounded-full font-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px] fill-icon">check_circle</span>
+                                Healthy
+                            </span>
+<span class="bg-white/20 backdrop-blur-md text-white px-md py-1 rounded-full font-label-sm">
+                                ID: #KV-2024-0082
+                            </span>
+</div>
+<h2 class="font-display-lg text-[56px] text-white font-bold leading-tight">Luna</h2>
+<p class="font-headline-md text-white/90">Domestic Short Hair • Calico Mix</p>
+</div>
+<!-- Quick Actions -->
+<div class="flex flex-wrap gap-md">
+<button class="bg-white text-on-surface px-lg py-md rounded-xl font-label-md flex items-center gap-sm shadow-lg hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">edit</span>
+                            Edit Profile
+                        </button>
+<button class="bg-primary-container text-on-primary-container px-lg py-md rounded-xl font-label-md flex items-center gap-sm shadow-lg hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined">vaccines</span>
+                            Vaccinate
+                        </button>
+<button class="bg-tertiary text-white px-lg py-md rounded-xl font-label-md flex items-center gap-sm shadow-lg hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined">volunteer_activism</span>
+                            Adopt
+                        </button>
+<button class="bg-error text-white w-12 h-12 rounded-xl flex items-center justify-center shadow-lg hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Stats Bento Grid -->
+<section class="mt-2xl grid grid-cols-1 md:grid-cols-4 gap-lg">
+<div class="bg-white p-lg rounded-[24px] border border-surface-variant flex flex-col items-center justify-center text-center group hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-primary text-[32px] mb-sm bg-primary-fixed p-3 rounded-2xl">event</span>
+<span class="text-secondary font-label-md">Age</span>
+<p class="font-headline-md text-on-surface">2 Years, 4 Mos</p>
+</div>
+<div class="bg-white p-lg rounded-[24px] border border-surface-variant flex flex-col items-center justify-center text-center group hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-tertiary text-[32px] mb-sm bg-tertiary-fixed p-3 rounded-2xl">female</span>
+<span class="text-secondary font-label-md">Gender</span>
+<p class="font-headline-md text-on-surface">Spayed Female</p>
+</div>
+<div class="bg-white p-lg rounded-[24px] border border-surface-variant flex flex-col items-center justify-center text-center group hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-orange-500 text-[32px] mb-sm bg-orange-50 p-3 rounded-2xl">monitor_weight</span>
+<span class="text-secondary font-label-md">Weight</span>
+<p class="font-headline-md text-on-surface">4.2 kg</p>
+</div>
+<div class="bg-white p-lg rounded-[24px] border border-surface-variant flex flex-col items-center justify-center text-center group hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-green-500 text-[32px] mb-sm bg-green-50 p-3 rounded-2xl">door_front</span>
+<span class="text-secondary font-label-md">Status</span>
+<p class="font-headline-md text-green-600">Available</p>
+</div>
+</section>
+<!-- Main Body Layout -->
+<div class="mt-2xl grid grid-cols-1 lg:grid-cols-3 gap-2xl">
+<!-- Left Column: Medical & Timeline -->
+<div class="lg:col-span-2 space-y-2xl">
+<!-- Emergency Notes: Notification Card -->
+<div class="bg-error-container/40 border-2 border-error/10 p-lg rounded-[24px] flex gap-lg items-start">
+<div class="bg-error text-white w-12 h-12 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined fill-icon">priority_high</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-error-container mb-xs">Emergency Alert &amp; Sensitivity</h4>
+<p class="text-on-error-container opacity-80 mb-md font-body-md">Luna has a known hypersensitivity to standard penicillin-based antibiotics. Always consult the specific 'Hypersensitivity Protocol' before administering any new medication.</p>
+<div class="flex gap-md">
+<button class="text-error font-label-md underline hover:opacity-70">View Full Protocol</button>
+<button class="text-error font-label-md underline hover:opacity-70">Contact Primary Vet</button>
+</div>
+</div>
+</div>
+<!-- Health Timeline (Linear Style) -->
+<div class="bg-white p-xl rounded-[24px] border border-surface-variant">
+<div class="flex items-center justify-between mb-xl">
+<h3 class="font-headline-lg flex items-center gap-md">
+<span class="material-symbols-outlined text-primary text-[32px]">timeline</span>
+                                Care Timeline
+                            </h3>
+<button class="text-primary font-label-md">See All History</button>
+</div>
+<div class="relative pl-8 space-y-xl before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant">
+<!-- Timeline Entry -->
+<div class="relative">
+<div class="absolute -left-[29px] top-1 w-5 h-5 rounded-full bg-primary border-4 border-white shadow-sm z-10"></div>
+<div class="flex flex-col md:flex-row md:justify-between md:items-start gap-sm">
+<div>
+<p class="font-label-md text-secondary">Oct 14, 2023</p>
+<h4 class="font-headline-md text-on-surface">Final Vaccination Booster</h4>
+<p class="text-secondary mt-1">FVRCP vaccine administered successfully. No immediate reaction observed during 30-min observation.</p>
+</div>
+<span class="bg-green-50 text-green-700 px-md py-1 rounded-full font-label-sm border border-green-200 shrink-0">Completed</span>
+</div>
+</div>
+<!-- Timeline Entry -->
+<div class="relative">
+<div class="absolute -left-[29px] top-1 w-5 h-5 rounded-full bg-tertiary border-4 border-white shadow-sm z-10"></div>
+<div class="flex flex-col md:flex-row md:justify-between md:items-start gap-sm">
+<div>
+<p class="font-label-md text-secondary">Sep 28, 2023</p>
+<h4 class="font-headline-md text-on-surface">Dental Prophylaxis</h4>
+<p class="text-secondary mt-1">Full cleaning and scaling under sedation. Grade 1 gingivitis noted on upper premolars.</p>
+</div>
+<span class="bg-blue-50 text-blue-700 px-md py-1 rounded-full font-label-sm border border-blue-200 shrink-0">Procedure</span>
+</div>
+</div>
+<!-- Timeline Entry -->
+<div class="relative opacity-60">
+<div class="absolute -left-[29px] top-1 w-5 h-5 rounded-full bg-outline-variant border-4 border-white shadow-sm z-10"></div>
+<div class="flex flex-col md:flex-row md:justify-between md:items-start gap-sm">
+<div>
+<p class="font-label-md text-secondary">Aug 15, 2023</p>
+<h4 class="font-headline-md text-on-surface">Initial Intake Exam</h4>
+<p class="text-secondary mt-1">General physical checkup, flea treatment, and deworming. Heart rate stable.</p>
+</div>
+<span class="bg-gray-50 text-gray-700 px-md py-1 rounded-full font-label-sm border border-gray-200 shrink-0">Archived</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Medical History Cards -->
+<div>
+<h3 class="font-headline-lg mb-lg flex items-center gap-md">
+<span class="material-symbols-outlined text-primary text-[32px]">medical_information</span>
+                            Medical Records
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Med Card -->
+<div class="bg-white p-lg rounded-[24px] border border-surface-variant hover:border-primary/40 transition-colors cursor-pointer group">
+<div class="flex items-center justify-between mb-md">
+<div class="w-10 h-10 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">pill</span>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</div>
+<h5 class="font-headline-md text-on-surface">Monthly Parasite Prevention</h5>
+<p class="text-secondary text-sm mt-1">Next due: Nov 15, 2023</p>
+<div class="mt-lg pt-md border-t border-outline-variant flex items-center gap-sm">
+<img class="w-6 h-6 rounded-full" data-alt="A small circular portrait of a professional veterinarian in a clean white coat with a friendly expression. The lighting is bright and clear, reflecting a clinical yet compassionate environment. The style is modern and clean-cut." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-q940yg5ZrNE3BBp7EPu2tFuFxZwu9s4ppWh7z0BPBvmKQiZQAy2A5wlSwox086bxVylpf5Bp8UC81FGIazVHtmWLjiDyyrLVl9PDHgXUHP7CphWgyhy7LX0gCbbXpE-m65VbXJX5AGd1QdUyPRoHoniFFtbHRcCKetELDme5P7vdCVlYq5x8HHABSiI81In8Xh6Eae5It1Ru4ZX6J0AoSOXWixK6szPccDQSiUWo-M3adTvSSCKoVymQanD_zSSxjjkDCsvltgU"/>
+<span class="text-label-md text-secondary">Dr. Sarah Jenkins</span>
+</div>
+</div>
+<!-- Med Card -->
+<div class="bg-white p-lg rounded-[24px] border border-surface-variant hover:border-primary/40 transition-colors cursor-pointer group">
+<div class="flex items-center justify-between mb-md">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">biotech</span>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</div>
+<h5 class="font-headline-md text-on-surface">Blood Work Results</h5>
+<p class="text-secondary text-sm mt-1">Comprehensive Panel - Oct 01</p>
+<div class="mt-lg pt-md border-t border-outline-variant flex items-center gap-sm">
+<span class="text-green-600 font-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">check</span>
+                                        All Vitals Normal
+                                    </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Details & Insights -->
+<div class="space-y-2xl">
+<!-- Bio Card -->
+<div class="bg-surface-container-low p-xl rounded-[32px] border border-outline-variant/30">
+<h3 class="font-headline-md mb-md">Personality &amp; Background</h3>
+<p class="text-on-surface-variant font-body-md leading-relaxed mb-lg">
+                            Luna is a gentle soul who was rescued from a quiet neighborhood in East Riverside. She is notably shy at first but blossoms into a purr-machine once she feels safe. She loves high perches and feather toys.
+                        </p>
+<div class="flex flex-wrap gap-sm">
+<span class="px-md py-1 bg-white rounded-full text-secondary text-sm border border-outline-variant">Quiet</span>
+<span class="px-md py-1 bg-white rounded-full text-secondary text-sm border border-outline-variant">Affectionate</span>
+<span class="px-md py-1 bg-white rounded-full text-secondary text-sm border border-outline-variant">Indoor Only</span>
+</div>
+</div>
+<!-- Health Insights (AI-Powered Style) -->
+<div class="bg-white p-xl rounded-[32px] shadow-sm border border-surface-variant relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-tertiary to-primary"></div>
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-primary fill-icon">bolt</span>
+<h3 class="font-label-md uppercase tracking-wider text-primary">AI Health Insights</h3>
+</div>
+<div class="space-y-md">
+<div class="p-md bg-surface rounded-2xl border border-surface-variant">
+<p class="font-label-md text-on-surface">Weight Trend</p>
+<p class="text-sm text-secondary mt-1">Stable growth observed (+2% month-over-month). Luna is at her ideal body condition score (5/9).</p>
+</div>
+<div class="p-md bg-surface rounded-2xl border border-surface-variant">
+<p class="font-label-md text-on-surface">Activity Score</p>
+<p class="text-sm text-secondary mt-1">Moderately active. Recommendation: Increase interactive play by 10 minutes daily to maintain muscle tone.</p>
+</div>
+</div>
+</div>
+<!-- Documentation -->
+<div class="bg-white p-xl rounded-[32px] border border-surface-variant">
+<h3 class="font-headline-md mb-lg">Documentation</h3>
+<div class="space-y-sm">
+<button class="w-full flex items-center justify-between p-md rounded-2xl hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary">description</span>
+<span class="font-label-md">Adoption Contract.pdf</span>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:opacity-100">download</span>
+</button>
+<button class="w-full flex items-center justify-between p-md rounded-2xl hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary">description</span>
+<span class="font-label-md">Vaccination_Records.pdf</span>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:opacity-100">download</span>
+</button>
+<button class="w-full flex items-center justify-between p-md rounded-2xl hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary">photo_library</span>
+<span class="font-label-md">Growth Gallery (12)</span>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:opacity-100">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) - Contextual -->
+<button class="fixed bottom-lg right-lg w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 group">
+<span class="material-symbols-outlined">add</span>
+<span class="absolute right-full mr-4 bg-on-surface text-white px-md py-2 rounded-xl font-label-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">New Medical Entry</span>
+</button>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.hover\\:shadow-lg').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+<script src="js/sidebar.js"></script>
+</body></html>
