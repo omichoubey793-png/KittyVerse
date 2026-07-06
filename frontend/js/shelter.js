@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Update Pagination Counter description
         if (paginationCount) {
-            paginationCount.textContent = `Manage rescued cats and monitor their health (${filtered.length} cats total).`;
+            paginationCount.textContent = `Showing ${filtered.length} of ${allAnimals.length} residents`;
         }
 
         // Render clean Apple/Notion style empty state
@@ -1271,6 +1271,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.openAddCatModal = openAddCatModal;
     window.openEditCatModal = openEditCatModal;
     window.closeAddCatModal = closeAddCatModal;
+    window.openProfileDrawer = openProfileDrawer;
 
     if (cancelAddCatBtn) cancelAddCatBtn.addEventListener("click", closeAddCatModal);
 
