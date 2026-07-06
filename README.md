@@ -14,12 +14,12 @@ KittyVerse is a modern, production-ready cat shelter and adoption platform. It c
 
 Core Features
 
-- Intake & Shelter Management**: Log rescues, customize details, assign caretakers, track breeds, ages, and genders, and manage housing units.
-- Vaccination & Medical Records**: Real-time immunization logs, scheduled boosters, clinic visits, and auto-generated PDFs.
-- Adoption Pipeline**: Dynamic review flow for adoption applications (Pending, Approved, Rejected) with animal-matching criteria.
-- Fanny AI Health Assistant**: Integrated Google Gemini AI chatbot providing recommendations, diet plans, and recovery diagnostics.
-- Interactive Analytics Bento**: Dynamic dashboards calculating donation rates, wellness index metrics, and shelter growth trends.
-- Secure Authentication**: JSON Web Token (JWT) secured sessions with role-based access control (Admin vs. Staff vs. Guest).
+- Intake & Shelter Management: Log rescues, customize details, assign caretakers, track breeds, ages, and genders, and manage housing units.
+- Vaccination & Medical Records: Real-time immunization logs, scheduled boosters, clinic visits, and auto-generated PDFs.
+- Adoption Pipeline: Dynamic review flow for adoption applications (Pending, Approved, Rejected) with animal-matching criteria.
+- Fanny AI Health Assistant: Integrated Google Gemini AI chatbot providing recommendations, diet plans, and recovery diagnostics.
+- Interactive Analytics Bento: Dynamic dashboards calculating donation rates, wellness index metrics, and shelter growth trends.
+- Secure Authentication: JSON Web Token (JWT) secured sessions with role-based access control (Admin vs. Staff vs. Guest).
 
 ---
 
