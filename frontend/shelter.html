@@ -186,23 +186,23 @@
 <div class="flex gap-md mb-2xl overflow-x-auto pb-sm no-scrollbar" id="filterBtnContainer">
 <button data-filter="all" class="filter-btn px-lg py-sm rounded-full bg-primary text-white font-label-md text-label-md flex items-center gap-xs">
                     All
-                    <span class="bg-white/20 px-xs rounded text-[10px]" id="cntAll">124</span>
+                    <span class="bg-white/20 px-xs rounded text-[10px]" id="cntAll">...</span>
 </button>
 <button data-filter="Healthy" class="filter-btn px-lg py-sm rounded-full bg-white border border-outline-variant text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center gap-xs">
                     Healthy
-                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntHealthy">82</span>
+                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntHealthy">...</span>
 </button>
 <button data-filter="Under Treatment" class="filter-btn px-lg py-sm rounded-full bg-white border border-outline-variant text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center gap-xs">
                     Treatment
-                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntTreatment">14</span>
+                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntTreatment">...</span>
 </button>
 <button data-filter="Vaccinated" class="filter-btn px-lg py-sm rounded-full bg-white border border-outline-variant text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center gap-xs">
                     Vaccinated
-                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntReady">28</span>
+                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntReady">...</span>
 </button>
 <button data-filter="Adopted" class="filter-btn px-lg py-sm rounded-full bg-white border border-outline-variant text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center gap-xs">
                     Adopted
-                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntAdopted">45</span>
+                    <span class="bg-secondary/10 px-xs rounded text-[10px]" id="cntAdopted">...</span>
 </button>
 <div class="ml-auto flex items-center gap-sm">
 <button id="gridToggleBtn" class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-secondary hover:bg-white transition-all bg-[#FFF4EB]">
@@ -215,172 +215,54 @@
 </div>
 <!-- Bento Grid of Cats -->
 <div id="shelterCatsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-xl">
-<!-- Card 1 -->
-<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
-<div class="relative h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A majestic Ragdoll cat with bright blue eyes and fluffy cream and gray fur sitting gracefully on a minimalist wooden ledge. The background is a soft, blurred white interior with warm sunlight streaming in. High-end pet photography style, sharp focus on the feline's eyes, professional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACBjNLS-8gn9BfH5YhrIy-h9sAjcZgHZ44XHFVZxM7nW4YH-ulWd3GF3hyHoiBnk7yhY2Mv_LXYsMkS8ju4L9pSPWb82FxTNj-bMdhpsiPESwFGHH-4Y_pTAWbymQuBDfrq_VyfParGDOUNfiD9llNLg7Izr_emeQqKin16piVxwXda7wk26syzocBwaeKzYIiahRFvGWJr6dHH7a7dlr2UvQ0_OkPOxge0THFgUnE0tUG5Bq2A2Q-Hr-PDCRsIO8UEE6yRrv9ggQ"/>
-<div class="absolute top-md right-md">
-<span class="bg-tertiary-container/90 backdrop-blur-md text-on-tertiary-container px-md py-xs rounded-full font-label-sm text-label-sm">Healthy</span>
-</div>
-</div>
-<div class="p-lg">
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-headline-md text-headline-md text-on-surface">Nimbus</h3>
-<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer" data-icon="favorite">favorite</span>
-</div>
-<p class="font-body-md text-body-md text-secondary mb-md">Ragdoll • 2 yrs • Male</p>
-<div class="flex items-center gap-xs mb-lg">
-<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="verified">verified</span>
-<span class="text-label-sm font-label-sm text-tertiary">Fully Vaccinated</span>
-</div>
-<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
-<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View</button>
-<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
-<div class="relative h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A sleek black Bombay cat with piercing golden eyes looking directly into the camera. The cat is posed elegantly on a high-end designer sofa with neutral tones. Soft, ambient studio lighting emphasizes the glossy texture of the black fur. Minimalist, premium aesthetic, shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjCULSocbg2RVb34EIn3PdJAAaZtlTgXZMwm0HbR7j8ngrdFiBaK1N-xbPkFldfOdFBB5W_j0wDQ7AQbgTarysNN_TCXAgA0J1g-s79e9gebw0YZQkmVJuAFkvWx8S7F_bAfKJPOY0KvA11bwtU6-FVlMJ0SDVAszbLqg-Ugcq5RDm6lV00ftWXhSvbqpaZHLCeOVZ_NtDtWhRK8bnScf9Hzofwi1QYd3ehqa5Cqfxw6_xam8r5_VlkYl0DyAmZIb670ouRCBjoi4"/>
-<div class="absolute top-md right-md">
-<span class="bg-error-container/90 backdrop-blur-md text-on-error-container px-md py-xs rounded-full font-label-sm text-label-sm">Treatment</span>
-</div>
-</div>
-<div class="p-lg">
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-headline-md text-headline-md text-on-surface">Onyx</h3>
-<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer" data-icon="favorite">favorite</span>
-</div>
-<p class="font-body-md text-body-md text-secondary mb-md">Bombay • 4 yrs • Female</p>
-<div class="flex items-center gap-xs mb-lg">
-<span class="material-symbols-outlined text-[16px] text-error" data-icon="medical_services">medical_services</span>
-<span class="text-label-sm font-label-sm text-error">Dental Care Plan</span>
-</div>
-<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
-<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View</button>
-<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
-<div class="relative h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An adorable ginger tabby kitten with big green eyes playing with a white yarn ball on a soft cream rug. The scene is bright and airy with high-key lighting, creating a cheerful and warm atmosphere. Minimalist setting with premium textures. Photography is clean and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCopYQXDw3pvywxEZFiScnR_GWxYrS7Uk3YHuxtFN8hP9bvmVFIQgHRl6FhpB0I6Czk5Zcg1fsh5MufXdYL-eeJyfPOGi4Nt2ifonvxmYv3ruf4w95wSDsTsJsFHY5jbVMEr6TVE3D9xAhms5yikskj2CXAHwDJUKkmwtxdU8gEHnaBh46ISRfqotqcqGRYy95Rr7jyXNFf8H_QbuRweqrGuIRiR6xdn-hZ2ab-7b3n5ECMygRJGukFpktlENrTtz9PQEjwiiNjw8"/>
-<div class="absolute top-md right-md">
-<span class="bg-primary-container/90 backdrop-blur-md text-on-primary-container px-md py-xs rounded-full font-label-sm text-label-sm">New Intake</span>
-</div>
-</div>
-<div class="p-lg">
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-headline-md text-headline-md text-on-surface">Marmalade</h3>
-<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer" data-icon="favorite">favorite</span>
-</div>
-<p class="font-body-md text-body-md text-secondary mb-md">Tabby • 3 mos • Male</p>
-<div class="flex items-center gap-xs mb-lg">
-<span class="material-symbols-outlined text-[16px] text-outline" data-icon="history">history</span>
-<span class="text-label-sm font-label-sm text-secondary">Pending Screening</span>
-</div>
-<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
-<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View</button>
-<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Card 4 -->
-<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
-<div class="relative h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A beautiful silver shaded British Shorthair cat with round amber eyes resting on a minimalist concrete-colored platform. The background is a clean, neutral gray wall. Lighting is soft and even, highlighting the dense texture of the silver fur. Modern, architectural, and high-end aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFUtSRCoJYAzqUzAUj4o-1PeqCfDvghqh6DdV1-C2QDb3Brh8dROfL57raARRoNvSHI-dXBqkeXXgDe2EoZny_oz3dfrGQ701Acy8OWR8Ludc09C0dey9r45cyvTIIdo9JliVrJF3wISzyi9tV7QyXunrdoR2ftQvyzcSJmgbO-OVjs6_mj8zFj4YRq7EnvB4iAUe0rN9IHlpIQJhWWwo2ZOv6dWCjpSDXHr2bQ2Gt2GI-qkcgGt3HIxMaW6f3ZJ7dNiYAXvTwsq8"/>
-<div class="absolute top-md right-md">
-<span class="bg-secondary-container/90 backdrop-blur-md text-on-secondary-container px-md py-xs rounded-full font-label-sm text-label-sm">Adopted</span>
-</div>
-</div>
-<div class="p-lg">
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-headline-md text-headline-md text-on-surface">Sterling</h3>
-<span class="material-symbols-outlined text-primary" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
-</div>
-<p class="font-body-md text-body-md text-secondary mb-md">British Shorthair • 5 yrs • Male</p>
-<div class="flex items-center gap-xs mb-lg">
-<span class="material-symbols-outlined text-[16px] text-primary" data-icon="home">home</span>
-<span class="text-label-sm font-label-sm text-primary">Success Story</span>
-</div>
-<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
-<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View Profile</button>
-<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Card 5 (Repeated pattern for grid fullness) -->
-<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
-<div class="relative h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A striking Bengal cat with vivid leopard-like spots exploring a minimalist sunlit room with pale wood floors. The cat is captured in mid-step, showing grace and muscle tone. The environment is uncluttered and premium, emphasizing the cat's natural beauty and active nature. High-contrast, vibrant pet photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7uOrRSCVWBPf6naXIbnjyb4pJCoPf-EDBk-nPNjjJU2Q7Gf5IDW7K4dKnPK-IhVYT1PaPiCgjqtCbCgqT09jinik0JbeyXEo0imjfs5TIzZLEFyZ0ktV6cu0l5wKS4nqvqI4zEg6XW4PazpcP5_QFgwPuIxlyeCkI7BJZN5yhJdooQsC6d_Wbv-y-G_tXQTKCWm7OprX8_b9CCK-qvdGLcIdkSu-qE38GfBaPlAgfc4xtawpOTekCU5Az8yViNQw7VndlOziIbH8"/>
-<div class="absolute top-md right-md">
-<span class="bg-tertiary-container/90 backdrop-blur-md text-on-tertiary-container px-md py-xs rounded-full font-label-sm text-label-sm">Healthy</span>
-</div>
-</div>
-<div class="p-lg">
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-headline-md text-headline-md text-on-surface">Leo</h3>
-<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer" data-icon="favorite">favorite</span>
-</div>
-<p class="font-body-md text-body-md text-secondary mb-md">Bengal • 1 yr • Male</p>
-<div class="flex items-center gap-xs mb-lg">
-<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="verified">verified</span>
-<span class="text-label-sm font-label-sm text-tertiary">Highly Active</span>
-</div>
-<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
-<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View</button>
-<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Card 6 -->
-<div class="group bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] transition-all duration-300 cat-card-hover">
-<div class="relative h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A fluffy Calico cat curled up on a designer knit blanket in a modern light-filled living room. The cat looks cozy and content. The color palette of the image includes soft oranges, blacks, and creams, mirroring the cat's fur. The background is a clean, minimalist home setting. Soft-focus, warm, premium lifestyle photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwOXOMEzzvaz-ElkYxP0-IJMgutW6W1s7WLPo9UsvxEl9c482DMrs_HPVcZ8wAOAZpxCT2Zgt0e-dOXsF3R4nprVhxCNglYfpk2KxUDPp-6ebHL3P3_3A3hD5JkEmf4ma_yAK1Kc-oh1-oyfsQ8YRSk4D89bhvpEGWh7jNpsyA_fpMuUiCBxCXs2JJG_X5AxLoKtdnHGyGDPSkYUbxXgA1ETy51_M0G-ZVbjiAct1Pad67AKzKsbhsmy3aW0uahP6UYaFDGDDdyW4"/>
-<div class="absolute top-md right-md">
-<span class="bg-tertiary-container/90 backdrop-blur-md text-on-tertiary-container px-md py-xs rounded-full font-label-sm text-label-sm">Healthy</span>
-</div>
-</div>
-<div class="p-lg">
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-headline-md text-headline-md text-on-surface">Patches</h3>
-<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer" data-icon="favorite">favorite</span>
-</div>
-<p class="font-body-md text-body-md text-secondary mb-md">Calico • 6 yrs • Female</p>
-<div class="flex items-center gap-xs mb-lg">
-<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span>
-<span class="text-label-sm font-label-sm text-tertiary">Senior Care Plan</span>
-</div>
-<div class="flex gap-sm border-t border-[#F5F5F5] pt-lg">
-<button class="flex-1 py-sm bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-xl hover:bg-surface-container-high transition-colors">View</button>
-<button class="w-10 h-10 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-xl hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Empty State/Add New Placeholder -->
-<div class="group border-2 border-dashed border-outline-variant rounded-[32px] overflow-hidden flex flex-col items-center justify-center p-xl gap-md cursor-pointer hover:bg-white hover:border-primary transition-all duration-300">
-<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[32px]" data-icon="add_circle">add_circle</span>
-</div>
-<div class="text-center">
-<span class="font-headline-md text-headline-md block text-on-surface">New Rescue</span>
-<span class="font-body-md text-body-md text-secondary">Start intake process</span>
-</div>
-</div>
+    <!-- Skeleton Card 1 -->
+    <div class="animate-pulse bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] h-96 flex flex-col justify-between">
+        <div class="bg-orange-50/10 h-64 w-full"></div>
+        <div class="p-lg flex-1 flex flex-col justify-between gap-md">
+            <div class="space-y-2">
+                <div class="h-6 bg-stone-100 rounded w-1/2"></div>
+                <div class="h-4 bg-stone-100 rounded w-3/4"></div>
+                <div class="h-4 bg-stone-100 rounded w-1/4"></div>
+            </div>
+            <div class="h-10 bg-stone-100 rounded-xl w-full"></div>
+        </div>
+    </div>
+    <!-- Skeleton Card 2 -->
+    <div class="animate-pulse bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] h-96 flex flex-col justify-between hidden sm:flex">
+        <div class="bg-orange-50/10 h-64 w-full"></div>
+        <div class="p-lg flex-1 flex flex-col justify-between gap-md">
+            <div class="space-y-2">
+                <div class="h-6 bg-stone-100 rounded w-1/3"></div>
+                <div class="h-4 bg-stone-100 rounded w-2/3"></div>
+                <div class="h-4 bg-stone-100 rounded w-1/3"></div>
+            </div>
+            <div class="h-10 bg-stone-100 rounded-xl w-full"></div>
+        </div>
+    </div>
+    <!-- Skeleton Card 3 -->
+    <div class="animate-pulse bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] h-96 flex flex-col justify-between hidden lg:flex">
+        <div class="bg-orange-50/10 h-64 w-full"></div>
+        <div class="p-lg flex-1 flex flex-col justify-between gap-md">
+            <div class="space-y-2">
+                <div class="h-6 bg-stone-100 rounded w-1/2"></div>
+                <div class="h-4 bg-stone-100 rounded w-3/4"></div>
+                <div class="h-4 bg-stone-100 rounded w-1/4"></div>
+            </div>
+            <div class="h-10 bg-stone-100 rounded-xl w-full"></div>
+        </div>
+    </div>
+    <!-- Skeleton Card 4 -->
+    <div class="animate-pulse bg-white rounded-[32px] overflow-hidden border border-[#F5F5F5] h-96 flex flex-col justify-between hidden xl:flex">
+        <div class="bg-orange-50/10 h-64 w-full"></div>
+        <div class="p-lg flex-1 flex flex-col justify-between gap-md">
+            <div class="space-y-2">
+                <div class="h-6 bg-stone-100 rounded w-2/3"></div>
+                <div class="h-4 bg-stone-100 rounded w-1/2"></div>
+                <div class="h-4 bg-stone-100 rounded w-1/3"></div>
+            </div>
+            <div class="h-10 bg-stone-100 rounded-xl w-full"></div>
+        </div>
+    </div>
 </div>
 
 </div>
