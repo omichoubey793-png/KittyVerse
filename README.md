@@ -134,6 +134,12 @@ The project includes a root-level [vercel.json](file:///D:/nw/KittyVerseAI/Kitty
 
 ---
 
+## 📄 Documentation
+
+- Project Report: [docs/KittyVerse_Report.pdf](docs/KittyVerse_Report.pdf)
+
+---
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
