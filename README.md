@@ -1,6 +1,10 @@
-# 🐾 KittyVerse
+🌐 Live Demo: https://kitty-verse-lnid.vercel.app/
 
-> **"Because Every Paw Deserves a Forever Home."** 🐾💜
+🎥 Demo Video: https://drive.google.com/file/d/1zOrxuVE70Ex7WomO56l0QsWI4bZ2frLx/view?usp=sharing
+
+🐾 KittyVerse
+
+> "Where Every Paw Finds a Home " 🐾
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D%2018.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -12,35 +16,35 @@ KittyVerse is a modern, production-ready cat shelter and adoption platform. It c
 
 ---
 
-## 🌟 Core Features
+Core Features
 
-- **🐾 Intake & Shelter Management**: Log rescues, customize details, assign caretakers, track breeds, ages, and genders, and manage housing units.
-- **💉 Vaccination & Medical Records**: Real-time immunization logs, scheduled boosters, clinic visits, and auto-generated PDFs.
-- **🏠 Adoption Pipeline**: Dynamic review flow for adoption applications (Pending, Approved, Rejected) with animal-matching criteria.
-- **🧠 Fanny AI Health Assistant**: Integrated Google Gemini AI chatbot providing recommendations, diet plans, and recovery diagnostics.
-- **📊 Interactive Analytics Bento**: Dynamic dashboards calculating donation rates, wellness index metrics, and shelter growth trends.
-- **🔒 Secure Authentication**: JSON Web Token (JWT) secured sessions with role-based access control (Admin vs. Staff vs. Guest).
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **Markup**: Semantic HTML5
-- **Logic**: Vanilla JavaScript (ES6 Modules)
-- **Styling**: Tailwind CSS & Vanilla CSS (Custom tokens)
-- **Icons**: Lucide Icons & Google Material Symbols
-
-### Backend
-- **Framework**: Node.js & Express
-- **Database**: MongoDB (Object modeling via Mongoose)
-- **File Management**: Cloudinary API (Image uploads)
-- **AI Engine**: Google Gemini API
-- **Document Generation**: PDFKit (Medical reporting)
+- Intake & Shelter Management: Log rescues, customize details, assign caretakers, track breeds, ages, and genders, and manage housing units.
+- Vaccination & Medical Records: Real-time immunization logs, scheduled boosters, clinic visits, and auto-generated PDFs.
+- Adoption Pipeline: Dynamic review flow for adoption applications (Pending, Approved, Rejected) with animal-matching criteria.
+- Fanny AI Health Assistant: Integrated Google Gemini AI chatbot providing recommendations, diet plans, and recovery diagnostics.
+- Interactive Analytics Bento: Dynamic dashboards calculating donation rates, wellness index metrics, and shelter growth trends.
+- Secure Authentication: JSON Web Token (JWT) secured sessions with role-based access control (Admin vs. Staff vs. Guest).
 
 ---
 
-## 📁 Repository Structure
+🛠️ Tech Stack
+
+Frontend
+- Markup: Semantic HTML5
+- Logic: Vanilla JavaScript (ES6 Modules)
+- Styling: Tailwind CSS & Vanilla CSS (Custom tokens)
+- Icons: Lucide Icons & Google Material Symbols
+
+Backend
+- Framework: Node.js & Express
+- Database: MongoDB (Object modeling via Mongoose)
+- File Management: Cloudinary API (Image uploads)
+- AI Engine: Google Gemini API
+- Document Generation: PDFKit (Medical reporting)
+
+---
+
+ 📁 Repository Structure
 
 ```text
 KittyVerse/
@@ -69,13 +73,13 @@ KittyVerse/
 
 ---
 
-## 🚀 Local Installation & Setup
+Local Installation & Setup
 
-### Prerequisites
+Prerequisites
 - [Node.js](https://nodejs.org/) (v18.0.0 or higher)
 - [MongoDB Atlas](https://www.mongodb.com/) account or local MongoDB server
 
-### 1. Setup the Backend
+1. Setup the Backend
 1. Navigate to the backend directory:
    ```bash
    cd backend
@@ -99,7 +103,7 @@ KittyVerse/
    npm start
    ```
 
-### 2. Setup the Frontend
+2. Setup the Frontend
 1. Navigate to the frontend directory:
    ```bash
    cd ../frontend
@@ -116,21 +120,21 @@ KittyVerse/
 
 ---
 
-## ☁️ Deployment
+☁️ Deployment
 
-### Frontend (Vercel)
+Frontend (Vercel)
 The project includes a root-level [vercel.json](file:///D:/nw/KittyVerseAI/KittyVerseAI/vercel.json) rewrite file. You can deploy it by simply linking your GitHub repository to Vercel:
-1. Choose **Import Project** on Vercel.
+1. Choose Import Project on Vercel.
 2. Select the repository root.
 3. Vercel will automatically read the root-level routing and serve the `frontend/` directory.
 
-### Backend (Render)
-1. Select **New Web Service** on Render and connect your repository.
+Backend (Render)
+1. Select New Web Service on Render and connect your repository.
 2. Configure settings:
-   - **Root Directory**: `backend`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-3. Add the environment variables (`MONGO_URI`, `JWT_SECRET`, `GEMINI_API_KEY`, etc.) in the **Environment** tab.
+   - Root Directory: `backend`
+   - Build Command: `npm install`
+   - Start Command: `npm start`
+3. Add the environment variables (`MONGO_URI`, `JWT_SECRET`, `GEMINI_API_KEY`, etc.) in the Environment tab.
 
 ---
 
@@ -146,4 +150,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-🐾 *Developed with care for the feline community.*
+🐾"Because Every Paw Deserves a Forever Home."
+
+## Contributor
+~ TeamFannyPaws
+Omi Choubey,
+Utkrish Panchal
+
+
