@@ -1,3 +1,6 @@
+🌐 Live Demo: https://kitty-verse-lnid.vercel.app/
+🎥 Demo Video: 
+
 🐾 KittyVerse
 
 > "Where Every Paw Finds a Home " 🐾
@@ -143,5 +146,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 🐾"Because Every Paw Deserves a Forever Home."
 
 ## Contributor
-Added by <Utkrish Panchal>.
+~ TeamFannyPaws
+Omi Choubey
+Utkrish Panchal
+
 
